@@ -27,11 +27,11 @@ b.	If it is deemed safe, then it will be merged into the master.
 
 To do each of these steps, follow the guidelines below:
 #### For step 1.
-	To create a new branch, go to the home page of the repository and create a new branch under “Branches.” Name this branch accordingly so the rest of the team knows who is working on the branch and what it is for.
+To create a new branch, go to the home page of the repository and create a new branch under “Branches.” Name this branch accordingly so the rest of the team knows who is working on the branch and what it is for.
 #### For step 2.
-	After you have made your changes to the project, and you want to push it to your branch, GitHub desktop will have already kept track of your changes for the current repository. Switch to the branch that you are working on. Not the master branch. Add a summary and description of your changes, then create your commit to the branch. Then, push to the origin.
+After you have made your changes to the project, and you want to push it to your branch, GitHub desktop will have already kept track of your changes for the current repository. Switch to the branch that you are working on. Not the master branch. Add a summary and description of your changes, then create your commit to the branch. Then, push to the origin.
 #### For step 4.
-	This is only to be completed once you have tested your feature adequately and are confident that it is ready to be pushed to the master. Make the pull request to merge your branch with the master branch. This can be completed at GitHub. Navigate to your branch at the GitHub repo online. Then, create a new pull request. After this stage, then request someone else in the group to look at what you have made, and to verify that it works. Once this has been completed, and the feature is deemed safe, then the pull request will be closed.
+This is only to be completed once you have tested your feature adequately and are confident that it is ready to be pushed to the master. Make the pull request to merge your branch with the master branch. This can be completed at GitHub. Navigate to your branch at the GitHub repo online. Then, create a new pull request. After this stage, then request someone else in the group to look at what you have made, and to verify that it works. Once this has been completed, and the feature is deemed safe, then the pull request will be closed.
 
 ### Disaster Recovery:
 As with any project, it is likely that some sort of mistake will be made that makes the current version of the project unsafe and broken. The best thing to do in this case is to revert to a previous commit. This is simple to do. Under your branch on the GitHub site online, click on the commits. Then from here, we can revert to any instance before a commit was pushed to this branch.
