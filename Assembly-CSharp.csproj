@@ -95,6 +95,12 @@
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/fork/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/fork/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
