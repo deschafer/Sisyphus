@@ -63,6 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Damon\empty.cs" />
+    <Compile Include="Assets\Scripts\World\BiomeBase.cs" />
+    <Compile Include="Assets\Scripts\World\Chunk.cs" />
+    <Compile Include="Assets\Scripts\World\ChunkManager.cs" />
+    <Compile Include="Assets\Scripts\World\Tile.cs" />
+    <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -83,6 +88,12 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
