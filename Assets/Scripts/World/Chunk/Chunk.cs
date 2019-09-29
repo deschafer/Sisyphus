@@ -9,8 +9,11 @@ public class Chunk {
 
     private BiomeBase biome;
 
-    public Chunk(int[,] grid) {
+	//REMOVE THIS
+	public int[,] tempGrid;
 
+    public Chunk(int[,] grid) {
+		tempGrid = grid;
     }
 
 }
