@@ -65,10 +65,8 @@
     <Compile Include="Assets\Scripts\Damon\empty.cs" />
     <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\ChunkFactory.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\GameTile.cs" />
-    <Compile Include="Assets\Scripts\World\GridManager.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/fork/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
