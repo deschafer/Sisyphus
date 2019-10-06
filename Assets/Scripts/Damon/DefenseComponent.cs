@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefenseComponent : EnemyComponent
 {
-	public DefenseComponent(GameEntity entity) :
+	public DefenseComponent(Enemy entity) :
 		 base(entity)
 	{
 	}
@@ -14,7 +14,8 @@ public class DefenseComponent : EnemyComponent
 	{
 	}
 
-	public override void Act()
+	public override bool Act()
 	{
+		return false;
 	}
 }
