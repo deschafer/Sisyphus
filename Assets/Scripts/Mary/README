@@ -1,0 +1,9 @@
+README Mary Scripts Folder
+
+Right now in the scripts folder I have 4 scripts—a superclass for powerup, a temporary and permanent subclass of powerup, and a player manager proxy.
+
+The temporary and permanent scripts are those that should be applied to a powerup sprite (I made a gold apple sprite in the sprites folder for testing).
+Right now, the permanent script boosts the player's (in the proxy script) health by 10 when clicked. The temporary boosts, by 10, runs a timer, then decreases by 10. The timer is currently
+not working very well, it's instantaeous.
+
+The superclass doesn't add much yet, but will be reorgainzed later. Eventually powerups will be triggered by collisions, not clicks. 
