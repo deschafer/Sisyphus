@@ -2,11 +2,10 @@
 
 public class Chunk {
 
-	public const int CHUNK_WIDTH = 32;
+	public const int CHUNK_WIDTH = 128;
 	public const int CHUNK_HEIGHT = 32;
 
     private BiomeBase biome;
-	private int positionX;
 
 	//REMOVE THIS
 	public int[,] tempGrid;
@@ -14,9 +13,5 @@ public class Chunk {
     public Chunk(int[,] grid) {
 		tempGrid = grid;
     }
-
-	public int getX() {
-		return positionX;
-	}
 
 }
