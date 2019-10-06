@@ -3,21 +3,16 @@
 public class WorldManager : MonoBehaviour {
 
     private int seed;
+    //private EntityManager entityManager;
     private ChunkManager chunkManager;
     private int time;
 
-	//change this to constructor, add new unity object with chunkmanager?
 	void Start() {
 		//Temporary
 		seed = Random.Range(int.MinValue, int.MaxValue);
 		chunkManager = new ChunkManager(seed);
 		time = 0;
-		RenderChunk(chunkManager.GenerateChunk(0, 5f, 1f));
-	}
-
-	void Update() {
-		//Should be player position, for now it's a constant
-		chunkManager.Update(0);
+		RenderChunk(chunkManager.GenerateChunk(0, 5f));
 	}
 
 	public void RenderChunk(Chunk c) {
