@@ -23,6 +23,8 @@ public class AIComponent : EnemyComponent
 		parentEntity.WaypointSet = true;
 		parentEntity.State = Enemy.EnemyState.PATROL;
 
+		// This comp. will determine the waypoint for movement
+
 		return false;
 	}
 }

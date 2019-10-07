@@ -24,6 +24,7 @@ public class MovementComponent : EnemyComponent
 			parentEntity.State == Enemy.EnemyState.DEAD)
 		{
 			Debug.Log("Enemy not in valid move state");
+			// We have to return, the AIComp will change the states
 			return false;
 		}
 		// If a waypoint is not set, then we do not move.
