@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class GameEntity : MonoBehaviour
 {
-	protected Rigidbody2D rigidbody2D;
+	new public Rigidbody2D rigidbody2D;
 	protected Animator animator;
-	protected Vector2 mapPosition;
+	private Vector2 spawnPosition;
 
 	// Start is called before the first frame update
-	void Start()
+	public void Start()
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 	}
+
+	public void Update()
+	{
+		// need to keep this entity facing upwards
+		transform.rotation = Quaternion.LookRotation(new Vector3(0,0,0), Vector3.up);
+	}
+
+
+	public Vector2 SpawnPosition { get => spawnPosition; set => spawnPosition = value; }
 }
