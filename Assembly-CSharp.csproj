@@ -64,13 +64,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Damon\AIComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackComponent.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\DefenseComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementComponent.cs" />
-    <Compile Include="Assets\Scripts\Damon\WalkingBehavior.cs" />
     <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />

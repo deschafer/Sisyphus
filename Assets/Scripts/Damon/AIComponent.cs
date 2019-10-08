@@ -16,15 +16,6 @@ public class AIComponent : EnemyComponent
 
 	public override bool Act()
 	{
-
-		// For right now, so we can test movement, just set the state as moving,
-		// and set the waypoint as set
-
-		parentEntity.WaypointSet = true;
-		parentEntity.State = Enemy.EnemyState.PATROL;
-
-		// This comp. will determine the waypoint for movement
-
-		return false;
+		return true;
 	}
 }
