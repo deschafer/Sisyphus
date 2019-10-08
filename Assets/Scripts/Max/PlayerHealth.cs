@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         playerControl = GetComponent<PlayerControl>();
         animate = GetComponent<Animator>();
     }
-
+    //function to tell if player is colliding with enemy
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy" //if colliding with enemy
@@ -48,5 +48,9 @@ public class PlayerHealth : MonoBehaviour
                  
             }
         }
+    }
+    public float GetStat() 
+    {
+        return health;
     }
 }

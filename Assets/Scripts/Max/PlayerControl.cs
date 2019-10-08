@@ -16,27 +16,39 @@ public class PlayerControl : MonoBehaviour
     public float attackStrength = 1f;   //amount of damage player can do with attacks
 
     private Transform groundCheck;  //is grounded? as a transform
-    private bool grounded = false;  //is grounded? internal state
+    public bool grounded = false;  //is grounded? internal state
     private Animator anim;  //will be useful for animations
-
+    Rigidbody2D rb;
 
     void Awake()
     {
         //Setup
         groundCheck = transform.Find("groundCheck");
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
-
-
+    /*
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("ground") && Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
+    }
+    */
     void Update()
     {
         //Is grounded if a linecast hits anything on the ground layer.
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        //grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("ground"));
+        grounded = Physics2D.Linecast(transform.position, new Vector2(transform.position.x, transform.position.y - 5), 1 << LayerMask.NameToLayer("Ground"));
+
 
         //If jump button is pressed and the player is grounded then jump.
-        if (Input.GetButtonDown("Jump") && grounded){
+        
+         if (Input.GetButtonDown("Jump") && grounded){
             jump = true;
         }
+        
     }
 
 
@@ -68,7 +80,7 @@ public class PlayerControl : MonoBehaviour
             Flip();
         }
 
-        // jumping DOESN'T WORK OH GOD
+        // jumping
         if (jump)
 {
             //animation
@@ -89,6 +101,11 @@ public class PlayerControl : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public float GetXPosition()
+    {
+        return transform.position.x;
     }
 }
 
