@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Damon\AIComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackComponent.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\DefenseComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyComponent.cs" />

@@ -6,27 +6,23 @@ public class Enemy : GameEntity
 {
 	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD };
 
-	private string name;								// name/id of this enemy
-	private int health;									// base health of this enemy
-	private EnemyComponent defenseComponent;			// this comp adds defense and damage
-	private EnemyComponent attackComponent;				// this comp adds attack behavior
-	private EnemyComponent movementComponent;			// this comp determines the movement
-	private AIComponent intelComponent;					// AI comp - determines the state
-	private EnemyState currentState = EnemyState.IDLE;	// Current state of this enemy
-
+	new private string name;								// name/id of this enemy
+	private int health;                                 // base health of this enemy
+	public List<EnemyComponent> enemyComponents;		// All the components (other than AI) associated with this object
+	public AIComponent intelComponent;					// AI comp - determines the state
+	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
+	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
+	private bool waypointSet = false;
 	private GameEntity targetedEntity = null;			// Entity that has been targeted for combat
+
 
 	public Enemy(
 		string name, 
-		EnemyComponent defense,
-		EnemyComponent attack,
-		EnemyComponent movement,
+		List<EnemyComponent> components,
 		AIComponent intel)
 	{
 		this.name = name;
-		defenseComponent = defense;
-		attackComponent = attack;
-		movementComponent = movement;
+		enemyComponents = components;
 		intelComponent = intel;
 	}
 
@@ -34,26 +30,34 @@ public class Enemy : GameEntity
 	// Start()
 	// Start is called before the first frame update
 	//
-	void Start()
+	new public void Start()
 	{
+		base.Start();
 	}
 
 	//
 	// Update()
 	// Update is called once per frame
 	//
-	void Update()
+	new public void Update()
 	{
+		base.Update();
 		// All of our components define the behavior for this specefic enemy
 		// so, we just call the components, and they do what is needed
 
 		// The specefic order is such that the AIcomponent can made a decision
 		// on what to do, then each of the additional components can act based on that position.
 
+		// The AI comp. has to act first and make a decision
 		intelComponent.Act();
-		defenseComponent.Act();
-		movementComponent.Act();
-		attackComponent.Act();
+
+		// Then all of our components react accordingly
+		animator.SetInteger("AnimState", 0);
+
+		foreach (EnemyComponent component in enemyComponents)
+		{
+			component.Act();
+		}
 	}
 
 	//
@@ -87,4 +91,8 @@ public class Enemy : GameEntity
 			currentState = value;
 		}
 	}
+
+	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
+	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
+	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
 }

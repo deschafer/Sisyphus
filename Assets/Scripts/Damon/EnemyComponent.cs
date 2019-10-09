@@ -4,9 +4,9 @@ using UnityEngine;
 
 abstract public class EnemyComponent : MonoBehaviour
 {
-	protected GameEntity parentEntity = null;
+	public Enemy parentEntity = null;
 
-	public EnemyComponent(GameEntity gameEntity)
+	public EnemyComponent(Enemy gameEntity)
 	{
 		parentEntity = gameEntity;
 	}
@@ -20,6 +20,6 @@ abstract public class EnemyComponent : MonoBehaviour
 	// This is where this component creates/adds its behavior to its 
 	// parent GameEntity
 	//
-	abstract public void Act();
+	abstract public bool Act();
 
 }
