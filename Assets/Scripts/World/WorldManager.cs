@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WorldManager {
+public class WorldManager : MonoBehaviour {
 
     private int seed;
     //private EntityManager entityManager;
