@@ -64,8 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Damon\AIComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackComponent.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\DefenseComponent.cs" />
-    <Compile Include="Assets\Scripts\Damon\empty.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyComponent.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
@@ -82,9 +83,7 @@
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\ChunkFactory.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\GameTile.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -106,12 +105,6 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIComponent : EnemyComponent
 {
-	public AIComponent(GameEntity entity) :
+	public AIComponent(Enemy entity) :
 		base(entity)
 	{
 	}
@@ -14,7 +14,8 @@ public class AIComponent : EnemyComponent
 	{
 	}
 
-	public override void Act()
+	public override bool Act()
 	{
+		return true;
 	}
 }
