@@ -78,6 +78,9 @@
     <Compile Include="Assets\Scripts\Mary\PlayerStatProxy.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\TemporaryPowerUp.cs" />
+    <Compile Include="Assets\Scripts\Max\Boulder.cs" />
+    <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
