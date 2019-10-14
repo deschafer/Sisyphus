@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WorldManager {
 
@@ -8,12 +6,12 @@ public class WorldManager {
     //private EntityManager entityManager;
     private ChunkManager chunkManager;
     private int time;
-    public WorldManager() {
-        //If we're loading from a save this will change.
-        seed = (new System.Random()).Next();
-        chunkManager = new ChunkManager(seed);
-        time = 0;
-        //init seed
-    }
+
+	public WorldManager() {
+		//Temporary
+		seed = Random.Range(int.MinValue, int.MaxValue);
+		//chunkManager = new ChunkManager(seed);
+		time = 0;
+	}
 
 }
