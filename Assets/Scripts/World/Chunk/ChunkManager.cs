@@ -1,17 +1,33 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ChunkManager {
-
-    private Queue loadedChunks;
-	private int seed;
-
-    public ChunkManager(int seed) {
-		this.seed = seed;
-        loadedChunks = new Queue();
-		//loadedChunks.Add(new Chunk());
-	}
+public class ChunkManager : MonoBehaviour {
 	
+	//is this the best way to do this?
+    private Queue<Chunk> loadedChunks;
+	private int seed;
+	private int position;
+
+	void Start() {
+		seed = Random.Range(int.MinValue, int.MaxValue);
+		position = 0;
+		loadedChunks = new Queue<Chunk>();
+		loadedChunks.Enqueue(GenerateChunk(0, 5f));
+		loadedChunks.Enqueue(GenerateChunk(1, 5f));
+		loadedChunks.Enqueue(GenerateChunk(2, 5f));
+	}
+
+	void Update() {
+		//change this to render chunks (not every update, only if player pos requires update
+		if (loadedChunks.Count != 0)
+			RenderChunk(loadedChunks.Dequeue(), position++);
+
+		/*
+		if(playerPosition > some point)
+			loadedChunks.Enqueue(GenerateChunk());
+		*/
+	}
+
 	/*
 		GenerateChunk()
 		Parameters: Initial chance for a cell to be occupied, number of times to smooth, number of neighbors required for a birth or death.
@@ -33,13 +49,26 @@ public class ChunkManager {
 	*/
 	private void InitializeCells(int[,] grid, int position, float biomeNoise) {
 		for (int x = 0; x < Chunk.CHUNK_WIDTH; x++) {
-			int height = (int)Mathf.Clamp(Mathf.PerlinNoise(biomeNoise * 0.01f * (position + x), seed) * (float)Chunk.CHUNK_HEIGHT, 1f, (float)(Chunk.CHUNK_HEIGHT - 1));
+			//TODO: add height changer
+			int height = (int)Mathf.Clamp(Mathf.PerlinNoise(0.01f * biomeNoise * position + x, seed) * (float)Chunk.CHUNK_HEIGHT, 1f, (float)(Chunk.CHUNK_HEIGHT - 1));
 			int y;
 			for (y = 0; y < height; y++)
 				grid[x, y] = 0;
 			for (; y < Chunk.CHUNK_HEIGHT; y++)
 				grid[x, y] = 1;
 		}
+	}
+	public void RenderChunk(Chunk c, int position) {
+		GameObject dirt = (GameObject)Instantiate(Resources.Load("dirt"));
+		for (int y = 0; y < Chunk.CHUNK_HEIGHT; y++) {
+			for (int x = position * Chunk.CHUNK_WIDTH; x < position * Chunk.CHUNK_WIDTH + Chunk.CHUNK_WIDTH; x++) {
+				if (c.tempGrid[x % 16, y] == 1) {
+					GameObject tile = (GameObject)Instantiate(dirt, this.transform);
+					tile.transform.position = new Vector2(x, -y);
+				}
+			}
+		}
+		Destroy(dirt);
 	}
 
 	public int getSeed() {
