@@ -4,84 +4,41 @@ using UnityEngine;
 
 public class TemporaryPowerUp : PowerUp
 {
-    public int whatami;
-    public PlayerStatProxy playerstats;
+
+    public float TimerActive = 0.0f;
+    public int type;
+    public PowerUpTimer timer;
+    public int collided = 0;
 
     // Start is called before the first frame update
-    
-       
-   
-
     void Start()
     {
-       
-        playerstats = FindObjectOfType<PlayerStatProxy>(); //Connects the proxy player manager
-        
-        whatami = Random.Range(0, 4); //Gives the object a random type of boost: health, speed, attack, or jump.
-    }   
+        timer = FindObjectOfType<PowerUpTimer>(); //connect the object to the outside timer
+        //whatami = Random.Range(0, 4); //Gives the object a random type of boost: health, speed, attack, or jump.
+        type = 0; //for testing purposes right now, I'm only allowing it to be a health boost
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) //onclick
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player" && collided == 0) //if collides with player (and hasn't already)
         {
-            ChangeAmount(whatami, 1); //adds the amount (1 is postitive, so it's adding)
+            collided = 1;
+            TimerActive = 10.0f; //set the timer variable to the number of seconds for the powerup
+            Debug.Log("Hit the player");
+            timer.ChangeAmount(type, 1); //add the amount of health boost
             Debug.Log("You changed the inital amount +10");
-            //Timer();
+            timer.type = type; //tell the timer what type of powerup it is
+            timer.TimerActive = TimerActive; //set the timer to the number of seconds
+            Destroy(gameObject); //destory the object
 
-            //Timer--current problem is that it is way too fast.
-            Time.timeScale = 1.0f;
-            float seconds = 5.0f;
-
-
-            while (seconds > 0.0f)
-            {
-                Debug.Log(seconds);
-                seconds -= Time.deltaTime;
-            }
-            //end timer
-
-
-            ChangeAmount(whatami, -1);
-            Debug.Log("You changed the amount back -10");
-            Destroy(gameObject);
         }
-    }
-  
- 
-    /*    void Timer()
-    {
-        Time.timeScale = 1.0f;
-        float seconds = 5.0f;
-        while (seconds > 0)
-        {
-            Debug.Log("In the timer");
-            seconds -= Time.deltaTime;
-        }
-   
-    }
-    */
-    void ChangeAmount(int whatami, int direction)
-    {
-        int amount = 10; //amount you want to change the player stat by
-        amount = amount * direction; //makes it postitive or negative
-
-        if (whatami == 0)//These check type, then change by the amount
-        {
-            playerstats.health += amount;
-        }
-        if (whatami == 1)
-        {
-            playerstats.attack += amount;
-        }
-        if (whatami == 2)
-        {
-            playerstats.speed += amount;
-        }
-        if (whatami == 3)
-        {
-            playerstats.jump += amount;
-        }
-
     }
 }
+
+ 
