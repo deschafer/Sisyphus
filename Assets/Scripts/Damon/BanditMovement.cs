@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BanditMovement : MovementComponent
+public class BanditMovement : MovementBehavior
 {
 
 	public BanditMovement(Enemy entity) :
