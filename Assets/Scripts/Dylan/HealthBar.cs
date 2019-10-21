@@ -5,24 +5,25 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour //This is the class that holds the objects
 {
-    private Health health;
+    //private Health health;
     private Image TopLayerImage;
+    private PlayerHealth playerHealth;
 
     private void Awake()
     {
         TopLayerImage = transform.Find("TopLayer").GetComponent<Image>();
-
-        health = new Health();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        //health = new Health();
 
     }
     private void Update()
     {
       //  Debug.Log("for health.Update");
-        health.Update();
+      //  health.Update();
         //Debug.Log("aft health.Update");
-        TopLayerImage.fillAmount = health.NormalizeHealth();
+        TopLayerImage.fillAmount = playerHealth.GetStat();
     }
-
+    /*
     public void callLoseHealthDemo()
     {
         health.LoseHealthDemo();
@@ -31,9 +32,9 @@ public class HealthBar : MonoBehaviour //This is the class that holds the object
     {
         health.GainHealthDemo();
     }
-
+    */
 }
-
+/*
 public class Health //Needs to be made into a subclass of the type "Entity Stats"
     //This is the class that contains the logic for how the health bar and health stats interact
 {
@@ -95,4 +96,4 @@ public class Health //Needs to be made into a subclass of the type "Entity Stats
     
 }
 
-   
+  */ 
