@@ -8,7 +8,7 @@ public class PowerUpTimer : MonoBehaviour
     //public int amount = 0;
     public int type;
     public PlayerHealth playerstats; //connects to the player manager
-
+    public float MAX_HEALTH = 100.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +33,14 @@ public class PowerUpTimer : MonoBehaviour
     //Takes in the type, and direction of chancge
      public void ChangeAmount(int type, int direction)
     {
-        int amount = 10; //amount you want to change the player stat by
+        float amount = 10; //amount you want to change the player stat by
         amount = amount * direction; //makes it postitive or negative
 
         Debug.Log(amount);
 
         if (type == 0)//These check type, then change by the amount
         {
+            amount = MAX_HEALTH - playerstats.health;
             Debug.Log("Player health is " + playerstats.health);
             playerstats.health += amount;
             Debug.Log("Just added " + amount + " Of health");
