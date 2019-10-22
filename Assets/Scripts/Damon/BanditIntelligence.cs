@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BanditIntelligence : AIComponent
+public class BanditIntelligence : AIBehavior
 {
 	private const int patrolRadius = 20;
+	private bool playerVisible = false;
 
 	public BanditIntelligence(Enemy entity) :
 		base(entity)
@@ -17,7 +18,6 @@ public class BanditIntelligence : AIComponent
 		parentEntity.State = Enemy.EnemyState.PATROL;
     }
 
-	// Update is called once per frame
 	public override bool Act()
 	{
 		if (!base.Act())
@@ -28,7 +28,24 @@ public class BanditIntelligence : AIComponent
 		// This is where this component will determine exactly what its parent
 		// object does.
 
-		// For now, we are just going to focus on handling simple movement waypoints.
+		// First, we check if a player is visible
+		if (playerVisible)
+		{
+			// First we enter an attack state to mark this 
+			parentEntity.State = Enemy.EnemyState.COMBAT;
+			Combat();
+			// We return here so we do not complete any additional actions
+			// return false, because we do not want to complete any additional actions
+			return false;
+		}
+
+		// If we have lost the player
+		if(parentEntity.State == Enemy.EnemyState.COMBAT &&
+			!playerVisible)
+		{
+			parentEntity.State = Enemy.EnemyState.IDLE;
+			return false;
+		}
 
 		// So, we need to determine if we need to find a waypoint
 		// If a waypoint has not yet been set
@@ -36,6 +53,15 @@ public class BanditIntelligence : AIComponent
 		{
 			// Then we need to determine where to place a waypoint
 			PlaceWaypoint();
+			return false;
+		}
+
+		// If we have reached a waypoint, set it as false
+		if(IsWaypointReached())
+		{
+			parentEntity.WaypointSet = false;
+			parentEntity.State = Enemy.EnemyState.IDLE;
+			return false;
 		}
 
 		return true;
@@ -58,5 +84,22 @@ public class BanditIntelligence : AIComponent
 		// Finally saving this information
 		parentEntity.MovementWaypoint = waypoint;
 		parentEntity.WaypointSet = true;
+		parentEntity.State = Enemy.EnemyState.PATROL;
+	}
+
+	private void Combat()
+	{
+
+		// We need to set a chasing movement waypoint in the direction of the player
+
+
+	}
+
+	private bool IsWaypointReached()
+	{
+
+		// need to determine if the enemy has moved past the desired waypoint
+
+		return false;
 	}
 }
