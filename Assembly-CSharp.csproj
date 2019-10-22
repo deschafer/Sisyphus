@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
-    <Compile Include="Assets\Scripts\Damon\empty.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
