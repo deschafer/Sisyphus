@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy : GameEntity
 {
-	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD };
+	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
 
 	new private string name;								// name/id of this enemy
 	private int health;                                 // base health of this enemy
-	public List<EnemyComponent> enemyComponents;		// All the components (other than AI) associated with this object
-	public AIComponent intelComponent;					// AI comp - determines the state
+	public List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
+	public AIBehavior intelComponent;					// AI comp - determines the state
 	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
 	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
 	private bool waypointSet = false;
@@ -18,8 +18,8 @@ public class Enemy : GameEntity
 
 	public Enemy(
 		string name, 
-		List<EnemyComponent> components,
-		AIComponent intel)
+		List<EnemyBehavior> components,
+		AIBehavior intel) : base()
 	{
 		this.name = name;
 		enemyComponents = components;
@@ -54,7 +54,7 @@ public class Enemy : GameEntity
 		// Then all of our components react accordingly
 		animator.SetInteger("AnimState", 0);
 
-		foreach (EnemyComponent component in enemyComponents)
+		foreach (EnemyBehavior component in enemyComponents)
 		{
 			component.Act();
 		}
