@@ -62,16 +62,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
     <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\empty.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\WalkingBehavior.cs" />
     <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Mary\PermanentPowerUp.cs" />
@@ -83,7 +86,9 @@
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
+    <Compile Include="Assets\Scripts\World\Chunk\ChunkFactory.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
+    <Compile Include="Assets\Scripts\World\Chunk\GameTile.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

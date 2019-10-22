@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : GameEntity
 {
-	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD };
+	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
 
 	new private string name;								// name/id of this enemy
 	private int health;                                 // base health of this enemy
@@ -19,7 +19,7 @@ public class Enemy : GameEntity
 	public Enemy(
 		string name, 
 		List<EnemyBehavior> components,
-		AIBehavior intel)
+		AIBehavior intel) : base()
 	{
 		this.name = name;
 		enemyComponents = components;

@@ -14,6 +14,14 @@ public abstract class GameEntity : MonoBehaviour
 	private float jumpForce = 6;
 	private float distanceToGround = 0;
 
+	public GameEntity()
+	{
+		maxSpeed = 100;
+		accel = 10;
+		deaccel = 5;
+		jumpForce = 6;
+	}
+
 	// Start is called before the first frame update
 	public void Start()
 	{

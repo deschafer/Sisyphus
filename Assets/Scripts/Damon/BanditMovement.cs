@@ -13,7 +13,10 @@ public class BanditMovement : MovementBehavior
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		parentEntity.Accel = 100;
+		parentEntity.JumpForce = 10;
+		parentEntity.Deaccel = 0;
+		parentEntity.MaxSpeed = 5000;
 	}
 
 	// Update is called once per frame
@@ -26,6 +29,8 @@ public class BanditMovement : MovementBehavior
 
 		// If we have made it here, then a waypoint has been set,
 		// and this enemy is in a patrol state
+
+
 
 		// Then we add a movement to the current position
 			// a translation
