@@ -74,7 +74,6 @@
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
-    <Compile Include="Assets\Scripts\Damon\WalkingBehavior.cs" />
     <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Mary\PermanentPowerUp.cs" />
