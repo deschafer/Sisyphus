@@ -39,17 +39,17 @@ public class Health //Needs to be made into a subclass of the type "Entity Stats
 {
     private int Health_Max = 100;
     private float healthTotal;
-    private float healthRegen;
+
     
     public Health()
     {
         healthTotal = 100;
-        healthRegen = 14;
+       
 
     }
     
     public void Update ()
-    {
+    { 
         //healthTotal += healthRegen * Time.deltaTime;
 
     }
