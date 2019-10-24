@@ -7,7 +7,7 @@ public class Chunk {
 
     private BiomeBase biome;
 
-	//REMOVE THIS
+	//will be private
 	public int[,] tempGrid;
 
     public Chunk(int[,] grid) {
