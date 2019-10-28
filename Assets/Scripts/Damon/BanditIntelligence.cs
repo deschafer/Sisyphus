@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BanditIntelligence : AIBehavior
 {
-	private const int patrolRadius = 20;
-	private bool playerVisible = false;
+	private const int patrolRadius = 20;		// the max radius of where a movement waypoint can be set from the spawnposition
+	private bool playerVisible = false;			// flag indicating if the player is visible and detected
+	private Vector2 movementWaypointOrigin;     // The position of the parent entity when a waypoint was chosen
+	private const int attackRadius = 10;
 
 	public BanditIntelligence(Enemy entity) :
 		base(entity)
@@ -15,7 +17,8 @@ public class BanditIntelligence : AIBehavior
 	// Start is called before the first frame update
 	void Start()
     {
-		parentEntity.State = Enemy.EnemyState.PATROL;
+		parentEntity.State = Enemy.EnemyState.IDLE;
+		parentEntity.Health = 100;
     }
 
 	public override bool Act()
@@ -29,7 +32,7 @@ public class BanditIntelligence : AIBehavior
 		// object does.
 
 		// First, we check if a player is visible
-		if (playerVisible)
+		if (IsPlayerVisible())
 		{
 			// First we enter an attack state to mark this 
 			parentEntity.State = Enemy.EnemyState.COMBAT;
@@ -44,6 +47,7 @@ public class BanditIntelligence : AIBehavior
 			!playerVisible)
 		{
 			parentEntity.State = Enemy.EnemyState.IDLE;
+			parentEntity.WaypointSet = false;
 			return false;
 		}
 
@@ -59,6 +63,7 @@ public class BanditIntelligence : AIBehavior
 		// If we have reached a waypoint, set it as false
 		if(IsWaypointReached())
 		{
+			Debug.Log("Waypoint reached");
 			parentEntity.WaypointSet = false;
 			parentEntity.State = Enemy.EnemyState.IDLE;
 			return false;
@@ -74,11 +79,15 @@ public class BanditIntelligence : AIBehavior
 
 		Vector3 position = parentEntity.SpawnPosition;
 
+		// save the current position for checking if we reached the position
+		movementWaypointOrigin = parentEntity.transform.position;	
+
 		// Then, for now, just pick a point on one side of the position
-		Vector3 waypoint = position + (Random.Range(0.0f, 1.0f) == 1.0 ? new Vector3(-patrolRadius, 0, 0) : new Vector3(patrolRadius, 0, 0));
+		Vector3 waypoint = position + (Random.Range(0.0f, 1.0f) >= 0.5 ? new Vector3(-patrolRadius, 0, 0) : new Vector3(patrolRadius, 0, 0));
 
 		string str = waypoint.x + " " + waypoint.y + " " + waypoint.z + " ";
 
+		Debug.Log("Waypoint selected");
 		Debug.Log(str);
 
 		// Finally saving this information
@@ -89,16 +98,52 @@ public class BanditIntelligence : AIBehavior
 
 	private void Combat()
 	{
-
-		// We need to set a chasing movement waypoint in the direction of the player
-
-
+		// We set a new waypoint at the player's position,
+		Vector2 playerPos = parentEntity.player.transform.position;
+		// and set this as the parentEntity's movement waypoint.
+		parentEntity.MovementWaypoint = playerPos;
 	}
 
+	//
+	// IsWaypointReached()
+	// Returns true if the parent entity has reached or passed the 
+	// current selected movement waypoint
+	//
 	private bool IsWaypointReached()
 	{
+		// if we were on the left of the origin poisition, then we check if we are on the left of the waypoint
+		if (parentEntity.transform.position.x < movementWaypointOrigin.x &&
+			parentEntity.transform.position.x < parentEntity.MovementWaypoint.x)
+		{
+			return true;
+		}
 
-		// need to determine if the enemy has moved past the desired waypoint
+		// if we were on the right of the origin poisition, then we check if we are on the right of the waypoint
+		if (parentEntity.transform.position.x > movementWaypointOrigin.x &&
+			parentEntity.transform.position.x > parentEntity.MovementWaypoint.x)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	private bool IsPlayerVisible()
+	{
+		if (!parentEntity.player)
+		{
+			return false;
+		}
+
+		Vector2 playerPosition = parentEntity.player.transform.position;
+		Vector2 enemyPosition = parentEntity.transform.position;
+		Vector2 difference = playerPosition - enemyPosition;
+
+		if(difference.magnitude > attackRadius)
+		{
+			Debug.Log("Player is visible");
+			return true;
+		}
 
 		return false;
 	}

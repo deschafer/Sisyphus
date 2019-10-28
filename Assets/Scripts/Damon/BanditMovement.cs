@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BanditMovement : MovementBehavior
 {
+	private Vector2 lastPosition = new Vector2();
+	private int stuckCount = 0;
 
 	public BanditMovement(Enemy entity) :
 		base(entity)
@@ -14,9 +16,10 @@ public class BanditMovement : MovementBehavior
 	void Start()
 	{
 		parentEntity.Accel = 100;
-		parentEntity.JumpForce = 10;
-		parentEntity.Deaccel = 0;
-		parentEntity.MaxSpeed = 5000;
+		parentEntity.JumpForce = 20;
+		parentEntity.Deaccel = 5;
+		parentEntity.MaxSpeed = 20;
+		parentEntity.MaxHorizontalSpeed = 10;
 	}
 
 	// Update is called once per frame
@@ -28,13 +31,38 @@ public class BanditMovement : MovementBehavior
 		}
 
 		// If we have made it here, then a waypoint has been set,
-		// and this enemy is in a patrol state
+		// and this enemy is in a patrol state. We can then focus on 
+		// moving to our set waypoint
 
+		if (lastPosition.x == parentEntity.rigidbody2D.position.x &&
+			lastPosition.y == parentEntity.rigidbody2D.position.y)
+		{
+			stuckCount++;
+			if(stuckCount > 5)
+				parentEntity.ShiftUp();
+		}
+		else stuckCount = 0;
 
+		if(stuckCount == 0)
+			lastPosition = parentEntity.rigidbody2D.position;
 
-		// Then we add a movement to the current position
-			// a translation
-		// Then we also check if we need to jump to get to our waypoint
+		// for now, we always jump
+		parentEntity.Jump();
+
+		// We need to determine which direction to move in.
+		Vector2 currentPosition = parentEntity.transform.position;
+		Vector2 waypoint = parentEntity.MovementWaypoint;
+
+		// We move to the right
+		if (waypoint.x > currentPosition.x)
+		{
+			parentEntity.MoveRight();
+		}
+		// we move to the left
+		else
+		{
+			parentEntity.MoveLeft();
+		}
 
 		return true;
 	}

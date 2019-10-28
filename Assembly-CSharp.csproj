@@ -65,6 +65,7 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
     <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditAnimation.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
@@ -73,12 +74,16 @@
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\TestScene\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Damon\TestScene\TestScene.cs" />
     <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Mary\PermanentPowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PlayerStatProxy.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUpTimer.cs" />
     <Compile Include="Assets\Scripts\Mary\TemporaryPowerUp.cs" />
+    <Compile Include="Assets\Scripts\Mary\Test Scripts\TestPowerUpMessages.cs" />
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
@@ -88,6 +93,7 @@
     <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
     <Compile Include="Assets\Scripts\World\Chunk\GameTile.cs" />
     <Compile Include="Assets\Scripts\World\WorldManager.cs" />
+    <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
