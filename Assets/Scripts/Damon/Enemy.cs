@@ -9,11 +9,14 @@ public class Enemy : GameEntity
 	new private string name;								// name/id of this enemy
 	private int health;                                 // base health of this enemy
 	public List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
-	public AIBehavior intelComponent;					// AI comp - determines the state
+	public AIBehavior intelComponent;                   // AI comp - determines the state
+	public PlayerControl player;
 	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
 	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
 	private bool waypointSet = false;
-	private GameEntity targetedEntity = null;			// Entity that has been targeted for combat
+	private GameEntity targetedEntity = null;           // Entity that has been targeted for combat
+	private bool horizontalCollision = false;
+	private bool verticalCollision = false;
 
 
 	public Enemy(
@@ -51,13 +54,14 @@ public class Enemy : GameEntity
 		// The AI comp. has to act first and make a decision
 		intelComponent.Act();
 
-		// Then all of our components react accordingly
-		animator.SetInteger("AnimState", 0);
 
 		foreach (EnemyBehavior component in enemyComponents)
 		{
 			component.Act();
 		}
+
+		horizontalCollision = false;
+		verticalCollision = false;
 	}
 
 	//
@@ -73,6 +77,29 @@ public class Enemy : GameEntity
 		set
 		{
 			health = value;
+		}
+	}
+
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Enemy")
+		{
+			Physics2D.IgnoreCollision(collision.collider, collider2D);
+			return;
+		}
+
+		foreach (ContactPoint2D point in collision.contacts)
+		{
+			if (point.normal.y < 0 || point.normal.y > 0)
+			{
+				//rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+				verticalCollision = true;
+			}
+			else
+			{
+				rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+				horizontalCollision = true;
+			}
 		}
 	}
 
@@ -95,4 +122,6 @@ public class Enemy : GameEntity
 	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
 	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
 	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
+	public bool HorizontalCollision { get => horizontalCollision; set => horizontalCollision = value; }
+	public bool VerticalCollision { get => verticalCollision; set => verticalCollision = value; }
 }

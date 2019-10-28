@@ -25,9 +25,9 @@ public class GuardScript : MonoBehaviour {
 
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            transform.localScale = new Vector3(-10.0f, 10.0f, 10.0f);
         else if (inputX < 0)
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
 
         // Move
         body2d.velocity = new Vector2(inputX * speed, body2d.velocity.y);
