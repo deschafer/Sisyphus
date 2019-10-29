@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PermanentPowerUp : PowerUp
 {
+    private float Maz_Health = 100f;
+    private float amount = 10f;
 
-    private int amount = 10;
-    public PlayerStatProxy playerstats;
+    //public PlayerStatProxy playerstats;
+    public PlayerHealth playerstats;
     PermanentPowerUp()
     {
         
@@ -14,17 +16,23 @@ public class PermanentPowerUp : PowerUp
     // Start is called before the first frame update
     void Start()
     {
-        playerstats = FindObjectOfType<PlayerStatProxy> ();
+        //playerstats = FindObjectOfType<PlayerStatProxy> ();
+        playerstats = FindObjectOfType<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            playerstats.health += amount;
-            //amount += 10;
-            Destroy(gameObject);  
-        }
+
     }
-}
+    private void OnCollisionEnter2D(Collision2D collision)
+     {
+
+            if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Hit the player");
+                playerstats.health += amount;
+                Destroy(gameObject);
+            }
+     }
+    }

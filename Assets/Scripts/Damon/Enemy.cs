@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class Enemy : GameEntity
 {
-	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD };
+	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
 
-	private string name;								// name/id of this enemy
-	private int health;									// base health of this enemy
-	private EnemyComponent defenseComponent;			// this comp adds defense and damage
-	private EnemyComponent attackComponent;				// this comp adds attack behavior
-	private EnemyComponent movementComponent;			// this comp determines the movement
-	private AIComponent intelComponent;					// AI comp - determines the state
-	private EnemyState currentState = EnemyState.IDLE;	// Current state of this enemy
+	new private string name;								// name/id of this enemy
+	private int health;                                 // base health of this enemy
+	public List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
+	public AIBehavior intelComponent;                   // AI comp - determines the state
+	public PlayerControl player;
+	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
+	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
+	private bool waypointSet = false;
+	private GameEntity targetedEntity = null;           // Entity that has been targeted for combat
+	private bool horizontalCollision = false;
+	private bool verticalCollision = false;
 
-	private GameEntity targetedEntity = null;			// Entity that has been targeted for combat
 
 	public Enemy(
 		string name, 
-		EnemyComponent defense,
-		EnemyComponent attack,
-		EnemyComponent movement,
-		AIComponent intel)
+		List<EnemyBehavior> components,
+		AIBehavior intel) : base()
 	{
 		this.name = name;
-		defenseComponent = defense;
-		attackComponent = attack;
-		movementComponent = movement;
+		enemyComponents = components;
 		intelComponent = intel;
 	}
 
@@ -34,26 +33,35 @@ public class Enemy : GameEntity
 	// Start()
 	// Start is called before the first frame update
 	//
-	void Start()
+	new public void Start()
 	{
+		base.Start();
 	}
 
 	//
 	// Update()
 	// Update is called once per frame
 	//
-	void Update()
+	new public void Update()
 	{
+		base.Update();
 		// All of our components define the behavior for this specefic enemy
 		// so, we just call the components, and they do what is needed
 
 		// The specefic order is such that the AIcomponent can made a decision
 		// on what to do, then each of the additional components can act based on that position.
 
+		// The AI comp. has to act first and make a decision
 		intelComponent.Act();
-		defenseComponent.Act();
-		movementComponent.Act();
-		attackComponent.Act();
+
+
+		foreach (EnemyBehavior component in enemyComponents)
+		{
+			component.Act();
+		}
+
+		horizontalCollision = false;
+		verticalCollision = false;
 	}
 
 	//
@@ -72,6 +80,29 @@ public class Enemy : GameEntity
 		}
 	}
 
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Enemy")
+		{
+			Physics2D.IgnoreCollision(collision.collider, collider2D);
+			return;
+		}
+
+		foreach (ContactPoint2D point in collision.contacts)
+		{
+			if (point.normal.y < 0 || point.normal.y > 0)
+			{
+				//rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+				verticalCollision = true;
+			}
+			else
+			{
+				rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+				horizontalCollision = true;
+			}
+		}
+	}
+
 	//
 	// getHealth()/setHealth()
 	// Used by components to set the state of this object
@@ -87,4 +118,10 @@ public class Enemy : GameEntity
 			currentState = value;
 		}
 	}
+
+	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
+	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
+	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
+	public bool HorizontalCollision { get => horizontalCollision; set => horizontalCollision = value; }
+	public bool VerticalCollision { get => verticalCollision; set => verticalCollision = value; }
 }
