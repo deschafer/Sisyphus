@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.4f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B4DEFFEC-9B6C-70AA-DB31-6CE93CD36666}</ProjectGuid>
+    <ProjectGuid>{FC01FE44-D7F4-DA83-EE91-2CA8D3F102A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,6 +52,9 @@
     <UnityVersion>2019.2.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.2.4f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -78,6 +79,11 @@
     <Compile Include="Assets\Scripts\Damon\TestScene\TestScene.cs" />
     <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeBase.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Chunk\Chunk.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Chunk\ChunkFactory.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Chunk\ChunkManager.cs" />
+    <Compile Include="Assets\Scripts\Graeme\WorldManager.cs" />
     <Compile Include="Assets\Scripts\Mary\PermanentPowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PlayerStatProxy.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp.cs" />
@@ -87,45 +93,39 @@
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\ChunkFactory.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\GameTile.cs" />
-    <Compile Include="Assets\Scripts\World\WorldManager.cs" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Graeme Holliday/Documents/GitHub/Sisyphus/master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
