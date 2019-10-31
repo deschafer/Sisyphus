@@ -35,7 +35,7 @@ public abstract class GameEntity : MonoBehaviour
 		spawnPosition = transform.position;
 	}
 
-	public void Update()
+	public virtual void Update()
 	{
 		// Checking the maximum speed of this entity
 		if (rigidbody2D.velocity.magnitude > maxSpeed)

@@ -7,14 +7,14 @@ public class Enemy : GameEntity
 	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
 
 	new private string name;								// name/id of this enemy
-	private int health;                                 // base health of this enemy
-	public List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
-	public AIBehavior intelComponent;                   // AI comp - determines the state
-	public PlayerControl player;
-	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
-	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
+	private int health;										// base health of this enemy
+	public List<EnemyBehavior> enemyComponents;				// All the components (other than AI) associated with this object
+	public AIBehavior intelComponent;						// AI comp - determines the state
+	GameObject player = GameObject.FindWithTag("Player");   // the player
+	private EnemyState currentState = EnemyState.IDLE;		// Current state of this enemy
+	private Vector3 movementWaypoint;						// This waypoint gets set by the AI component
 	private bool waypointSet = false;
-	private GameEntity targetedEntity = null;           // Entity that has been targeted for combat
+	private GameEntity targetedEntity = null;				// Entity that has been targeted for combat
 	private bool horizontalCollision = false;
 	private bool verticalCollision = false;
 
@@ -29,12 +29,18 @@ public class Enemy : GameEntity
 		intelComponent = intel;
 	}
 
+	public Enemy()
+	{
+		
+	}
+
 	//
 	// Start()
 	// Start is called before the first frame update
 	//
-	new public void Start()
+	public void Start()
 	{
+		//player = GameObject.FindWithTag("player");
 		base.Start();
 	}
 
@@ -42,7 +48,7 @@ public class Enemy : GameEntity
 	// Update()
 	// Update is called once per frame
 	//
-	new public void Update()
+	public override void Update()
 	{
 		base.Update();
 		// All of our components define the behavior for this specefic enemy
@@ -124,4 +130,5 @@ public class Enemy : GameEntity
 	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
 	public bool HorizontalCollision { get => horizontalCollision; set => horizontalCollision = value; }
 	public bool VerticalCollision { get => verticalCollision; set => verticalCollision = value; }
+	public GameObject Player { get => player; }
 }

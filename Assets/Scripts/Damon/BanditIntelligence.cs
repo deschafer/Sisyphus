@@ -7,7 +7,7 @@ public class BanditIntelligence : AIBehavior
 	private const int patrolRadius = 20;		// the max radius of where a movement waypoint can be set from the spawnposition
 	private bool playerVisible = false;			// flag indicating if the player is visible and detected
 	private Vector2 movementWaypointOrigin;     // The position of the parent entity when a waypoint was chosen
-	private const int attackRadius = 10;
+	private const int attackRadius = 20;
 
 	public BanditIntelligence(Enemy entity) :
 		base(entity)
@@ -99,7 +99,7 @@ public class BanditIntelligence : AIBehavior
 	private void Combat()
 	{
 		// We set a new waypoint at the player's position,
-		Vector2 playerPos = parentEntity.player.transform.position;
+		Vector2 playerPos = parentEntity.Player.transform.position;
 		// and set this as the parentEntity's movement waypoint.
 		parentEntity.MovementWaypoint = playerPos;
 	}
@@ -130,12 +130,12 @@ public class BanditIntelligence : AIBehavior
 
 	private bool IsPlayerVisible()
 	{
-		if (!parentEntity.player)
+		if (!parentEntity.Player)
 		{
 			return false;
 		}
 
-		Vector2 playerPosition = parentEntity.player.transform.position;
+		Vector2 playerPosition = parentEntity.Player.transform.position;
 		Vector2 enemyPosition = parentEntity.transform.position;
 		Vector2 difference = playerPosition - enemyPosition;
 
