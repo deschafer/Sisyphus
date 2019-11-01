@@ -102,6 +102,7 @@ public class BanditIntelligence : AIBehavior
 		Vector2 playerPos = parentEntity.Player.transform.position;
 		// and set this as the parentEntity's movement waypoint.
 		parentEntity.MovementWaypoint = playerPos;
+		parentEntity.WaypointSet = true;
 	}
 
 	//
@@ -139,11 +140,14 @@ public class BanditIntelligence : AIBehavior
 		Vector2 enemyPosition = parentEntity.transform.position;
 		Vector2 difference = playerPosition - enemyPosition;
 
-		if(difference.magnitude > attackRadius)
+		if (difference.magnitude < attackRadius)
 		{
 			Debug.Log("Player is visible");
+			playerVisible = true;
 			return true;
 		}
+
+		playerVisible = false;
 
 		return false;
 	}

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditAnimation.cs" />
+    <Compile Include="Assets\Scripts\Damon\BanditAttack.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
