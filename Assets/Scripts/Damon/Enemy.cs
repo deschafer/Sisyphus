@@ -7,16 +7,17 @@ public class Enemy : GameEntity
 	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
 
 	new private string name;								// name/id of this enemy
-	private int health;                                 // base health of this enemy
-	public List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
-	public AIBehavior intelComponent;                   // AI comp - determines the state
-	public PlayerControl player;
-	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
-	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
+	private int health;										// base health of this enemy
+	public List<EnemyBehavior> enemyComponents;				// All the components (other than AI) associated with this object
+	public AIBehavior intelComponent;                       // AI comp - determines the state
+	public GameObject player;								// the player
+	private EnemyState currentState = EnemyState.IDLE;		// Current state of this enemy
+	private Vector3 movementWaypoint;						// This waypoint gets set by the AI component
 	private bool waypointSet = false;
-	private GameEntity targetedEntity = null;           // Entity that has been targeted for combat
+	private GameEntity targetedEntity = null;				// Entity that has been targeted for combat
 	private bool horizontalCollision = false;
 	private bool verticalCollision = false;
+	private bool attacking = false;
 
 
 	public Enemy(
@@ -29,11 +30,16 @@ public class Enemy : GameEntity
 		intelComponent = intel;
 	}
 
+	public Enemy()
+	{
+		
+	}
+
 	//
 	// Start()
 	// Start is called before the first frame update
 	//
-	new public void Start()
+	public void Start()
 	{
 		base.Start();
 	}
@@ -42,7 +48,7 @@ public class Enemy : GameEntity
 	// Update()
 	// Update is called once per frame
 	//
-	new public void Update()
+	public override void Update()
 	{
 		base.Update();
 		// All of our components define the behavior for this specefic enemy
@@ -62,22 +68,6 @@ public class Enemy : GameEntity
 
 		horizontalCollision = false;
 		verticalCollision = false;
-	}
-
-	//
-	// getHealth()/setHealth()
-	// Used to access and modify the current health of this enemy
-	//
-	public int Health
-	{
-		get
-		{
-			return health;
-		}
-		set
-		{
-			health = value;
-		}
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -103,25 +93,13 @@ public class Enemy : GameEntity
 		}
 	}
 
-	//
-	// getHealth()/setHealth()
-	// Used by components to set the state of this object
-	//
-	public EnemyState State
-	{
-		get
-		{
-			return currentState;
-		}
-		set
-		{
-			currentState = value;
-		}
-	}
-
+	public int Health { get => health; set => health = value; }
+	public EnemyState State { get => currentState; set => currentState = value; }
 	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
 	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
 	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
 	public bool HorizontalCollision { get => horizontalCollision; set => horizontalCollision = value; }
 	public bool VerticalCollision { get => verticalCollision; set => verticalCollision = value; }
+	public GameObject Player { get => player; }
+	public bool Attacking { get => attacking; set => attacking = value; }
 }
