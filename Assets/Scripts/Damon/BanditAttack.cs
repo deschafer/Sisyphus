@@ -6,7 +6,7 @@ public class BanditAttack : AttackBehavior
 {
 	private float timer = 0;
 	private const float attackTime = 1;
-	private const float attackDistance = 9.0f;
+	private const float attackDistance = 4.5f;
 
 	public BanditAttack(Enemy enemy) : 
 		base(enemy)
