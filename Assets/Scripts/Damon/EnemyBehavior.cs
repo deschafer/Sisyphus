@@ -4,15 +4,11 @@ using UnityEngine;
 
 abstract public class EnemyBehavior : MonoBehaviour
 {
-	public Enemy parentEntity = null;
+	private Enemy parentEntity = null;		// the object where this behavior is added to
 
 	public EnemyBehavior(Enemy gameEntity)
 	{
-		parentEntity = gameEntity;
-	}
-
-	void Start()
-	{
+		ParentEntity = gameEntity;
 	}
 
 	//
@@ -22,4 +18,5 @@ abstract public class EnemyBehavior : MonoBehaviour
 	//
 	abstract public bool Act();
 
+	public Enemy ParentEntity { get => parentEntity; set => parentEntity = value; }
 }
