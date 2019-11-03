@@ -20,15 +20,15 @@ public class MovementBehavior : EnemyBehavior
 	{
 		// Needs to check if the enemy is in a moving state
 		// If it is not, then we do not move
-		if (parentEntity.State == Enemy.EnemyState.IDLE ||
-			parentEntity.State == Enemy.EnemyState.DEAD)
+		if (ParentEntity.State == Enemy.EnemyState.IDLE ||
+			ParentEntity.State == Enemy.EnemyState.DEAD)
 		{
 			Debug.Log("Enemy not in valid move state");
 			// We have to return, the AIComp will change the states
 			return false;
 		}
 		// If a waypoint is not set, then we do not move.
-		if (!parentEntity.WaypointSet)
+		if (!ParentEntity.WaypointSet)
 		{
 			Debug.Log("Enemy waypoint not set");
 			return false;
