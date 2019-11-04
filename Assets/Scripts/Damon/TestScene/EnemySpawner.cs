@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
 	void Update()
 	{
 		if (count++ < numberEnemies)
-			Instantiate(prefab, new Vector2(60, 10), Quaternion.identity);
+		{
+			EnemyFactory.getInstance().Create(new Vector2(60, 10), "LightBandit");
+		}
 	}
 }

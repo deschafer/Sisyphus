@@ -4,42 +4,34 @@ using UnityEngine;
 
 public class Enemy : GameEntity
 {
-	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };
+	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };	// possible states of an enemy
 
-	new private string name;								// name/id of this enemy
-	private int health;										// base health of this enemy
-	public List<EnemyBehavior> enemyComponents;				// All the components (other than AI) associated with this object
-	public AIBehavior intelComponent;                       // AI comp - determines the state
-	public GameObject player;								// the player
-	private EnemyState currentState = EnemyState.IDLE;		// Current state of this enemy
-	private Vector3 movementWaypoint;						// This waypoint gets set by the AI component
-	private bool waypointSet = false;
-	private GameEntity targetedEntity = null;				// Entity that has been targeted for combat
-	private bool horizontalCollision = false;
-	private bool verticalCollision = false;
-	private bool attacking = false;
-
+	private int health;													// base health of this enemy
+	[SerializeField] private List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
+	[SerializeField] private AIBehavior intelComponent;					// AI comp - determines the state
+	[SerializeField] private List<CollisionBehavior> collisionBehaviors;// behaviors that define how the object behaves with collisions
+	[SerializeField] private GameObject player = null;                  // the player
+	[SerializeField] private HealthBehavior healthBehavior;             // the player
+	private EnemyState currentState = EnemyState.IDLE;					// Current state of this enemy
+	private Vector3 movementWaypoint;									// This waypoint gets set by the AI component
+	private bool waypointSet = false;									// indicates if we need to set a new waypoint
+	private GameEntity targetedEntity = null;							// Entity that has been targeted for combat
+	private bool attacking = false;										// indicates if this enemy is attacking
 
 	public Enemy(
-		string name, 
 		List<EnemyBehavior> components,
 		AIBehavior intel) : base()
 	{
-		this.name = name;
 		enemyComponents = components;
 		intelComponent = intel;
-	}
-
-	public Enemy()
-	{
-		
+		collisionBehaviors = new List<CollisionBehavior>();
 	}
 
 	//
 	// Start()
 	// Start is called before the first frame update
 	//
-	public void Start()
+	new public void Start()
 	{
 		base.Start();
 	}
@@ -60,37 +52,27 @@ public class Enemy : GameEntity
 		// The AI comp. has to act first and make a decision
 		intelComponent.Act();
 
-
 		foreach (EnemyBehavior component in enemyComponents)
 		{
 			component.Act();
 		}
-
-		horizontalCollision = false;
-		verticalCollision = false;
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Enemy")
+		// We execute every collision behavor belonging to this object
+		foreach(CollisionBehavior behavior in collisionBehaviors)
 		{
-			Physics2D.IgnoreCollision(collision.collider, collider2D);
-			return;
+			behavior.SetCollision(collision);
+			behavior.Act();
 		}
+	}
 
-		foreach (ContactPoint2D point in collision.contacts)
-		{
-			if (point.normal.y < 0 || point.normal.y > 0)
-			{
-				//rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-				verticalCollision = true;
-			}
-			else
-			{
-				rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-				horizontalCollision = true;
-			}
-		}
+	public void OnDamage(float damageAmount)
+	{
+		// The single health behavior belonging to this object is executed
+		healthBehavior.SetDamage(damageAmount);
+		healthBehavior.Act();
 	}
 
 	public int Health { get => health; set => health = value; }
@@ -98,8 +80,6 @@ public class Enemy : GameEntity
 	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
 	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
 	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
-	public bool HorizontalCollision { get => horizontalCollision; set => horizontalCollision = value; }
-	public bool VerticalCollision { get => verticalCollision; set => verticalCollision = value; }
 	public GameObject Player { get => player; }
 	public bool Attacking { get => attacking; set => attacking = value; }
 }

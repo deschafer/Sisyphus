@@ -4,24 +4,19 @@ using UnityEngine;
 
 public abstract class GameEntity : MonoBehaviour
 {
-	new public Rigidbody2D rigidbody2D;
-	private Animator animator;
-	protected Collider2D collider2D;
-	protected SpriteRenderer renderer;
-	private Vector2 spawnPosition;
-	private float maxSpeed = 100;
-	private float maxHorizontalSpeed = 50;
-	private float accel = 10;
-	private float deaccel = 5;
-	private float jumpForce = 6;
-	private bool accelerate = false;
-
+	new private Rigidbody2D rigidbody2D;		// the rigidbody2d component belonging to this gameobject
+	private Animator animator;                  // the animator componenet belonging to this gameobject
+	private new Collider2D collider2D;          // the collider2d component belonging to this gameobject
+	private new SpriteRenderer renderer;        // the renderer component belonging to this gameobject
+	private Vector2 spawnPosition;				// the original position where this entity was spawned
+	private float maxSpeed = 100;				// a max speed for the velocity	
+	private float maxHorizontalSpeed = 50;		// a max horizontal speed
+	private float jumpForce = 6;				// the jump force of this object, indicates strength of jumps
 
 	public GameEntity()
 	{
+		// Set default values
 		maxSpeed = 10;
-		accel = 10;
-		deaccel = 5;
 		jumpForce = 6;
 	}
 
@@ -37,83 +32,44 @@ public abstract class GameEntity : MonoBehaviour
 
 	public virtual void Update()
 	{
-		// Checking the maximum speed of this entity
-		if (rigidbody2D.velocity.magnitude > maxSpeed)
-		{
-			// Then we need to normalize this vector
-			//rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, maxSpeed);
-		}
-
-		// if we have not moved in any direction, then we deaccelerate
-		if(!accelerate)
-			//Deaccelerate();
-
-		accelerate = false;
-	}
-
-	//
-	// deprecated function
-	//
-	//
-	public void Accelerate(Vector2 vector)
-	{
-		vector = Vector2.ClampMagnitude(vector, accel);
-		// Then add the vector to the current velocity vector
-		// but first verfiy that we are not adding past our max speed
-		if((rigidbody2D.velocity + vector).magnitude < maxSpeed)
-			rigidbody2D.velocity += vector;
-
-		accelerate = true;
 	}
 
 	public void MoveLeft()
 	{
-		rigidbody2D.velocity = new Vector2(-maxHorizontalSpeed, rigidbody2D.velocity.y);
-		accelerate = true;
-
+		Rigidbody2D.velocity = new Vector2(-maxHorizontalSpeed, Rigidbody2D.velocity.y);
 	}
 
 	public void MoveRight()
 	{
-		rigidbody2D.velocity = new Vector2(maxHorizontalSpeed, rigidbody2D.velocity.y);
-		
-		accelerate = true;
-
-	}
-
-	private void Deaccelerate()
-	{
-		Vector2 currentVelocity = rigidbody2D.velocity;
-		float magnitude = currentVelocity.magnitude;
-		rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, magnitude - Deaccel);
+		Rigidbody2D.velocity = new Vector2(maxHorizontalSpeed, Rigidbody2D.velocity.y);
 	}
 
 	public void Jump()
 	{
-		if (IsGrounded() && rigidbody2D.velocity.y == 0.0f)
+		if (IsGrounded() && Rigidbody2D.velocity.y == 0.0f)
 		{
-			//rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-			rigidbody2D.velocity += new Vector2(0, 10);
+			Rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 		}
 	}
 
 	public void ShiftUp()
 	{
-		//rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 		transform.Translate(0, 1, 0);
 	}
 
 	public bool IsGrounded()
 	{
+		// Checking below this object to see if we have hit the ground
 		return Physics2D.Raycast(transform.position, -Vector3.up, 0.01f) || 
-			Physics2D.Raycast(new Vector3(transform.position.x + renderer.size.x, transform.position.y, transform.position.z), -Vector3.up, 0.01f);
+			Physics2D.Raycast(new Vector3(transform.position.x + Renderer.size.x, transform.position.y, transform.position.z), -Vector3.up, 0.01f);
 	}
 
 	public Vector2 SpawnPosition { get => spawnPosition; set => spawnPosition = value; }
 	public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-	public float Accel { get => accel; set => accel = value; }
 	public float JumpForce { get => jumpForce; set => jumpForce = value; }
-	public float Deaccel { get => deaccel; set => deaccel = value; }
 	public float MaxHorizontalSpeed { get => maxHorizontalSpeed; set => maxHorizontalSpeed = value; }
-	public Animator Animator { get => animator; set => animator = value; }
+	public Animator Animator { get => animator; }
+	public SpriteRenderer Renderer { get => renderer; }
+	public Collider2D Collider2D { get => collider2D; }
+	public Rigidbody2D Rigidbody2D { get => rigidbody2D; }
 }
