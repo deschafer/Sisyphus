@@ -2,27 +2,30 @@
 using UnityEngine;
 
 public class ChunkManager : MonoBehaviour {
-
-	private GameObject player;
-
-	private float seed;
+	
+	//is this the best way to do this?
+    private Queue<Chunk> loadedChunks;
+	private int seed;
 	private int position;
-	private int lastPosition;
 
 	void Start() {
-		player = GameObject.FindGameObjectWithTag("Player");
-		seed = Random.Range(0f, 1f);
-		position = lastPosition = 0;
-		RenderChunk(GenerateChunk(0, 0.05f, 1f), position);
+		seed = Random.Range(int.MinValue, int.MaxValue);
+		position = 0;
+		loadedChunks = new Queue<Chunk>();
+		loadedChunks.Enqueue(GenerateChunk(0, 1f, 2f));
+		loadedChunks.Enqueue(GenerateChunk(1, 1f, 1f));
+		loadedChunks.Enqueue(GenerateChunk(2, 1f, 0.5f));
 	}
 
 	void Update() {
-		position = (int)Mathf.Round(player.transform.position.x / 32f);
 		//change this to render chunks (not every update, only if player pos requires update
-		if(position > lastPosition) {
-			lastPosition = position;
-			RenderChunk(GenerateChunk(position, 0.05f, 1f), position);
-		}
+		if (loadedChunks.Count != 0)
+			RenderChunk(loadedChunks.Dequeue(), position++);
+
+		/*
+		if(playerPosition > some point)
+			loadedChunks.Enqueue(GenerateChunk());
+		*/
 	}
 
 	/*
@@ -46,7 +49,8 @@ public class ChunkManager : MonoBehaviour {
 	*/
 	private void InitializeCells(int[,] grid, int position, float frequency, float amplitude) {
 		for (int x = 0; x < Chunk.CHUNK_WIDTH; x++) {
-			int height = (int)Mathf.Clamp(Mathf.Pow(Mathf.PerlinNoise(frequency * (position * Chunk.CHUNK_WIDTH + x), seed), amplitude) * (float)Chunk.CHUNK_HEIGHT, 1f, (float)(Chunk.CHUNK_HEIGHT - 1));
+			//TODO: add height changer
+			int height = (int)Mathf.Clamp(Mathf.PerlinNoise(0.01f * position * x, seed) * (float)Chunk.CHUNK_HEIGHT, 1f, (float)(Chunk.CHUNK_HEIGHT - 1));
 			int y;
 			for (y = 0; y < height; y++)
 				grid[x, y] = 0;
@@ -58,7 +62,7 @@ public class ChunkManager : MonoBehaviour {
 		GameObject dirt = (GameObject)Instantiate(Resources.Load("dirt"));
 		for (int y = 0; y < Chunk.CHUNK_HEIGHT; y++) {
 			for (int x = position * Chunk.CHUNK_WIDTH; x < position * Chunk.CHUNK_WIDTH + Chunk.CHUNK_WIDTH; x++) {
-				if (c.tempGrid[x % Chunk.CHUNK_HEIGHT, y] == 1) {
+				if (c.tempGrid[x % 16, y] == 1) {
 					GameObject tile = (GameObject)Instantiate(dirt, this.transform);
 					tile.transform.position = new Vector2(x, -y);
 				}
@@ -67,7 +71,7 @@ public class ChunkManager : MonoBehaviour {
 		Destroy(dirt);
 	}
 
-	public float getSeed() {
+	public int getSeed() {
 		return seed;
 	}
 
