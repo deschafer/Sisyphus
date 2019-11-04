@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class Enemy : GameEntity
 {
-	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD };
+	public enum EnemyState { IDLE, PATROL, COMBAT, DEAD, ATTACKING };	// possible states of an enemy
 
-	new private string name;								// name/id of this enemy
-	private int health;                                 // base health of this enemy
-	public List<EnemyComponent> enemyComponents;		// All the components (other than AI) associated with this object
-	public AIComponent intelComponent;					// AI comp - determines the state
-	private EnemyState currentState = EnemyState.IDLE;  // Current state of this enemy
-	private Vector3 movementWaypoint;					// This waypoint gets set by the AI component
-	private bool waypointSet = false;
-	private GameEntity targetedEntity = null;			// Entity that has been targeted for combat
-
+	private int health;													// base health of this enemy
+	[SerializeField] private List<EnemyBehavior> enemyComponents;		// All the components (other than AI) associated with this object
+	[SerializeField] private AIBehavior intelComponent;					// AI comp - determines the state
+	[SerializeField] private List<CollisionBehavior> collisionBehaviors;// behaviors that define how the object behaves with collisions
+	[SerializeField] private GameObject player = null;                  // the player
+	[SerializeField] private HealthBehavior healthBehavior;             // the player
+	private EnemyState currentState = EnemyState.IDLE;					// Current state of this enemy
+	private Vector3 movementWaypoint;									// This waypoint gets set by the AI component
+	private bool waypointSet = false;									// indicates if we need to set a new waypoint
+	private GameEntity targetedEntity = null;							// Entity that has been targeted for combat
+	private bool attacking = false;										// indicates if this enemy is attacking
 
 	public Enemy(
-		string name, 
-		List<EnemyComponent> components,
-		AIComponent intel)
+		List<EnemyBehavior> components,
+		AIBehavior intel) : base()
 	{
-		this.name = name;
 		enemyComponents = components;
 		intelComponent = intel;
+		collisionBehaviors = new List<CollisionBehavior>();
 	}
 
 	//
@@ -39,7 +40,7 @@ public class Enemy : GameEntity
 	// Update()
 	// Update is called once per frame
 	//
-	new public void Update()
+	public override void Update()
 	{
 		base.Update();
 		// All of our components define the behavior for this specefic enemy
@@ -51,48 +52,34 @@ public class Enemy : GameEntity
 		// The AI comp. has to act first and make a decision
 		intelComponent.Act();
 
-		// Then all of our components react accordingly
-		animator.SetInteger("AnimState", 0);
-
-		foreach (EnemyComponent component in enemyComponents)
+		foreach (EnemyBehavior component in enemyComponents)
 		{
 			component.Act();
 		}
 	}
 
-	//
-	// getHealth()/setHealth()
-	// Used to access and modify the current health of this enemy
-	//
-	public int Health
+	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		get
+		// We execute every collision behavor belonging to this object
+		foreach(CollisionBehavior behavior in collisionBehaviors)
 		{
-			return health;
-		}
-		set
-		{
-			health = value;
+			behavior.SetCollision(collision);
+			behavior.Act();
 		}
 	}
 
-	//
-	// getHealth()/setHealth()
-	// Used by components to set the state of this object
-	//
-	public EnemyState State
+	public void OnDamage(float damageAmount)
 	{
-		get
-		{
-			return currentState;
-		}
-		set
-		{
-			currentState = value;
-		}
+		// The single health behavior belonging to this object is executed
+		healthBehavior.SetDamage(damageAmount);
+		healthBehavior.Act();
 	}
 
+	public int Health { get => health; set => health = value; }
+	public EnemyState State { get => currentState; set => currentState = value; }
 	public GameEntity TargetedEntity { get => targetedEntity; set => targetedEntity = value; }
 	public bool WaypointSet { get => waypointSet; set => waypointSet = value; }
 	public Vector3 MovementWaypoint { get => movementWaypoint; set => movementWaypoint = value; }
+	public GameObject Player { get => player; }
+	public bool Attacking { get => attacking; set => attacking = value; }
 }
