@@ -4,7 +4,7 @@ using UnityEngine;
 
 abstract public class EnemyBehavior : MonoBehaviour
 {
-	private Enemy parentEntity = null;		// the object where this behavior is added to
+	[SerializeField] private Enemy parentEntity = null;		// the object where this behavior is added to
 
 	public EnemyBehavior(Enemy gameEntity)
 	{

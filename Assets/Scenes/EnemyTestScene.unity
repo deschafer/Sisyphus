@@ -194,38 +194,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d, type: 3}
---- !u!1 &209312873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6231233622271382072, guid: 7d1a489c70f992645ac7ce625ba2973b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6231233623505928478}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &209312874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209312873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f7b37e7fe8b0445a29220304e9526c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentEntity: {fileID: 209312880}
-  damageRatio: 1
---- !u!114 &209312880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6231233623505928478}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209312873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a9e251e0e8afc54e8ad647973f9740f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &224234817
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,15 +325,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1066846763}
     - target: {fileID: 6231233622271382071, guid: 7d1a489c70f992645ac7ce625ba2973b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.33
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 6231233622271382071, guid: 7d1a489c70f992645ac7ce625ba2973b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.53
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 6231233622271382071, guid: 7d1a489c70f992645ac7ce625ba2973b,
         type: 3}
@@ -412,16 +385,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1066846763}
-    - target: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
-        type: 3}
-      propertyPath: healthBehavior
-      value: 
-      objectReference: {fileID: 209312874}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d1a489c70f992645ac7ce625ba2973b, type: 3}
 --- !u!1001 &7520270262891953055
