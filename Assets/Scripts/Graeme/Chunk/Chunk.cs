@@ -1,17 +1,17 @@
-﻿using UnityEngine;
+﻿public class Chunk {
 
-public class Chunk {
-
-	public const int CHUNK_WIDTH = 32;
-	public const int CHUNK_HEIGHT = 32;
+	public const int CHUNK_SIZE = 32;
 
     private BiomeBase biome;
+	public int[,] grid;
 
-	//REMOVE THIS
-	public int[,] tempGrid;
-
-    public Chunk(int[,] grid) {
-		tempGrid = grid;
+    public Chunk(int[,] grid, BiomeBase biome) {
+		this.grid = grid;
+		this.biome = biome;
     }
+
+	public BiomeBase getBiome() {
+		return this.biome;
+	}
 
 }
