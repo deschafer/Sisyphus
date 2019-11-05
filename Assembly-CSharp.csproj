@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Damon\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyDeath.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\HealthBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
