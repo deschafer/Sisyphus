@@ -130,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 11659349}
   - component: {fileID: 11659350}
-  - component: {fileID: 11659351}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -157,22 +156,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -380, y: 293}
+  m_AnchoredPosition: {x: -367, y: 260.3}
   m_SizeDelta: {x: 500, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11659350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11659348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca90c5370d9d8447a58287595db3191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11659351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -618,7 +605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -549.99994, y: 264.7}
+  m_AnchoredPosition: {x: -536.99994, y: 232.00002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831259100
@@ -726,7 +713,6 @@ GameObject:
   - component: {fileID: 861388378}
   - component: {fileID: 861388380}
   - component: {fileID: 861388379}
-  - component: {fileID: 7271943254540681071}
   m_Layer: 0
   m_Name: TopLayer
   m_TagString: Untagged
@@ -1154,7 +1140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -209.99997, y: 264.7}
+  m_AnchoredPosition: {x: -197, y: 232}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787076119
@@ -1352,15 +1338,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d, type: 3}
---- !u!114 &7271943254540681071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861388377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca90c5370d9d8447a58287595db3191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
