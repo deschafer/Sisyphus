@@ -21,7 +21,7 @@ public class EnemyDeath : EnemyBehavior
 	public override bool Act()
 	{
 		// just to test the death for now
-		if(Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			ParentEntity.State = Enemy.EnemyState.DEAD;
 		}
@@ -36,11 +36,15 @@ public class EnemyDeath : EnemyBehavior
 		timer += Time.deltaTime;
 		if (timer >= despawnTime)
 		{
+			// remove the object from the list
+			EnemyManager.GetInstance().RemoveEnemy(ParentEntity.gameObject);
+
 			// then we despawn the object
 			Destroy(ParentEntity.gameObject);
+
+			// reset our timer
 			timer = 0;
 		}
-
 		return true;
 	}
 }

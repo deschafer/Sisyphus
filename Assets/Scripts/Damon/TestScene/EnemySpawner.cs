@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 	{
 		if (count++ < numberEnemies)
 		{
-			EnemyFactory.getInstance().Create(new Vector2(60, 10), "LightBandit");
+			EnemyFactory.GetInstance().Create(new Vector2(60, 10), "LightBandit");
 		}
 	}
 }
