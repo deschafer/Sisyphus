@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	EnemyFactory
+	
+	Author: Damon Schafer
+	Purpose: This class follows Factory and Singleton design patterns. It stores registered GameObjects,
+		and this class is the correct way to programitcally create new enemies in the game.
+*/
 public class EnemyFactory
 {
 	public static EnemyFactory instance;								// singleton instance reference
@@ -9,6 +16,12 @@ public class EnemyFactory
 	public List<GameObject> storedEnemyPrefabs;							// used to store the prefabs for the registered enemies
 	private static readonly object mutex = new object();                // used for locking and mutual exclusion
 
+	/*
+		EnemyFactory
+
+		Purpose: The default constructor of this object. It initializes the data structures, and 
+			the object registers the prefabs.
+	*/
 	private EnemyFactory()
 	{
 		storedEnemyPrefabKeys = new SortedDictionary<string, int>();
@@ -19,6 +32,13 @@ public class EnemyFactory
 		RegisterEnemy("DarkBandit", "DarkBandit");
 ;	}
 
+	/*
+		GetInstance
+
+		Returns: the active instance of this singleton object
+		Purpose: This gets the active instance, and if it has not already been set, creates
+			a new EnemyFactory and sets the instance.
+	*/
 	public static EnemyFactory GetInstance()
 	{
 		lock (mutex)
@@ -29,6 +49,14 @@ public class EnemyFactory
 		}
 	}
 
+	/*
+		RegisterEnemy
+
+		Parameters:
+		Returns: the active instance of this singleton object
+		Purpose: This gets the active instance, and if it has not already been set, creates
+			a new EnemyFactory and sets the instance.
+	*/
 	public void RegisterEnemy(GameObject prefab, string enemyName)
 	{
 		lock (mutex)
