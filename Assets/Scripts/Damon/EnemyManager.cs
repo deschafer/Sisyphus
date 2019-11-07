@@ -2,17 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	EnemyManager
+	
+	Author: Damon Schafer
+	Purpose: Provides a class that contains references to all active enemies in the game
+*/
 class EnemyManager
 {
 	private static EnemyManager instance;
 	private List<GameObject> activeEnemies;                      // contains the active and alive enemies
-	private static readonly object mutex = new object();        // used for locking and mutual exclusion
+	private static readonly object mutex = new object();         // used for locking and mutual exclusion
 
+
+	/*
+		EnemyManager
+
+		Purpose: Creates a new EnemyManager object, private to enforce singleton
+	*/
 	private EnemyManager()
 	{
 		activeEnemies = new List<GameObject>();
 	}
 
+	/*
+		GetInstance
+
+		Returns: the active instance of this singleton object
+		Purpose: This gets the active instance, and if it has not already been set, creates
+			a new EnemyFactory and sets the instance.
+	*/
 	public static EnemyManager GetInstance()
 	{
 		lock (mutex)
@@ -23,6 +42,12 @@ class EnemyManager
 		}
 	}
 
+	/*
+		AddEnemy
+
+		Parameters: The object to be added to the list of active enemies
+		Purpose: Adds a new enemy to the list of active enemies
+	*/
 	public void AddEnemy(GameObject enemy)
 	{
 		lock (mutex)
@@ -31,6 +56,12 @@ class EnemyManager
 		}
 	}
 
+	/*
+		AddEnemy
+
+		Parameters: The object to be removed to the list of active enemies
+		Purpose: Removes a new enemy to the list of active enemies
+	*/
 	public void RemoveEnemy(GameObject enemy)
 	{
 		lock (mutex)

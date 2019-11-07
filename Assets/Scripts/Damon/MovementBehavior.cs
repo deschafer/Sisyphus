@@ -2,20 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	MovementBehavior
+	
+	Author: Damon Schafer
+	Purpose: This class provides a base class for all MovementBehaviors
+*/
 public class MovementBehavior : EnemyBehavior
 {
+	/*
+		MovementBehavior
+
+		Parameters: Takes an enemy reference of the object that owns this behavior
+		Purpose: Creates a new MovementBehavior and calls the super class' constructor
+	*/
 	public MovementBehavior(Enemy entity) :
 		  base(entity)
 	{
 	}
 
-	// Start is called before the first frame update
-	void Start()
-	{
-	}
+	/*
+		Act
 
-	// Base form of this function
-	// Will check if we can move at all in the first place
+		Returns: True if any following derived classes should be executed, and false if they should return
+		Purpose: Executes this behavior
+	*/
 	public override bool Act()
 	{
 		// Needs to check if the enemy is in a moving state

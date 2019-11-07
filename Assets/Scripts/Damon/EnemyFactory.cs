@@ -52,10 +52,8 @@ public class EnemyFactory
 	/*
 		RegisterEnemy
 
-		Parameters:
-		Returns: the active instance of this singleton object
-		Purpose: This gets the active instance, and if it has not already been set, creates
-			a new EnemyFactory and sets the instance.
+		Parameters: The prefab to register, the name of this object to be stored under
+		Purpose: Adds a new registered prefab to this factory object
 	*/
 	public void RegisterEnemy(GameObject prefab, string enemyName)
 	{
@@ -66,12 +64,24 @@ public class EnemyFactory
 		}
 	}
 
+	/*
+		RegisterEnemy
+
+		Parameters: the path of the prefab in the resources directory, the name of this enemy to be stored under
+		Purpose: Adds a new registered prefab to this factory object
+	*/
 	public void RegisterEnemy(string prefab, string enemyName)
 	{
 		GameObject gameObject = (GameObject)Resources.Load(prefab, typeof(GameObject));
 		RegisterEnemy(gameObject, enemyName);
 	}
 
+	/*
+		Create
+
+		Parameters: the position where the new GameObject should be set to, the name of the enemy to be created
+		Purpose: Creates a new GameObject of the given name at the given location
+	*/
 	public void Create(Vector2 position, string enemyName)
 	{
 		lock (mutex)
@@ -95,6 +105,12 @@ public class EnemyFactory
 		}
 	}
 
+	/*
+		Create
+
+		Parameters: the position where the new GameObject should be set to
+		Purpose: Creates a new random GameObject of the registered types at the given location
+	*/
 	public void Create(Vector2 position)
 	{
 		lock (mutex)
