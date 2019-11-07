@@ -79,6 +79,21 @@ public abstract class GameEntity : MonoBehaviour
 	}
 
 	/*
+		setVelocity
+
+		Purpose: Sets the velocity of this object to the given velocity, and it normalizes
+			it to the max speed of this object.
+	*/
+	public void setVelocity(Vector2 newVelocity)
+	{
+		Vector2 velocity = newVelocity;
+		velocity.Normalize();
+		velocity = velocity * maxSpeed;
+
+		rigidbody2D.velocity = velocity;
+	}
+
+	/*
 		Jump
 
 		Purpose: If the current object is grounded, then a jump force is added to the object
