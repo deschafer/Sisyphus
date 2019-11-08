@@ -7,6 +7,8 @@ public class EagleIntelligence : BanditIntelligence
 
 	private float altitude = 3.0f;
 	private bool sweepingWaypointSet = false;
+	private float noticePlayerTime = 10.0f;
+	private float noticePlayerTimer = 0.0f;
 
 	/*
 		EagleIntelligence
@@ -22,13 +24,17 @@ public class EagleIntelligence : BanditIntelligence
 	/*
 		Start
 
-		Purpose: initializes our timer before this object is used
+		Purpose: initializes data prior to this object's usage
 	*/
 	void Start()
 	{
 		ParentEntity.State = Enemy.EnemyState.IDLE;
 		ParentEntity.Health = 80;
 		altitude = 10.0f;
+
+		noticePlayerTime = 10.0f;
+		noticePlayerTimer = noticePlayerTime;
+		patrolRadius = 30;
 	}
 
 	/*
@@ -42,29 +48,50 @@ public class EagleIntelligence : BanditIntelligence
 	*/
 	public override bool Act()
 	{
-		if (!base.Act())
-		{
-			return false;
-		}
+		// add to our timer each instance
+		noticePlayerTimer += Time.deltaTime;
 
 		// This is where this component will determine exactly what its parent
 		// object does.
 
+		// if we are attacking the player
 		if(ParentEntity.State == Enemy.EnemyState.ATTACKING)
 		{
 			// then we set the waypoint as the 
 			if(!sweepingWaypointSet)
 			{
-				// set the waypoint as the players position
-				base.Combat();
+				SetWaypointOnPlayer();
+
+				// our sweeping waypoint has been set
 				sweepingWaypointSet = true;
 			}
 			else
 			{
-				if(IsWaypointReached())
+				// track the players movement
+				SetWaypointOnPlayer();
+
+				// if the eagle has hit its waypoint
+				if (IsWaypointReached())
 				{
-					// Then we need to reset
-					Debug.Log("Reset");
+					// we need to set a new waypoint directly up
+					Vector2 newWaypoint = ParentEntity.transform.position;
+					newWaypoint.y = altitude;
+
+					// and set this as the parentEntity's movement waypoint.
+					ParentEntity.MovementWaypoint = newWaypoint;
+					ParentEntity.WaypointSet = true;
+
+					// also change the state
+					ParentEntity.State = Enemy.EnemyState.PATROL;
+
+					// and set the sweeping waypoint as false
+					sweepingWaypointSet = false;
+
+					// then we need to set a timer until the player is visible again
+					noticePlayerTimer = 0.0f;
+
+					// set the player as not visible anymore
+					playerVisible = false;
 				}
 			}
 
@@ -80,7 +107,7 @@ public class EagleIntelligence : BanditIntelligence
 
 			// now we check if we have reached our new waypoint, 
 			// this would mean we are directly above the enemy
-			if(IsWaypointReached())
+			if (IsWaypointReached())
 			{
 				Debug.Log("Enemy is above player");
 
@@ -149,6 +176,54 @@ public class EagleIntelligence : BanditIntelligence
 		// We set a new waypoint at the player's position,
 		Vector2 playerPos = ParentEntity.Player.transform.position;
 		playerPos.y = altitude;
+
+		// and set this as the parentEntity's movement waypoint.
+		ParentEntity.MovementWaypoint = playerPos;
+		ParentEntity.WaypointSet = true;
+	}
+
+	/*
+		IsWaypointReached
+
+		Returns: true if the waypoint has been reached, false otherwise
+		Purpose: Used to determine if an enemy has reached its set waypoint
+	*/
+	protected override bool IsWaypointReached()
+	{
+		// check if we are close enough to the actual waypoint
+		Vector2 distance = ParentEntity.MovementWaypoint - ParentEntity.transform.position;
+
+		// if this distance is sufficiently small enough
+		if (distance.magnitude <= 0.5f)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	/*
+		IsPlayerVisible
+
+		Returns: true if the waypoint has been reached, false otherwise
+		Purpose: Used to determine if an enemy has reached its set waypoint
+	*/
+	protected override bool IsPlayerVisible()
+	{
+		if (noticePlayerTimer >= noticePlayerTime)
+		{
+			return base.IsPlayerVisible();
+		}
+		else return false;
+	}
+
+	private void SetWaypointOnPlayer()
+	{
+		// set the waypoint as the players position
+		Vector2 playerPos = ParentEntity.Player.transform.position;
+
+		// set this at the top of the player, so add its height
+		playerPos.y += ParentEntity.Player.GetComponent<BoxCollider2D>().bounds.size.y - 1.0f;
 
 		// and set this as the parentEntity's movement waypoint.
 		ParentEntity.MovementWaypoint = playerPos;

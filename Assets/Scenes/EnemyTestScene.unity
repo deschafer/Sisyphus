@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 2407089093283865652, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 818179052}
   m_Layer: 0
   m_Name: Eagle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818179047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.04, y: 2.6477153, z: 0}
+  m_LocalPosition: {x: 52.9, y: 2.6477153, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}

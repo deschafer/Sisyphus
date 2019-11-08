@@ -24,7 +24,7 @@ public class EagleMovement : MovementBehavior
 	*/
 	void Start()
 	{
-		ParentEntity.MaxSpeed = 10;
+		ParentEntity.MaxSpeed = 20;
 		ParentEntity.MaxHorizontalSpeed = 10;
 	}
 
@@ -48,14 +48,25 @@ public class EagleMovement : MovementBehavior
 		Vector2 currentPosition = ParentEntity.transform.position;
 		Vector2 waypoint = ParentEntity.MovementWaypoint;
 
-		// we need to set y and x here
+		// find the difference vector
+		Vector2 difference = waypoint - currentPosition;
 
-		// just standardize the difference vector by our max speed
-		// add velocity to gameEntity
-		ParentEntity.setVelocity(waypoint - currentPosition);
-
-
+		// Swap direction of sprite depending on walk direction
 		
+
+		// if we are sufficiently far enough
+		if (difference.magnitude > 0.5f)
+		{
+			// rotate the entity based on position
+			if (ParentEntity.Rigidbody2D.velocity.x < 0)
+				transform.localScale = new Vector3(10.0f, 10.0f, 10.0f);
+			else if (ParentEntity.Rigidbody2D.velocity.x > 0)
+				transform.localScale = new Vector3(-10.0f, 10.0f, 10.0f);
+
+			ParentEntity.setVelocity(waypoint - currentPosition);
+		}
+		else
+			ParentEntity.setVelocity(new Vector2(0, 0));
 
 		return true;
 	}
