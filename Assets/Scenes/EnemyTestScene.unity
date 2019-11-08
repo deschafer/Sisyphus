@@ -140,17 +140,17 @@ PrefabInstance:
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.73
+      value: 37.7
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.51
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.23
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
@@ -195,7 +195,12 @@ PrefabInstance:
     - target: {fileID: 2407089093283865660, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407089093283865659, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d, type: 3}
@@ -466,7 +471,7 @@ MonoBehaviour:
   intelComponent: {fileID: 818179053}
   collisionBehaviors:
   - {fileID: 818179054}
-  player: {fileID: 0}
+  player: {fileID: 1066846763}
   healthBehavior: {fileID: 0}
 --- !u!61 &818179056
 BoxCollider2D:
