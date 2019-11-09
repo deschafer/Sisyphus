@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class BiomeBase {
-    
-    public BiomeBase() {
 
-    }
+	public GameObject top;
+	public GameObject fill;
+	public GameObject platform;
+
+	protected float frequency;
+
+	public abstract Chunk decorate();
 
 }

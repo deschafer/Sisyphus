@@ -2,30 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	BanditAttack
+	
+	Author: Damon Schafer
+	Purpose: The class added to the Enemy to provide attack behavior
+*/
 public class BanditAttack : AttackBehavior
 {
-	private float timer = 0;
-	private const float attackTime = 1;
-	private const float attackDistance = 4.5f;
+	private float timer = 0;					// the float timer used to keep track of time passed
+	private const float attackTime = 1;			// the time needed between attacks
+	private const float attackDistance = 4.5f;  // the distance that this object must be within to attack
 
+	/*
+		BanditAttack
+
+		Parameters: The parent entity (Enemy) for which this behavior belongs to 
+		Purpose: creates a new BanditAttack, initializes the super class
+	*/
 	public BanditAttack(Enemy enemy) : 
 		base(enemy)
 	{
-
 	}
 
-	// Start is called before the first frame update
+	/*
+		Start
+
+		Purpose: initializes our timer before this object is used
+	*/
 	public void Start()
     {
 		timer = 0;
     }
 
-	// Update is called once per frame
-	public void Update()
-    {
-        
-    }
+	/*
+		Act
 
+		Returns: true: Any additional derived Act methods can be executed. False: the
+			derived act methods should not be executed.
+		Purpose: This is the main method where this behavior modifies its parent. This should
+			be overridden for each base class, and the value of the super Act() methods needs to be 
+			true for the derived class to execute. This keeps track of the timer, and if the player is
+			close enough, attacks the player
+	*/
 	public override bool Act()
 	{
 		if(!base.Act())
@@ -33,8 +52,10 @@ public class BanditAttack : AttackBehavior
 			return false;
 		}
 
+		// add the elapsed time from the last frame
 		timer += Time.deltaTime;
 
+		// if we are not attacking
 		if(!ParentEntity.Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
 		{
 			ParentEntity.Attacking = false;
@@ -55,6 +76,12 @@ public class BanditAttack : AttackBehavior
 		return true;
 	}
 
+	/*
+		Attack
+
+		Purpose: If enough time has passed, this method resets our timer, sets the
+			current animation as the attack animation, and attacks the player
+	*/
 	private void Attack()
 	{
 		// if enough time has passed since the last attack
@@ -70,6 +97,8 @@ public class BanditAttack : AttackBehavior
 			Debug.Log("Attacked player");
 
 			ParentEntity.Attacking = true;
+
+			// TODO: add the method that actually damages the player
 		}
 	}
 }
