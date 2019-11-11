@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\HealthBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\MapEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\TestScene\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Damon\TestScene\TestScene.cs" />

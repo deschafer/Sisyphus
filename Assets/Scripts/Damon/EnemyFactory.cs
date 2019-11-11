@@ -30,6 +30,7 @@ public class EnemyFactory
 		// We register the enemies used
 		RegisterEnemy("LightBandit", "LightBandit");
 		RegisterEnemy("DarkBandit", "DarkBandit");
+		RegisterEnemy("Eagle", "Eagle");
 ;	}
 
 	/*
