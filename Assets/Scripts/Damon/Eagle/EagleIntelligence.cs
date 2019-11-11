@@ -48,6 +48,11 @@ public class EagleIntelligence : BanditIntelligence
 	*/
 	public override bool Act()
 	{
+		if(ParentEntity.State == Enemy.EnemyState.DEAD)
+		{
+			return false;
+		}
+
 		// add to our timer each instance
 		noticePlayerTimer += Time.deltaTime;
 
@@ -217,6 +222,11 @@ public class EagleIntelligence : BanditIntelligence
 		else return false;
 	}
 
+	/*
+		SetWaypointOnPlayer
+
+		Purpose: Sets the current movement waypoint at the player's current position
+	*/
 	private void SetWaypointOnPlayer()
 	{
 		// set the waypoint as the players position

@@ -46,11 +46,6 @@ public class EnemyDeath : EnemyBehavior
 	*/
 	public override bool Act()
 	{
-		// just to test the death for now
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			ParentEntity.State = Enemy.EnemyState.DEAD;
-		}
 
 		// if the enemy's health is too low
 		if(ParentEntity.Health <= 0)

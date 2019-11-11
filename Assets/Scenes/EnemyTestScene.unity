@@ -304,6 +304,9 @@ GameObject:
   - component: {fileID: 818179054}
   - component: {fileID: 818179053}
   - component: {fileID: 818179052}
+  - component: {fileID: 818179057}
+  - component: {fileID: 818179059}
+  - component: {fileID: 818179058}
   m_Layer: 0
   m_Name: Eagle
   m_TagString: Enemy
@@ -468,11 +471,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyComponents:
   - {fileID: 818179052}
+  - {fileID: 818179057}
+  - {fileID: 818179059}
   intelComponent: {fileID: 818179053}
   collisionBehaviors:
   - {fileID: 818179054}
   player: {fileID: 1066846763}
-  healthBehavior: {fileID: 0}
+  healthBehavior: {fileID: 818179058}
 --- !u!61 &818179056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -499,6 +504,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.39}
   m_EdgeRadius: 0
+--- !u!114 &818179057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818179047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689be3594b233bb4482a4766ae7efdb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 818179055}
+--- !u!114 &818179058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818179047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f7b37e7fe8b0445a29220304e9526c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 818179055}
+  damageRatio: 1.5
+--- !u!114 &818179059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818179047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 818179055}
+  attackTime: 5
+  attackDistance: 3
 --- !u!1 &1066846763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2407089093283865652, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
@@ -678,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 7520270263047635738, guid: 3b76d199d8c522b489563d1ae8b0d934,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7520270263047635736, guid: 3b76d199d8c522b489563d1ae8b0d934,
         type: 3}

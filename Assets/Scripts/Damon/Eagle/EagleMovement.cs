@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EagleMovement : MovementBehavior
 {
-	private float height = 0;
 
 	/*
 		BanditMovement

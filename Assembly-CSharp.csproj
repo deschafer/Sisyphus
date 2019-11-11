@@ -66,13 +66,14 @@
     <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\Bandit\BanditAnimation.cs" />
-    <Compile Include="Assets\Scripts\Damon\Bandit\BanditAttack.cs" />
     <Compile Include="Assets\Scripts\Damon\Bandit\BanditIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\Bandit\BanditMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\Eagle\EagleDeath.cs" />
     <Compile Include="Assets\Scripts\Damon\Eagle\EagleIntelligence.cs" />
     <Compile Include="Assets\Scripts\Damon\Eagle\EagleMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyDeath.cs" />
