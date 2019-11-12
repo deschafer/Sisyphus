@@ -2,27 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	MapEnemySpawner
+	
+	Author: Damon Schafer
+	Purpose: This object is responsible for spawning enemies periodically 
+	as the player moves through the map
+*/
 public class MapEnemySpawner : MonoBehaviour
 {
-	private float enemySpawnTimer = 0;
-	private float enemySpawnTime = 5.0f;
-	private const float spawnY = 3.0f;
-	private Vector2 lastPlayerPosition = new Vector2(0,0);
-	private float distanceToSpawn = 32.0f;
-	private GameObject player;
-	private float offset = 5.0f;
+	private float enemySpawnTimer = 0;						// Timer used to keep track of spawns
+	private float enemySpawnTime = 5.0f;					// time needed to spawn
+	private const float spawnY = 3.0f;						// y coord of where enemies are spawned
+	private Vector2 lastPlayerPosition = new Vector2(0,0);	// used to compare with the last spawn area 
+	private float distanceToSpawn = 32.0f;					// the distance the player must travel between spawns
+	private GameObject player;								// reference to the player
+	private float offset = 5.0f;							// amount of possible difference in the x-coordinate for spawns.
 
+	/*
+		Start
 
-	// Start is called before the first frame update
+		Purpose: Initialize the object, called prior to Update
+	*/
 	void Start()
 	{
 		enemySpawnTimer = 0;
 		enemySpawnTime = 5.0f;
 		player = GameObject.FindGameObjectWithTag("Player");
-
 	}
 
-	// Update is called once per frame
+	/*
+		Update
+
+		Purpose: spawns in a number of new enemies if enough time has passed and the player
+			has covered enough distance.
+	*/
 	void Update()
 	{
 		enemySpawnTimer += Time.deltaTime;
