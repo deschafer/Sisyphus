@@ -10,10 +10,10 @@ using UnityEngine;
 */
 public class BanditIntelligence : AIBehavior
 {
-	private const int patrolRadius = 20;		// the max radius of where a movement waypoint can be set from the spawnposition
-	private bool playerVisible = false;			// flag indicating if the player is visible and detected
-	private Vector2 movementWaypointOrigin;     // The position of the parent entity when a waypoint was chosen
-	private const int attackRadius = 20;
+	protected int patrolRadius = 20;      // the max radius of where a movement waypoint can be set from the spawnposition
+	protected bool playerVisible = false;           // flag indicating if the player is visible and detected
+	protected Vector2 movementWaypointOrigin;     // The position of the parent entity when a waypoint was chosen
+	protected const int attackRadius = 20;
 
 	/*
 		BanditIntelligence
@@ -104,7 +104,7 @@ public class BanditIntelligence : AIBehavior
 
 		Purpose: Places a new waypoint a certain distance from this enemy's spawn location
 	*/
-	private void PlaceWaypoint()
+	protected virtual void PlaceWaypoint()
 	{
 		// We place a movement waypoint based off the spawn position
 		// so get the spawn position
@@ -133,7 +133,7 @@ public class BanditIntelligence : AIBehavior
 
 		Purpose: Places a new waypoint at the player's position
 	*/
-	private void Combat()
+	protected virtual void Combat()
 	{
 		// We set a new waypoint at the player's position,
 		Vector2 playerPos = ParentEntity.Player.transform.position;
@@ -149,7 +149,7 @@ public class BanditIntelligence : AIBehavior
 		Returns: true if the waypoint has been reached, false otherwise
 		Purpose: Used to determine if an enemy has reached its set waypoint
 	*/
-	private bool IsWaypointReached()
+	protected virtual bool IsWaypointReached()
 	{
 		// if we were on the left of the origin poisition, then we check if we are on the left of the waypoint
 		if (ParentEntity.transform.position.x < movementWaypointOrigin.x &&
@@ -174,7 +174,7 @@ public class BanditIntelligence : AIBehavior
 		Returns: true if the waypoint has been reached, false otherwise
 		Purpose: Used to determine if an enemy has reached its set waypoint
 	*/
-	private bool IsPlayerVisible()
+	protected virtual bool IsPlayerVisible()
 	{
 		// If there is no player
 		if (!ParentEntity.Player)
@@ -190,7 +190,6 @@ public class BanditIntelligence : AIBehavior
 		// If the player is close enough
 		if (difference.magnitude < attackRadius)
 		{
-			Debug.Log("Player is visible");
 			playerVisible = true;
 			return true;
 		}

@@ -16,7 +16,7 @@ using UnityEngine;
  */
 public class TestPowerUpMessages : MonoBehaviour
 {
-    private PowerUpTimer timer;
+    private TimeOut timer;
     private int type;
     private float TimerActive = 0.0f;
     public float timepassed = 30.0f;
@@ -25,7 +25,7 @@ public class TestPowerUpMessages : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = FindObjectOfType<PowerUpTimer>(); //connect the object to the outside timer
+        timer = FindObjectOfType<TimeOut>(); //connect the object to the outside timer
         type = 0;
 }
 
@@ -34,7 +34,7 @@ public class TestPowerUpMessages : MonoBehaviour
     {
         if (timepassed > 0.0f)
         {
-            timepassed -= Time.deltaTime;
+           /* timepassed -= Time.deltaTime;
             timer.ChangeAmount(type, 1); //add the amount of health boost
                                          //Debug.Log("You changed the inital amount +10");
             timer.type = type; //tell the timer what type of powerup it is
@@ -42,7 +42,7 @@ public class TestPowerUpMessages : MonoBehaviour
             if (timer.playerstats.health > 100)
             {
                 failed = 1;
-            }
+            }*/
         }
         else
         {
