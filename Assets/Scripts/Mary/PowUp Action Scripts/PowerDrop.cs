@@ -25,6 +25,8 @@ public class PowerDrop : PowerUpAction
      */
     public override void PowerAction(int type)
     {
+        //First, play the sound.
+        twang.Play();
 
         if (type == 0)//These check type, then change by the amount
         {
