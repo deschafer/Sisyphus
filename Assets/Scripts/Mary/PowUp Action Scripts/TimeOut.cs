@@ -8,6 +8,7 @@ using UnityEngine;
  */
 public class TimeOut : PowerUpAction
 {
+   
     //The amountSeconds variable determines how long the PowerUp is Active
     private float amountSeconds = 10f;
     //The timerActive variable helps start and stop the timer. 
@@ -78,6 +79,10 @@ public class TimeOut : PowerUpAction
      */
     public override void PowerAction(int type)
     {
+        //First, play the sound.
+        twang.Play();
+
+        //set the timer to the seconds amount specified.
         timerActive = amountSeconds;
         if (type == 0)
             amount = MAXHEALTH - playerstats.health;
@@ -95,6 +100,7 @@ public class TimeOut : PowerUpAction
             // playerstats.jump += amount;
         }
 
+        //implement the change with ChangeAmount
         ChangeAmount(type, amount);
     }
     /*

@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerDrop.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerUpAction.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\TimeOut.cs" />
+    <Compile Include="Assets\Scripts\Mary\Prefab Documentation.cs" />
     <Compile Include="Assets\Scripts\Mary\Test Scripts\TestPowerUpMessages.cs" />
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
