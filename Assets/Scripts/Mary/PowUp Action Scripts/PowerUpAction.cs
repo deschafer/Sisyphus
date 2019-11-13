@@ -19,11 +19,14 @@ public class PowerUpAction : MonoBehaviour
     public float amount;
     //The constants here represent the boundaries for player stats.
     public float MAXHEALTH = 100f;
+    //This is the audio clip that is played when the powerup is collided with.
+    public AudioSource twang;
+
     /*
      *      The PowerAction function takes in the type and then
      *      determines what the PowerUp will do. It is implemented 
      *      in the subclasses.
-     */ 
+     */
     public virtual void PowerAction(int type)
     {
 
