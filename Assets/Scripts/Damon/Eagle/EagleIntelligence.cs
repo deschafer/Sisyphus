@@ -6,6 +6,7 @@ public class EagleIntelligence : BanditIntelligence
 {
 
 	private float altitude = 3.0f;
+	private float altitudeVariation = 1.0f;
 	private bool sweepingWaypointSet = false;
 	private float noticePlayerTime = 10.0f;
 	private float noticePlayerTimer = 0.0f;
@@ -48,6 +49,11 @@ public class EagleIntelligence : BanditIntelligence
 	*/
 	public override bool Act()
 	{
+		if(ParentEntity.State == Enemy.EnemyState.DEAD)
+		{
+			return false;
+		}
+
 		// add to our timer each instance
 		noticePlayerTimer += Time.deltaTime;
 
@@ -75,7 +81,7 @@ public class EagleIntelligence : BanditIntelligence
 				{
 					// we need to set a new waypoint directly up
 					Vector2 newWaypoint = ParentEntity.transform.position;
-					newWaypoint.y = altitude;
+					newWaypoint.y = altitude + Random.Range(0, altitudeVariation);
 
 					// and set this as the parentEntity's movement waypoint.
 					ParentEntity.MovementWaypoint = newWaypoint;
@@ -217,6 +223,11 @@ public class EagleIntelligence : BanditIntelligence
 		else return false;
 	}
 
+	/*
+		SetWaypointOnPlayer
+
+		Purpose: Sets the current movement waypoint at the player's current position
+	*/
 	private void SetWaypointOnPlayer()
 	{
 		// set the waypoint as the players position
