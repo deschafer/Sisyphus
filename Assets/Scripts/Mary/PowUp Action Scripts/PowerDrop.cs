@@ -16,35 +16,30 @@ public class PowerDrop : PowerUpAction
      */
     void Start()
     {
-        playerstats = FindObjectOfType<PlayerHealth>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        otherPlayerStats = FindObjectOfType<PlayerControl>();
     }
 
     /*
      *      The overriden PowerAction takes in a type, then
      *      adds the specified amount to the player's stats. 
      */
-    public override void PowerAction(int type)
+    public override void PowerAction(int typeOfThing)
     {
         //First, play the sound.
         twang.Play();
+        type = typeOfThing;
 
         if (type == 0)//These check type, then change by the amount
         {
-            amount = (playerstats.health + addAmount);
-            /* if (amount >= MAXHEALTH)
-             {
-                 playerstats.health = MAXHEALTH;
-             }
-             else
-             {
-                 playerstats.health += addAmount;
-             }*/
-
-            playerstats.health = (amount < MAXHEALTH) ? (playerstats.health + addAmount) : MAXHEALTH;
+            amount = (playerHealth.health + addAmount);
+           
+            playerHealth.health = (amount < MAXHEALTH) ? (playerHealth.health + addAmount) : MAXHEALTH;
         }
-        if (type == 1)
+        if (type == 1)    
         {
-            //  playerstats.attack += amount;
+            amount = (otherPlayerStats.maxSpeed + addAmount);
+            otherPlayerStats.maxSpeed = (amount < MAXSPEED) ? (otherPlayerStats.maxSpeed + addAmount) : MAXSPEED;
         }
         if (type == 2)
         {
@@ -60,8 +55,16 @@ public class PowerDrop : PowerUpAction
      *      The setAmount method allows the amount of powerup
      *      increase to be changed. 
      */
-    public void SetAmount(int x)
+    public void SetAmount(float x)
     {
         addAmount = x;
+    }
+    /*
+     *      The GetAMount method returns the amount of powerup
+     *      increasye 
+     */
+    public float GetAmount()
+    {
+        return addAmount;
     }
 }

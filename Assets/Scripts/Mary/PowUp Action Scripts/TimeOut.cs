@@ -13,6 +13,8 @@ public class TimeOut : PowerUpAction
     private float amountSeconds = 10f;
     //The timerActive variable helps start and stop the timer. 
     private float timerActive = 0.0f;
+    //Flag for active PowerUp
+    private float powerUpInSession = 0;
 
     /*
      *      The ChangeAmount function takes in a type and an amount, and 
@@ -27,11 +29,13 @@ public class TimeOut : PowerUpAction
 
         if (type == 0)
         {
-            playerstats.health += amount;
+            playerHealth.health += amount;
         }
         if (type == 1)
         {
-            //  playerstats.attack += amount;
+            otherPlayerStats.maxSpeed += amount;
+            Debug.Log(amount);
+            Debug.Log("Changed amount back");
         }
         if (type == 2)
         {
@@ -49,7 +53,8 @@ public class TimeOut : PowerUpAction
      */
     void Start()
     {
-        playerstats = FindObjectOfType<PlayerHealth>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        otherPlayerStats = FindObjectOfType<PlayerControl>();
     }
 
    /*
@@ -65,9 +70,13 @@ public class TimeOut : PowerUpAction
             timerActive -= Time.deltaTime; //countdown
             if (timerActive <= 0) //if the timer has run out, reset everything
             {
-                amount = amount - 2*amount; //get the negative value for amount
+                Debug.Log("Timer Ran Out");
+                amount = -amount; //get the negative value for amount
+                Debug.Log("Changing amount back by:");
+                Debug.Log(amount);
                 ChangeAmount(type, amount); //change the stat back to the previous amount
                 timerActive = 0.0f; //reset the timer value to zero
+                powerUpInSession = 0;
             }
         }
     }
@@ -77,39 +86,57 @@ public class TimeOut : PowerUpAction
      *      the maximal stat amount for the player. It then uses
      *      the ChangeAmount function to implement this. 
      */
-    public override void PowerAction(int type)
+    public override void PowerAction(int typeOfThing)
     {
+        type = typeOfThing;
         //First, play the sound.
         twang.Play();
 
-        //set the timer to the seconds amount specified.
-        timerActive = amountSeconds;
-        if (type == 0)
-            amount = MAXHEALTH - playerstats.health;
+        //check to make sure there isn't already a PowerUp on. (If so, don't let another one happen).
+        if (powerUpInSession == 0)
+        {
+            //set flag
+            powerUpInSession = 1;
+            //set the timer to the seconds amount specified.
+            timerActive = amountSeconds;
 
-        if (type == 1)
-        {
-            //  playerstats.attack += amount;
-        }
-        if (type == 2)
-        {
-            // playerstats.speed+= amount;
-        }
-        if (type == 3)
-        {
-            // playerstats.jump += amount;
-        }
+            if (type == 0)
+                amount = MAXHEALTH - playerHealth.health;
 
-        //implement the change with ChangeAmount
-        ChangeAmount(type, amount);
+            if (type == 1)
+            {
+                //  playerstats.attack += amount;
+                amount = MAXSPEED - otherPlayerStats.maxSpeed;
+            }
+            if (type == 2)
+            {
+                // playerstats.speed+= amount;
+            }
+            if (type == 3)
+            {
+                // playerstats.jump += amount;
+            }
+
+            //implement the change with ChangeAmount
+            ChangeAmount(type, amount);
+        }
+       
     }
     /*
      *      The SetTime method allows the number of seconds of powerup
      *      activity to be changed. 
      */
-    public void SetTime(int x)
+    public void SetTime(float x)
     {
        amountSeconds = x;
+    }
+    /*
+     *      The GetTime method returns the number of seconds of powerup
+     *      activity. 
+     */
+    public float GetTime()
+    {
+        return amountSeconds;
     }
 }
 

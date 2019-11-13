@@ -11,14 +11,17 @@ using UnityEngine;
  */
 public class PowerUpAction : MonoBehaviour
 {
-    //The playerstats variable connects to the PlayerHealth (playermanager)
-    public PlayerHealth playerstats;
+    //The playerHealth variable connects to the PlayerHealth (playermanager)
+    public PlayerHealth playerHealth;
+    //The otherPlayerStats holds the other player stat values (speed, jump)
+    public PlayerControl otherPlayerStats;
     //This will be passed to the PowerAction function
     public int type;
     //Amount handles what will be added to the player's stats.
     public float amount;
     //The constants here represent the boundaries for player stats.
     public float MAXHEALTH = 100f;
+    public float MAXSPEED = 20f;
     //This is the audio clip that is played when the powerup is collided with.
     public AudioSource twang;
 
@@ -27,7 +30,7 @@ public class PowerUpAction : MonoBehaviour
      *      determines what the PowerUp will do. It is implemented 
      *      in the subclasses.
      */
-    public virtual void PowerAction(int type)
+    public virtual void PowerAction(int typeOfThing)
     {
 
     }

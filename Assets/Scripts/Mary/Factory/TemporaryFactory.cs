@@ -24,11 +24,11 @@ public class TemporaryFactory : PowerUpFactory
         if (type == 0)//These check type, then change by the amount
         {
             go.AddComponent<TempHealth>();
-            Debug.Log("Added Component");
+            
         }
         if (type == 1)
         {
-            //  playerstats.attack += amount;
+            go.AddComponent<TempSpeed>();
         }
         if (type == 2)
         {

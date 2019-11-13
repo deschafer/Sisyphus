@@ -98,18 +98,26 @@
     <Compile Include="Assets\Scripts\Mary\Factory\PowerUpFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\Factory\TemporaryFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermSpeed.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempSpeed.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerDrop.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerUpAction.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\TimeOut.cs" />
-    <Compile Include="Assets\Scripts\Mary\Prefab Documentation.cs" />
-    <Compile Include="Assets\Scripts\Mary\Test Scripts\TestPowerUpMessages.cs" />
+    <Compile Include="Assets\Scripts\Mary\PrefabDocumentation.cs" />
+    <Compile Include="Assets\Scripts\Mary\Test Scripts\Test_PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/Users/marze/Documents/GitHub/Sisyphus/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Users/marze/Documents/GitHub/Sisyphus/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/marze/Documents/GitHub/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -319,6 +327,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Users/marze/Documents/GitHub/Sisyphus/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.4f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

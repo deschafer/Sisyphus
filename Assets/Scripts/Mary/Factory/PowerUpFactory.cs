@@ -9,7 +9,7 @@ using UnityEngine;
  *      also implements the Factory method. 
  * 
  */
-public class PowerUpFactory : MonoBehaviour
+public abstract class PowerUpFactory : MonoBehaviour
 {
     //The prefabs are stored in an array (4 in each subclass)
     public GameObject[] prefab;

@@ -6,8 +6,16 @@ using UnityEngine;
  *      for the powerups generated during the game.
  */
 
-public sealed class PowerUpManager : MonoBehaviour
+public sealed class Test_PowerUpManager : MonoBehaviour
 {
+    //determines what test to run. 1= Overwhelmed boundary test. 2= Close to overwhelmed boundary test. 3= Stress test.
+    public int whichTest = 0;
+    //determines number of currentPowerUps made 
+    private int numPowerUps = 0;
+    //flag for initial PowerUp creation on near-Boundary test
+    private int createPowerUpFlag = 1;
+
+
     //The two factory classes attached to the Manager
     private TemporaryFactory tempFactory;
     private PermanentFactory permFactory;
@@ -44,17 +52,21 @@ public sealed class PowerUpManager : MonoBehaviour
         private float powerUpTimeGenerationStepUp = 1.0f;
 
 
+    //Testing variables
+        //Checks how many performace hits the system is taking
+        int numFramesSlow = 0;
+
     //Helps with singleton implementation
-    private static readonly PowerUpManager instance = new PowerUpManager();
+    private static readonly Test_PowerUpManager instance = new Test_PowerUpManager();
 
     //The one instance connector of the singleton 
-    public PowerUpManager thePowerUpBoss;
+    public Test_PowerUpManager thePowerUpBoss;
 
     /*
      *      The Constructor for the PowerUpManager class
      *      is private because it is a singleton.
      */
-    private PowerUpManager() { }
+    private Test_PowerUpManager() { }
     
    
 
@@ -64,6 +76,7 @@ public sealed class PowerUpManager : MonoBehaviour
      */
     private void AddPowerUp()
     {
+        numPowerUps++;
         //Determines permanent or temporary PowerUp
         int whatType = Random.Range(0, 2);
         //Determines what stat the powerup will act on
@@ -120,15 +133,110 @@ public sealed class PowerUpManager : MonoBehaviour
     }
 
     /*
+     * 
+     *      TestBoundary tests the performance of the system with a high load. If the performs goes below the 
+     *      standard that was set, the test checks the number of powerups instantiated. If that number is below 15,
+     *      the test fails. 
+     * 
+     */
+
+    private void TestBoundary()
+    {
+        //continuously add PowerUps
+        AddPowerUp(); 
+
+        //keep track of frames per second
+        float framesPerSecond;
+        framesPerSecond = 1.0f / Time.deltaTime; 
+        //Debug.Log(framesPerSecond);
+
+        //30 frames per second is minumum playable
+        if (framesPerSecond < 30)
+        {
+            numFramesSlow++;
+            //Debug.Log("Frames running slowly");
+        }
+
+        //if the performance hit lasts a full second or more:
+        if (framesPerSecond < 30 && numFramesSlow >= 30)
+        {
+            //Log useful info
+            Debug.Log("Overwhelmed");
+            Debug.Log("Number of Powerups made was");
+            Debug.Log(numPowerUps);
+
+            //To pass the test, the number of powerups that were made has to be greater than 10
+            if (numPowerUps >= 10)
+            {
+                Debug.Log("Test passed. Enough Powerups were made before the slowdown performance");
+            }
+            else
+            {
+                Debug.Log("Test failed. Performance took a hit at/before enough Powerups");
+            }
+            //Then cast it into the fire! Destroy it! ISILDUR!
+            Destroy(gameObject);
+        }
+
+    }
+    /*
+     * 
+     *      This tests the system behavior really close to system failure. We'll use 30 instantiated PowerUps
+     *      because the system bugs out around 33
+     * 
+     */
+    private void TestAlmostBoundary()
+    {
+        //add 30 PowerUps the first time the function accessed
+        if (createPowerUpFlag == 1)
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                AddPowerUp();
+            }
+            createPowerUpFlag = 0;
+        }
+
+        //keep track of frames per second
+        float framesPerSecond;
+        framesPerSecond = 1.0f / Time.deltaTime;
+        //Debug.Log(framesPerSecond);
+
+        //30 frames per second is minumum playable
+        if (framesPerSecond < 30)
+        {
+            numFramesSlow++;
+            //Debug.Log("Frames running slowly");
+        }
+
+        //if the performance hit lasts over 10 seconds
+        if (framesPerSecond < 30 && numFramesSlow >= 300)
+        {
+            //Log useful info
+            Debug.Log("Performance Hit");
+
+            Debug.Log("Test failed. Performance took a hit at/before enough Powerups");
+            
+            //Then cast it into the fire! Destroy it! ISILDUR!
+            Destroy(gameObject);
+        }
+        else if(timePassed > 30)
+        {
+            Debug.Log("Test Passed. No significant performance hit after time went by.");
+        }
+
+    }
+
+    /*
     *      The static function (also from class notes) helps
     *      with the Singleton implementation
     */
-    static PowerUpManager() { }
+    static Test_PowerUpManager() { }
 
     /*
      *  PowerUpManager Instance returns the powerup instance.
      */
-    public static PowerUpManager Instance  //from the class notes on implementing the singleton
+    public static Test_PowerUpManager Instance  //from the class notes on implementing the singleton
     {
         get
         {
@@ -144,7 +252,7 @@ public sealed class PowerUpManager : MonoBehaviour
     void Start()
     {
         //assigns the instance
-        thePowerUpBoss = PowerUpManager.Instance; 
+        thePowerUpBoss = Test_PowerUpManager.Instance; 
         //connects the temporary factory
         tempFactory = FindObjectOfType<TemporaryFactory>(); 
         //connects the permanent factory
@@ -157,6 +265,8 @@ public sealed class PowerUpManager : MonoBehaviour
         checkPowerUps = timeInterval;
 
         AddPowerUp();
+
+        
     }
 
     /*
@@ -174,6 +284,20 @@ public sealed class PowerUpManager : MonoBehaviour
         timingHelp += Time.deltaTime;
         difficultyTimingHelp += Time.deltaTime;
         checkPowerUps -= timingHelp;
+        
+        //Determine what test to run (set it in inspector)
+        if (whichTest == 1)
+        {
+            TestBoundary();
+        }
+        else if (whichTest == 2)
+        {
+            TestAlmostBoundary();
+        }
+        else if (whichTest == 3)
+        {
+
+        }
 
         //This checks to see if the PowerUp Generation time interval has gone by
         if (checkPowerUps < 0)
@@ -190,6 +314,6 @@ public sealed class PowerUpManager : MonoBehaviour
             difficultyTimingHelp = 0;
             IncreaseDifficulty();
         }
-
-}
+    }
+    
 }

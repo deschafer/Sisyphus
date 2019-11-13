@@ -28,7 +28,7 @@ public class PermanentFactory : PowerUpFactory
         }
         if (type == 1)
         {
-            //  playerstats.attack += amount;
+            go.AddComponent<PermSpeed>();
         }
         if (type == 2)
         {
