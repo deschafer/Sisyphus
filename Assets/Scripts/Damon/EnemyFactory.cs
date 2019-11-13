@@ -53,7 +53,8 @@ public class EnemyFactory
 	/*
 		RegisterEnemy
 
-		Parameters: The prefab to register, the name of this object to be stored under
+		Parameters: The prefab to register, the name of this object to be registered under and will
+			be used to look up this GameObject
 		Purpose: Adds a new registered prefab to this factory object
 	*/
 	public void RegisterEnemy(GameObject prefab, string enemyName)
@@ -68,7 +69,8 @@ public class EnemyFactory
 	/*
 		RegisterEnemy
 
-		Parameters: the path of the prefab in the resources directory, the name of this enemy to be stored under
+		Parameters: the path of the prefab in the resources directory, the name of this object to be registered under and will
+			be used to look up this GameObject
 		Purpose: Adds a new registered prefab to this factory object
 	*/
 	public void RegisterEnemy(string prefab, string enemyName)
@@ -80,7 +82,8 @@ public class EnemyFactory
 	/*
 		Create
 
-		Parameters: the position where the new GameObject should be set to, the name of the enemy to be created
+		Parameters: A Vector2 that is the position where the new GameObject should be set to, 
+			the name that the desired enemy was registered under
 		Purpose: Creates a new GameObject of the given name at the given location
 	*/
 	public void Create(Vector2 position, string enemyName)
@@ -92,14 +95,18 @@ public class EnemyFactory
 			// Attempt to get an index for the given string
 			if (storedEnemyPrefabKeys.ContainsKey(enemyName))
 			{
+				// get the index associated with the given string in the dictionary object
 				prefabIndex = storedEnemyPrefabKeys[enemyName];
-				// Then create a new GameObject at this given position
+				// Then use this key to grab the correct prefab from the List object
 				GameObject prefab = storedEnemyPrefabs[prefabIndex];
+				// create the object with Instantiate() at the given position
 				MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
+				// Since this enemy is in the game view, add it to the EnemyManager
 				EnemyManager.GetInstance().AddEnemy(prefab);
 			}
 			else
 			{
+				// No enemy found for that name
 				Debug.Log("Failed to create new enemy " + enemyName);
 				return;
 			}
@@ -127,10 +134,11 @@ public class EnemyFactory
 			{
 				// get a random index
 				prefabIndex = Random.Range(0, storedEnemyPrefabs.Count);
-
-				// Then create a new GameObject at this given position
+				// Then use this key to grab the correct prefab from the List object
 				GameObject prefab = storedEnemyPrefabs[prefabIndex];
+				// create the object with Instantiate() at the given position
 				MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
+				// Since this enemy is in the game view, add it to the EnemyManager
 				EnemyManager.GetInstance().AddEnemy(prefab);
 			}
 		}
