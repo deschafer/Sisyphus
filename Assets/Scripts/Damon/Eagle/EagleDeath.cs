@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-	EnemyDeath
+	EagleDeath
 	
 	Author: Damon Schafer
-	Purpose: Provides a class to put the Enemy in a death state, and eventually 
+	Purpose: Provides a class to put the Eagle in a death state, and eventually 
 		destroy this object
 */
-public class EnemyDeath : EnemyBehavior
+public class EagleDeath : EnemyBehavior
 {
-	private float timer = 0;			// timer used to keep track of how much time
-	private float despawnTime = 2;		// the amount of time needed to pass to destroy/despawn this object's parentEntity
+	private float timer = 0;            // timer used to keep track of how much time
+	private float despawnTime = 2;      // the amount of time needed to pass to destroy/despawn this object's parentEntity
 
 	/*
 		EnemyDeath
@@ -20,7 +20,7 @@ public class EnemyDeath : EnemyBehavior
 		Parameters: The Enemy that this behavior is attached
 		Purpose: creates a new EnemyDeath
 	*/
-	public EnemyDeath(Enemy enemy) :
+	public EagleDeath(Enemy enemy) :
 		base(enemy)
 	{
 	}
@@ -46,11 +46,27 @@ public class EnemyDeath : EnemyBehavior
 	*/
 	public override bool Act()
 	{
+		if (ParentEntity.State == Enemy.EnemyState.DEAD)
+		{
+			return false;
+		}
 
 		// if the enemy's health is too low
-		if(ParentEntity.Health <= 0)
+		if (ParentEntity.Health <= 0)
 		{
 			ParentEntity.State = Enemy.EnemyState.DEAD;
+
+			// since this is an eagle, we need it to drop out of the sky
+			// so set the gravity scale of the parent's rigidbody
+			ParentEntity.Rigidbody2D.gravityScale = 1.0f;
+
+			// then we should set the eagle in the eagle death animation
+			ParentEntity.Animator.SetBool("dead", true);
+
+			// then flip over the eagle
+			ParentEntity.transform.localScale = new Vector3(-10, -10);
+
+			ParentEntity.Rigidbody2D.velocity = new Vector2(0, 0);
 		}
 
 		// If the entity is not dead, then we do not need to go any further

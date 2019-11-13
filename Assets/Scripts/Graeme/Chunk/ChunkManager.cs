@@ -11,6 +11,9 @@ public class ChunkManager : MonoBehaviour {
 	private int position;
 	private int lastPosition;
 
+	private const int enemyMax = 3;
+
+
 	void Start() {
 		grass = new BiomeGrass();
 		snow = new BiomeSnow();
