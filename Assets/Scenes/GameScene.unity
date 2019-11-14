@@ -242,7 +242,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Increase Health
-
 '
 --- !u!222 &49747887
 CanvasRenderer:
@@ -485,7 +484,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Decrease Health
-
 '
 --- !u!222 &551699828
 CanvasRenderer:
@@ -1422,6 +1420,8 @@ Transform:
   m_LocalPosition: {x: 64.970215, y: -33.34032, z: -73.89102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+    m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
