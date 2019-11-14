@@ -9,7 +9,7 @@ public class TemporaryFactory : PowerUpFactory
 {
    
     /*
-     *  The Factory function here makes the correct PowerUp type
+     *  The Factory function here makes the correct PowerUp type and the powerup list
      *  and then adds the temporary script attached to it. 
      */
     public override void Factory(int type, List<GameObject> powerUpList)
@@ -31,11 +31,11 @@ public class TemporaryFactory : PowerUpFactory
         }
         if (type == 2)
         {
-            // playerstats.speed+= amount;
+            go.AddComponent<TempJump>();
         }
         if (type == 3)
         {
-            // playerstats.jump += amount;
+            // playerstats.attack += amount;
         }
         powerUpList.Add(go);
 

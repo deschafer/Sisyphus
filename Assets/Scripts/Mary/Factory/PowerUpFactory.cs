@@ -22,13 +22,16 @@ public abstract class PowerUpFactory : MonoBehaviour
 
     /*
      *  The Factory function is a virtual function that takes
-     *  in the type (health, speed, attack, or jump) and makes
+     *  in the type (health, speed, attack, or jump) and the poweruplist and makes
      *  the correct corresponding PowerUp, depending on the subclass.
      * 
      */
     public virtual void Factory(int type, List<GameObject> powerUpList)
     {
+        playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
+        //Instantiate prefab relative to player's position. Deafult is health.
+        var go = Instantiate(prefab[0], new Vector3(playerpos.x + offset, pos.y, 0), Quaternion.identity);
     }
 }
    

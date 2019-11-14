@@ -16,6 +16,8 @@ public class TimeOut : PowerUpAction
     //Flag for active PowerUp
     private float powerUpInSession = 0;
 
+
+
     /*
      *      The ChangeAmount function takes in a type and an amount, and 
      *      determines adds the amount to the correct statistic.
@@ -39,6 +41,7 @@ public class TimeOut : PowerUpAction
         }
         if (type == 2)
         {
+            otherPlayerStats.jumpForce += amount;
             // playerstats.speed+= amount;
         }
         if (type == 3)
@@ -89,7 +92,7 @@ public class TimeOut : PowerUpAction
     public override void PowerAction(int typeOfThing)
     {
         type = typeOfThing;
-        //First, play the sound.
+        //First, play the sound. The sound in this case is "arrive" from Age of Mythology. Please see the prefab for documentation details.
         twang.Play();
 
         //check to make sure there isn't already a PowerUp on. (If so, don't let another one happen).
@@ -110,11 +113,11 @@ public class TimeOut : PowerUpAction
             }
             if (type == 2)
             {
-                // playerstats.speed+= amount;
+                amount = MAXJUMP- otherPlayerStats.jumpForce;
             }
             if (type == 3)
             {
-                // playerstats.jump += amount;
+                // playerstats.attack += amount;
             }
 
             //implement the change with ChangeAmount

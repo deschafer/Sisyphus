@@ -4,13 +4,16 @@ using UnityEngine;
 /*
  *      This is a singleton PowerUpManager, the main control
  *      for the powerups generated during the game.
+ *      
+ *      Please note that function brackets do not comply with coding 
+ *      standards for ease of agile development. They can be changed prior
+ *      to final versions. 
  */
 
 public sealed class PowerUpManager : MonoBehaviour
 {
 
-    //List of PowerUp Variables
-    public List<GameObject> powerUpList;
+    
 
     //The two factory classes attached to the Manager
     private TemporaryFactory tempFactory;
@@ -51,6 +54,9 @@ public sealed class PowerUpManager : MonoBehaviour
     //Helps with singleton implementation
     private static readonly PowerUpManager instance = new PowerUpManager();
 
+    //List of PowerUp Variables
+    public List<GameObject> powerUpList;
+
     //The one instance connector of the singleton 
     public PowerUpManager thePowerUpBoss;
 
@@ -71,7 +77,7 @@ public sealed class PowerUpManager : MonoBehaviour
         //Determines permanent or temporary PowerUp
         int whatType = Random.Range(0, 2);
         //Determines what stat the powerup will act on
-        int whatStat = Random.Range(0, 2);
+        int whatStat = Random.Range(0, 3);
         if (whatType == 0)
         {
             tempFactory.Factory(whatStat, powerUpList);
@@ -82,7 +88,9 @@ public sealed class PowerUpManager : MonoBehaviour
         }
     }
     /*
-     *      The IncreaseDifficulty Function implements a change in the difficulty level of the function.  
+     *      The IncreaseDifficulty Function implements a change in the difficulty level of the function.
+     *      It uses the current time, as well as the Action scripts's boost and timing variables to
+     *      make Powerups less effective (and less often seen) as a user gets further in the game.
      * 
      */
     private void IncreaseDifficulty()
@@ -142,7 +150,7 @@ public sealed class PowerUpManager : MonoBehaviour
 
     /*
      *  The Start() function gets the singleton instance, and connects the Factories.
-     *  It also intializes a few powerups to start. 
+     *  It also intializes a powerups to begin. 
      * 
      */
     void Start()
@@ -161,11 +169,13 @@ public sealed class PowerUpManager : MonoBehaviour
         checkPowerUps = timeInterval;
 
         AddPowerUp();
+       
     }
 
     /*
      *      The Update function checks the time and determines
-     *      whether or not it is time to add another PowerUp. 
+     *      whether or not it is time to add another PowerUp, or 
+     *      Increase the Difficulty of the game.
      */
     void Update()
     {

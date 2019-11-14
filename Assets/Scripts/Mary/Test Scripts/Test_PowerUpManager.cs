@@ -17,6 +17,8 @@ public sealed class Test_PowerUpManager : MonoBehaviour
     private int numPowerUps = 0;
     //flag for initial PowerUp creation on near-Boundary test
     private int createPowerUpFlag = 1;
+    //outside counter 
+    int j = 40;
 
 
     //The two factory classes attached to the Manager
@@ -83,7 +85,7 @@ public sealed class Test_PowerUpManager : MonoBehaviour
         //Determines permanent or temporary PowerUp
         int whatType = Random.Range(0, 2);
         //Determines what stat the powerup will act on
-        int whatStat = Random.Range(0, 2);
+        int whatStat = Random.Range(0, 3);
         if (whatType == 0)
         {
             tempFactory.Factory(whatStat, powerUpList);
@@ -233,11 +235,15 @@ public sealed class Test_PowerUpManager : MonoBehaviour
         }
     }
     /*
-     * 
+     *   The Stress Test Determines how the system will behave when intentionally overloaded. 
      * 
      */
     private void StressTest()
     {
+        //helps us delete the PowerUps
+        GameObject x;
+
+       
         //add 40 PowerUps to overwhelm the system
         if (createPowerUpFlag == 1)
         {
@@ -255,13 +261,35 @@ public sealed class Test_PowerUpManager : MonoBehaviour
         float framesPerSecond;
         framesPerSecond = 1.0f / Time.deltaTime;
 
-        if (framesPerSecond < 30)
+        //if the frame rate is bad after 5 seconds, decrease until the frame rate is better.
+        if (timePassed > 5)
         {
+            if (framesPerSecond < 30 && powerUpList.Count >= 10)
+            {
+                if (powerUpList.Count != 0) //If there are still items in the list
+                {
+                    x = powerUpList[j];
+                    Destroy(x);
+                    powerUpList.RemoveAt(j);
+                    Debug.Log(powerUpList.Count);
+                    j--;
+                }
+            }
+            else if (framesPerSecond < 30 && powerUpList.Count < 10)
+            {
+                Debug.Log("FAIL. Performance recovery not achieved through repeated deletion");
+                Destroy(gameObject);
 
+            }
+            else if (framesPerSecond > 30 && powerUpList.Count >= 10)
+            {
+                Debug.Log("Success. Performance recovery achieved through repeated deletion");
+                Destroy(gameObject);
 
-
-
+            }
         }
+
+
     }
 
 

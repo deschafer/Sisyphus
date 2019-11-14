@@ -43,7 +43,8 @@ public class PowerDrop : PowerUpAction
         }
         if (type == 2)
         {
-            // playerstats.speed+= amount;
+            amount = (otherPlayerStats.jumpForce + addAmount);
+            otherPlayerStats.jumpForce = (amount < MAXJUMP) ? (otherPlayerStats.jumpForce + addAmount) : MAXJUMP;
         }
         if (type == 3)
         {

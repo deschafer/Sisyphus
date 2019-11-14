@@ -19,9 +19,12 @@ public class PowerUpAction : MonoBehaviour
     public int type;
     //Amount handles what will be added to the player's stats.
     public float amount;
+
     //The constants here represent the boundaries for player stats.
     public float MAXHEALTH = 100f;
     public float MAXSPEED = 20f;
+    public float MAXJUMP = 600f;
+
     //This is the audio clip that is played when the powerup is collided with.
     public AudioSource twang;
 
