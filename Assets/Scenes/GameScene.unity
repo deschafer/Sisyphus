@@ -242,6 +242,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Increase Health
+
 '
 --- !u!222 &49747887
 CanvasRenderer:
@@ -768,6 +769,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Decrease Health
+
 '
 --- !u!222 &551699828
 CanvasRenderer:
