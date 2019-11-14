@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-	EagleMovement
-	
-	Author: Damon Schafer
-	Purpose: This class provides the flying behavior of the Eagle
-*/
 public class EagleMovement : MovementBehavior
 {
+	private float height = 0;
 
 	/*
-		EagleMovement
+		BanditMovement
 
 		Parameters: The parent entity (Enemy) for which this behavior belongs to 
-		Purpose: creates a new EagleMovement, initializes the super class
+		Purpose: creates a new BanditAttack, initializes the super class
 	*/
 	public EagleMovement(Enemy entity) :
 		base(entity)
@@ -56,6 +51,8 @@ public class EagleMovement : MovementBehavior
 		// find the difference vector
 		Vector2 difference = waypoint - currentPosition;
 
+		// Swap direction of sprite depending on walk direction
+		
 
 		// if we are sufficiently far enough
 		if (difference.magnitude > 0.5f)

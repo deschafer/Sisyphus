@@ -48,7 +48,6 @@ public class Enemy : GameEntity
 	new public void Start()
 	{
 		base.Start();
-		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	/*
