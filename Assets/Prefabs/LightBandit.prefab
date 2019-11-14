@@ -17,17 +17,17 @@ GameObject:
   - component: {fileID: 6231233622271382073}
   - component: {fileID: 6231233622271382066}
   - component: {fileID: 6231233622271382065}
-  - component: {fileID: 6231233623040186553}
   - component: {fileID: 6231233623040186550}
   - component: {fileID: 208514367828273654}
   - component: {fileID: 1943037283}
+  - component: {fileID: 127127312}
   m_Layer: 0
   m_Name: LightBandit
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6231233622271382071
 Transform:
   m_ObjectHideFlags: 0
@@ -172,13 +172,13 @@ MonoBehaviour:
   enemyComponents:
   - {fileID: 6231233622271382066}
   - {fileID: 6231233622271382065}
-  - {fileID: 6231233623040186553}
+  - {fileID: 127127312}
   - {fileID: 208514367828273654}
   intelComponent: {fileID: 6231233622271382073}
   collisionBehaviors:
   - {fileID: 6231233623040186550}
   player: {fileID: 0}
-  healthBehavior: {fileID: 0}
+  healthBehavior: {fileID: 1943037283}
 --- !u!114 &6231233622271382073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,19 +215,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5af51228fd43734dbcd79dfcc25ff19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentEntity: {fileID: 6231233622271382069}
---- !u!114 &6231233623040186553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6231233622271382072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e779a96623d8b4c932b968a395c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 6231233622271382069}
@@ -271,3 +258,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 6231233622271382069}
   damageRatio: 1
+--- !u!114 &127127312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6231233622271382072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 6231233622271382069}
+  attackTime: 2
+  attackDistance: 4
