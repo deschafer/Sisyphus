@@ -1249,8 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d086fbc500e65409cb77752847721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whichTest: 0
-  numPowerUps: 0
+  powerUpList: []
+  whichTest: 3
   thePowerUpBoss: {fileID: 0}
 --- !u!1 &1551162976
 GameObject:

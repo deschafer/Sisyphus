@@ -26,7 +26,7 @@ public abstract class PowerUpFactory : MonoBehaviour
      *  the correct corresponding PowerUp, depending on the subclass.
      * 
      */
-    public virtual void Factory(int type)
+    public virtual void Factory(int type, List<GameObject> powerUpList)
     {
 
     }

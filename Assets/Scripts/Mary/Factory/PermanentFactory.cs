@@ -13,7 +13,7 @@ public class PermanentFactory : PowerUpFactory
      *  The Factory function here makes the correct PowerUp type
      *  and then adds the permanent script attached to it. 
      */
-    public override void Factory(int type)
+    public override void Factory(int type, List<GameObject> powerUpList)
     {
         //Find the player's position
         playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -38,6 +38,6 @@ public class PermanentFactory : PowerUpFactory
         {
             // playerstats.jump += amount;
         }
-
+        powerUpList.Add(go);
     }
 }

@@ -8,6 +8,10 @@ using UnityEngine;
 
 public sealed class PowerUpManager : MonoBehaviour
 {
+
+    //List of PowerUp Variables
+    public List<GameObject> powerUpList;
+
     //The two factory classes attached to the Manager
     private TemporaryFactory tempFactory;
     private PermanentFactory permFactory;
@@ -70,11 +74,11 @@ public sealed class PowerUpManager : MonoBehaviour
         int whatStat = Random.Range(0, 2);
         if (whatType == 0)
         {
-            tempFactory.Factory(whatStat);
+            tempFactory.Factory(whatStat, powerUpList);
         }
         else
         {
-            permFactory.Factory(whatStat);
+            permFactory.Factory(whatStat, powerUpList);
         }
     }
     /*

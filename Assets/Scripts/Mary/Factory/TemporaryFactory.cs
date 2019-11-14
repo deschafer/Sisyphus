@@ -12,7 +12,7 @@ public class TemporaryFactory : PowerUpFactory
      *  The Factory function here makes the correct PowerUp type
      *  and then adds the temporary script attached to it. 
      */
-    public override void Factory(int type)
+    public override void Factory(int type, List<GameObject> powerUpList)
     {
         //Find the player's position
         playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -23,8 +23,7 @@ public class TemporaryFactory : PowerUpFactory
         //Then, the temporary script is attached to it. 
         if (type == 0)//These check type, then change by the amount
         {
-            go.AddComponent<TempHealth>();
-            
+            go.AddComponent<TempHealth>();          
         }
         if (type == 1)
         {
@@ -38,6 +37,7 @@ public class TemporaryFactory : PowerUpFactory
         {
             // playerstats.jump += amount;
         }
+        powerUpList.Add(go);
 
     }
 
