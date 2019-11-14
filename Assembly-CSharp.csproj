@@ -111,7 +111,9 @@
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
+    <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
+    <None Include="Assets\Hero and Opponents\license.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
