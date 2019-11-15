@@ -34,4 +34,4 @@ public abstract class PowerUpFactory : MonoBehaviour
         var go = Instantiate(prefab[0], new Vector3(playerpos.x + offset, pos.y, 0), Quaternion.identity);
     }
 }
-   
+

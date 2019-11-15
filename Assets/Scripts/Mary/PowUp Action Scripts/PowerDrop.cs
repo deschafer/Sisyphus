@@ -33,10 +33,10 @@ public class PowerDrop : PowerUpAction
         if (type == 0)//These check type, then change by the amount
         {
             amount = (playerHealth.health + addAmount);
-           
+
             playerHealth.health = (amount < MAXHEALTH) ? (playerHealth.health + addAmount) : MAXHEALTH;
         }
-        if (type == 1)    
+        if (type == 1)
         {
             amount = (otherPlayerStats.maxSpeed + addAmount);
             otherPlayerStats.maxSpeed = (amount < MAXSPEED) ? (otherPlayerStats.maxSpeed + addAmount) : MAXSPEED;

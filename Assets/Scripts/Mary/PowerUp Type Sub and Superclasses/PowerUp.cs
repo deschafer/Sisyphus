@@ -21,7 +21,7 @@ public class PowerUp : MonoBehaviour
      *     by the subclass) and then destroys the object that 
      *     was collided with.
      */
-  
+
     public void TalkToPlayer()
     {
         message.PowerAction(type);

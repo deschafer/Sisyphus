@@ -15,15 +15,15 @@ GameObject:
   - component: {fileID: 2650294268630060824}
   - component: {fileID: 2650294268630060825}
   - component: {fileID: 2650294268630060826}
-  - component: {fileID: 2650294268630060827}
   - component: {fileID: 2650294268630060900}
   - component: {fileID: 2650294268630060901}
   - component: {fileID: 2650294268630060902}
   - component: {fileID: 2650294268630060903}
   - component: {fileID: 2650294268630060896}
+  - component: {fileID: 1094868703533939400}
   m_Layer: 0
   m_Name: DarkBandit
-  m_TagString: BanditEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyComponents:
   - {fileID: 2650294268630060826}
-  - {fileID: 2650294268630060827}
+  - {fileID: 1094868703533939400}
   - {fileID: 2650294268630060901}
   - {fileID: 2650294268630060902}
   intelComponent: {fileID: 2650294268630060900}
@@ -189,19 +189,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5af51228fd43734dbcd79dfcc25ff19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentEntity: {fileID: 2650294268630060825}
---- !u!114 &2650294268630060827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2650294268630060897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e779a96623d8b4c932b968a395c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 2650294268630060825}
@@ -271,3 +258,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 2650294268630060825}
   damageRatio: 0.5
+--- !u!114 &1094868703533939400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650294268630060897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 2650294268630060825}
+  attackTime: 1
+  attackDistance: 4.5

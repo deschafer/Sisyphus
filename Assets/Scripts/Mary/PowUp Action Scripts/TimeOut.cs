@@ -8,7 +8,7 @@ using UnityEngine;
  */
 public class TimeOut : PowerUpAction
 {
-   
+
     //The amountSeconds variable determines how long the PowerUp is Active
     private float amountSeconds = 10f;
     //The timerActive variable helps start and stop the timer. 
@@ -26,7 +26,7 @@ public class TimeOut : PowerUpAction
     private void ChangeAmount(int type, float amount)
     {
 
-       // Debug.Log(amount);
+        // Debug.Log(amount);
 
 
         if (type == 0)
@@ -60,12 +60,12 @@ public class TimeOut : PowerUpAction
         otherPlayerStats = FindObjectOfType<PlayerControl>();
     }
 
-   /*
-    *       The Update() method checks to see if the timer is active.
-    *       If it is, it subtracts time and continues. When the timer 
-    *       runs out, it restores the stat variable and timer variables
-    *       back to their previous state.
-    */
+    /*
+     *       The Update() method checks to see if the timer is active.
+     *       If it is, it subtracts time and continues. When the timer 
+     *       runs out, it restores the stat variable and timer variables
+     *       back to their previous state.
+     */
     void Update()
     {
         if (timerActive > 0) //while the timer is running
@@ -113,7 +113,7 @@ public class TimeOut : PowerUpAction
             }
             if (type == 2)
             {
-                amount = MAXJUMP- otherPlayerStats.jumpForce;
+                amount = MAXJUMP - otherPlayerStats.jumpForce;
             }
             if (type == 3)
             {
@@ -123,7 +123,7 @@ public class TimeOut : PowerUpAction
             //implement the change with ChangeAmount
             ChangeAmount(type, amount);
         }
-       
+
     }
     /*
      *      The SetTime method allows the number of seconds of powerup
@@ -131,7 +131,7 @@ public class TimeOut : PowerUpAction
      */
     public void SetTime(float x)
     {
-       amountSeconds = x;
+        amountSeconds = x;
     }
     /*
      *      The GetTime method returns the number of seconds of powerup

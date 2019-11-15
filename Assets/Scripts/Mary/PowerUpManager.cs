@@ -13,7 +13,7 @@ using UnityEngine;
 public sealed class PowerUpManager : MonoBehaviour
 {
 
-    
+
 
     //The two factory classes attached to the Manager
     private TemporaryFactory tempFactory;
@@ -25,30 +25,30 @@ public sealed class PowerUpManager : MonoBehaviour
 
     //The following variables help determine whether or not to add PowerUps to the current game:
 
-        //The timePassed variable counts the time since the start
-        private float timePassed = 0.0f;
-        //timeInterval determines how often the PowerUps are added
-        private float timeInterval = 15.0f;
-        //The checkPowerUps variable will help compare the total time passed against the time interval
-        private float checkPowerUps;
+    //The timePassed variable counts the time since the start
+    private float timePassed = 0.0f;
+    //timeInterval determines how often the PowerUps are added
+    private float timeInterval = 15.0f;
+    //The checkPowerUps variable will help compare the total time passed against the time interval
+    private float checkPowerUps;
 
 
     //The following variables help determine and implement the game's increasing difficulty algorithm.
 
-        //The checkpoint variable determines how often the game will increase in difficulty
-        private float timeCheckPoint = 45.0f;
-        //timePowerUpStepDown determines how much the active time for PowerUps will decrease
-        private float timePowerUpStepDown = 5.0f;
-        //amountPowerUpStepDown determines how much the amount boost for PowerUps will decrease
-        private float amountPowerUpStepDown = 1.0f;
-        //timePowerUpLowerBoundary is the minimum allowed active PowerUp timing
-        private float timePowerUpLowerBoundary = 10.0f;
-        //amountPowerUpLowerBoundary is the minimum allowed PowerUpBoost
-        private float amountPowerUpLowerBoundary = 5.0f;
-        //numberDifficultyIncreases is how many times the level difficulty has been increased
-        private float numberDifficultyIncreases = 0.0f;
-        //powerUpTimeGenerationStepUp is the increased time gap between powerups. 
-        private float powerUpTimeGenerationStepUp = 1.0f;
+    //The checkpoint variable determines how often the game will increase in difficulty
+    private float timeCheckPoint = 45.0f;
+    //timePowerUpStepDown determines how much the active time for PowerUps will decrease
+    private float timePowerUpStepDown = 5.0f;
+    //amountPowerUpStepDown determines how much the amount boost for PowerUps will decrease
+    private float amountPowerUpStepDown = 1.0f;
+    //timePowerUpLowerBoundary is the minimum allowed active PowerUp timing
+    private float timePowerUpLowerBoundary = 10.0f;
+    //amountPowerUpLowerBoundary is the minimum allowed PowerUpBoost
+    private float amountPowerUpLowerBoundary = 5.0f;
+    //numberDifficultyIncreases is how many times the level difficulty has been increased
+    private float numberDifficultyIncreases = 0.0f;
+    //powerUpTimeGenerationStepUp is the increased time gap between powerups. 
+    private float powerUpTimeGenerationStepUp = 1.0f;
 
 
     //Helps with singleton implementation
@@ -65,8 +65,8 @@ public sealed class PowerUpManager : MonoBehaviour
      *      is private because it is a singleton.
      */
     private PowerUpManager() { }
-    
-   
+
+
 
     /*
      *      The AddPowerUp method chooses a 
@@ -99,35 +99,35 @@ public sealed class PowerUpManager : MonoBehaviour
         float currentPowerUpBoost;
 
         //First, we'll increase the count of the number of times we've increased the difficulty
-            numberDifficultyIncreases++;
+        numberDifficultyIncreases++;
 
         //Then, we'll take down the powerup activity time by a step.
-            currentPowerUpTime = timeOut.GetTime();
-            currentPowerUpTime -= timePowerUpStepDown;
+        currentPowerUpTime = timeOut.GetTime();
+        currentPowerUpTime -= timePowerUpStepDown;
 
         //check the boundary first, though
-            if (currentPowerUpTime >= timePowerUpLowerBoundary)
-            {
-                timeOut.SetTime(currentPowerUpTime);
-            }
-        
+        if (currentPowerUpTime >= timePowerUpLowerBoundary)
+        {
+            timeOut.SetTime(currentPowerUpTime);
+        }
+
 
         //Then, every OTHER time we increase the difficulty, we'll take the boost down a step
-            if (numberDifficultyIncreases % 2 == 0)
-            {
-                currentPowerUpBoost = powerDrop.GetAmount();
-                currentPowerUpBoost -= amountPowerUpStepDown;
+        if (numberDifficultyIncreases % 2 == 0)
+        {
+            currentPowerUpBoost = powerDrop.GetAmount();
+            currentPowerUpBoost -= amountPowerUpStepDown;
 
-                //again, check the boundary
-                if (currentPowerUpBoost >= amountPowerUpLowerBoundary)
-                {
-                    powerDrop.SetAmount(currentPowerUpBoost);
-                }
-                
+            //again, check the boundary
+            if (currentPowerUpBoost >= amountPowerUpLowerBoundary)
+            {
+                powerDrop.SetAmount(currentPowerUpBoost);
             }
 
+        }
+
         //Finally, we'll increase the time between when PowerUps are generated.
-            timeInterval += powerUpTimeGenerationStepUp;
+        timeInterval += powerUpTimeGenerationStepUp;
 
     }
 
@@ -156,9 +156,9 @@ public sealed class PowerUpManager : MonoBehaviour
     void Start()
     {
         //assigns the instance
-        thePowerUpBoss = PowerUpManager.Instance; 
+        thePowerUpBoss = PowerUpManager.Instance;
         //connects the temporary factory
-        tempFactory = FindObjectOfType<TemporaryFactory>(); 
+        tempFactory = FindObjectOfType<TemporaryFactory>();
         //connects the permanent factory
         permFactory = FindObjectOfType<PermanentFactory>();
         //assigns the PowerDrop action
@@ -169,7 +169,7 @@ public sealed class PowerUpManager : MonoBehaviour
         checkPowerUps = timeInterval;
 
         AddPowerUp();
-       
+
     }
 
     /*
@@ -182,7 +182,7 @@ public sealed class PowerUpManager : MonoBehaviour
         //other helping timing variables
         float timingHelp = 0.0f;
         float difficultyTimingHelp = 0.0f;
-    
+
         //First, check the time passed
         timePassed += Time.deltaTime;
         timingHelp += Time.deltaTime;
@@ -205,5 +205,5 @@ public sealed class PowerUpManager : MonoBehaviour
             IncreaseDifficulty();
         }
 
-}
+    }
 }

@@ -15,7 +15,7 @@ public class TempHealth : PowerUp
         //It's a temporary powerup, so we use the TimeOut action initiator type.
         message = FindObjectOfType<TimeOut>();
         //Health is represented by integer 0.
-        type = 0; 
+        type = 0;
     }
 
     /*
