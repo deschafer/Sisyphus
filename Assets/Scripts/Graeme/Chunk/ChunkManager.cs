@@ -21,12 +21,13 @@ public class ChunkManager : MonoBehaviour {
 		hell = new BiomeHell();
 		player = GameObject.FindGameObjectWithTag("Player");
 		seed = Random.Range(0f, 1f);
-		position = lastPosition = 0;
+		position = 0;
+		lastPosition = -1;
 	}
 
 	void Update() {
-		position = (int)Mathf.Round(player.transform.position.x / 32f);
-		if(position % 10 == 0) {
+		position = (int)Mathf.Round(player.transform.position.x / Chunk.CHUNK_SIZE);
+		if(position % 10 == 0 && position != lastPosition) {
 			switch(Random.Range(0, 4)) {//should be based on noise
 				case 0:
 					currentBiome = grass;
@@ -42,11 +43,10 @@ public class ChunkManager : MonoBehaviour {
 					break;
 			}
 		}
-		//change this to render chunks (not every update, only if player pos requires update
-		if (position > lastPosition - 1) {
-			lastPosition = position;
+
+		if(lastPosition != position)
 			RenderChunk(GenerateChunk(position, 0.05f), position);
-		}
+		lastPosition = position;
 	}
 
 	/*
