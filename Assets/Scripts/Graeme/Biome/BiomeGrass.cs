@@ -6,12 +6,8 @@ public class BiomeGrass : BiomeBase {
 		this.frequency = 0.04f;
 		this.top = (GameObject)Resources.Load("Tiles/grass_top");
 		this.fill = (GameObject)Resources.Load("Tiles/dirt");
-		this.platform = (GameObject)Resources.Load("Tiles/grass_platform");
-	}
-
-	public override Chunk decorate() {
-		//write this
-		return new Chunk(new int[2,2], this);
+		this.decoration = (GameObject)Resources.Load("Tiles/grass_plant");
+		this.liquid = BiomeBase.Liquid.WATER;
 	}
 
 }
