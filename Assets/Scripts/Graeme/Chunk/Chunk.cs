@@ -8,6 +8,7 @@
     public Chunk(int[,] grid, BiomeBase biome) {
 		this.grid = grid;
 		this.biome = biome;
+		biome.decorate(this);
     }
 
 	public BiomeBase getBiome() {

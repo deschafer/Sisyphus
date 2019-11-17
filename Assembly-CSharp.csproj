@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Graeme\Biome\BiomeGrass.cs" />
     <Compile Include="Assets\Scripts\Graeme\Biome\BiomeHell.cs" />
     <Compile Include="Assets\Scripts\Graeme\Biome\BiomeSnow.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Burn.cs" />
     <Compile Include="Assets\Scripts\Graeme\Chunk\Chunk.cs" />
     <Compile Include="Assets\Scripts\Graeme\Chunk\ChunkManager.cs" />
     <Compile Include="Assets\Scripts\Graeme\Scroll.cs" />

@@ -2,6 +2,8 @@
 
 public class ChunkManager : MonoBehaviour {
 
+	public GameObject lava, lavaTop, water, waterTop;
+
 	private GameObject player;
 
 	private BiomeBase currentBiome;
@@ -9,10 +11,7 @@ public class ChunkManager : MonoBehaviour {
 
 	private float seed;
 	private int position;
-	private int lastPosition;
-
-	private const int enemyMax = 3;
-
+	private int furthestRendered;
 
 	void Start() {
 		grass = new BiomeGrass();
@@ -22,31 +21,26 @@ public class ChunkManager : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		seed = Random.Range(0f, 1f);
 		position = 0;
-		lastPosition = -1;
+		furthestRendered = -1;
 	}
 
 	void Update() {
 		position = (int)Mathf.Round(player.transform.position.x / Chunk.CHUNK_SIZE);
-		if(position % 10 == 0 && position != lastPosition) {
-			switch(Random.Range(0, 4)) {//should be based on noise
-				case 0:
-					currentBiome = grass;
-					break;
-				case 1:
-					currentBiome = desert;
-					break;
-				case 2:
-					currentBiome = hell;
-					break;
-				case 3:
-					currentBiome = snow;
-					break;
-			}
+		if(position % 10 == 0 && position > furthestRendered) {
+			float result = Mathf.PerlinNoise((float)position, this.seed) % 0.01f;
+			if(result < 0.0025f)
+				currentBiome = grass;
+			else if(result < 0.005f)
+				currentBiome = desert;
+			else if(result < 0.0075f)
+				currentBiome = hell;
+			else
+				currentBiome = snow;
 		}
 
-		if(lastPosition != position)
+		if(position > furthestRendered)
 			RenderChunk(GenerateChunk(position, 0.05f), position);
-		lastPosition = position;
+		furthestRendered = position;
 	}
 
 	/*
@@ -65,33 +59,54 @@ public class ChunkManager : MonoBehaviour {
 
 	/*
 		InitializeCells
-		Purpose: Sets all cells in map to an initial value of either 0 or 1 based on Perlin noise.
+		Purpose: Sets all cells in map to an initial value of either 0, 1, or 2 based on Perlin noise. 0 = air, 1 = top, 2 = fill.
 		Parameters: The 2D array of cells to initialize.
 	*/
 	private void InitializeCells(int[,] grid, int position, float frequency) {
-		for (int x = 0; x < Chunk.CHUNK_SIZE; x++) {
+		for(int x = 0; x < Chunk.CHUNK_SIZE; x++) {
 			int height = (int)Mathf.Clamp(Mathf.PerlinNoise(frequency * (position * Chunk.CHUNK_SIZE + x), seed) * (float)Chunk.CHUNK_SIZE, 1f, (float)(Chunk.CHUNK_SIZE - 1));
 			int y;
-			for (y = 0; y < height; y++)
+			for(y = 0; y < height; y++)
 				grid[x, y] = 0;
-			for (; y < Chunk.CHUNK_SIZE; y++)
-				grid[x, y] = 1;
+			grid[x, y++] = 1;
+			for(; y < Chunk.CHUNK_SIZE; y++)
+				grid[x, y] = 2;
 		}
 	}
 
 	public void RenderChunk(Chunk c, int position) {
 		GameObject top = c.getBiome().top;
 		GameObject fill = c.getBiome().fill;
-		for (int y = 0; y < Chunk.CHUNK_SIZE; y++) {
-			for (int x = position * Chunk.CHUNK_SIZE; x < position * Chunk.CHUNK_SIZE + Chunk.CHUNK_SIZE; x++) {
-				if (c.grid[x % Chunk.CHUNK_SIZE, y] == 1) {
-					GameObject tile;
-					if(c.grid[x % Chunk.CHUNK_SIZE, y - 1] == 0)
+		GameObject decoration = c.getBiome().decoration;
+		for(int y = 0; y < Chunk.CHUNK_SIZE; y++) {
+			for(int x = position * Chunk.CHUNK_SIZE; x < position * Chunk.CHUNK_SIZE + Chunk.CHUNK_SIZE; x++) {
+				GameObject tile;
+				switch(c.grid[x % Chunk.CHUNK_SIZE, y]) {
+					case 1:
 						tile = (GameObject)Instantiate(top, this.transform);
-					else
+						break;
+					case 2:
 						tile = (GameObject)Instantiate(fill, this.transform);
-					tile.transform.position = new Vector2(x, -y);
+						break;
+					case 3:
+						tile = (GameObject)Instantiate(decoration, this.transform);
+						break;
+					case 4:
+						if(c.getBiome().liquid == BiomeBase.Liquid.LAVA)
+							tile = (GameObject)Instantiate(lavaTop, this.transform);
+						else
+							tile = (GameObject)Instantiate(waterTop, this.transform);
+						break;
+					case 5:
+						if(c.getBiome().liquid == BiomeBase.Liquid.LAVA)
+							tile = (GameObject)Instantiate(lava, this.transform);
+						else
+							tile = (GameObject)Instantiate(water, this.transform);
+						break;
+					default:
+						continue;
 				}
+				tile.transform.position = new Vector2(x, -y);
 			}
 		}
 	}
