@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿/*
+	BiomeBase
+	
+	Author: Graeme Holliday
+	Purpose: Provide the base biome class, without information which should be provided by its subclasses.
+*/
+
+using UnityEngine;
 
 public class BiomeBase {
 
@@ -11,6 +18,12 @@ public class BiomeBase {
 
 	protected float frequency;
 
+	/*
+		decorate
+		
+		Parameters: Chunk to decorate.
+		Purpose: Add the appropriate liquid to the biome, then add its decorations.
+	*/
 	public void decorate(Chunk c) {
 		//First pass: Add liquids
 		if(c.getBiome().liquid != Liquid.NONE) {
