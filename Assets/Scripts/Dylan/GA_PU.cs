@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GA_PU : PU_HUD_HANDLER
 {
-  
+    //private TimeOut goldenApple;
+    private void Start()
+    {
+      //  goldenApple = FindObjectOfType<TimeOut>();
+      //  Debug.Log(timerActive);
+    }
 
    /* private void Awake()
     {
