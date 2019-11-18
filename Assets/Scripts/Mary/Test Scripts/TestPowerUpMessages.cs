@@ -27,22 +27,22 @@ public class TestPowerUpMessages : MonoBehaviour
     {
         timer = FindObjectOfType<TimeOut>(); //connect the object to the outside timer
         type = 0;
-}
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (timepassed > 0.0f)
         {
-           /* timepassed -= Time.deltaTime;
-            timer.ChangeAmount(type, 1); //add the amount of health boost
-                                         //Debug.Log("You changed the inital amount +10");
-            timer.type = type; //tell the timer what type of powerup it is
-            timer.TimerActive = TimerActive; //set the timer to the number of seconds
-            if (timer.playerstats.health > 100)
-            {
-                failed = 1;
-            }*/
+            /* timepassed -= Time.deltaTime;
+             timer.ChangeAmount(type, 1); //add the amount of health boost
+                                          //Debug.Log("You changed the inital amount +10");
+             timer.type = type; //tell the timer what type of powerup it is
+             timer.TimerActive = TimerActive; //set the timer to the number of seconds
+             if (timer.playerstats.health > 100)
+             {
+                 failed = 1;
+             }*/
         }
         else
         {

@@ -10,10 +10,10 @@ using UnityEngine;
 public class PermanentFactory : PowerUpFactory
 {
     /*
-     *  The Factory function here makes the correct PowerUp type
+     *  The Factory function here makes the correct PowerUp type and the powerup list
      *  and then adds the permanent script attached to it. 
      */
-    public override void Factory(int type)
+    public override void Factory(int type, List<GameObject> powerUpList)
     {
         //Find the player's position
         playerpos = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -28,16 +28,16 @@ public class PermanentFactory : PowerUpFactory
         }
         if (type == 1)
         {
-            //  playerstats.attack += amount;
+            go.AddComponent<PermSpeed>();
         }
         if (type == 2)
         {
-            // playerstats.speed+= amount;
+            go.AddComponent<PermJump>();
         }
         if (type == 3)
         {
-            // playerstats.jump += amount;
+            // playerstats.attack += amount;
         }
-
+        powerUpList.Add(go);
     }
 }
