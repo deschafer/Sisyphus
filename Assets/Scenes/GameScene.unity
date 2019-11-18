@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13be7c8ef3c1791409ad1cb44eb1db6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 1
   powerUp: {fileID: 415934738}
 --- !u!1 &459620505
 GameObject:
@@ -668,7 +669,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -692,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.724136, y: -3.4392061, z: -156.62827}
+  m_LocalPosition: {x: 24.8, y: -1.6, z: -156.62827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1435,6 +1436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c46d37d1d75eab4082c96589981a337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lava: {fileID: 7433726455894171983, guid: 8ad546b934fe34f49bc6b6a27114ec13, type: 3}
+  lavaTop: {fileID: 947403593583355077, guid: 0227a3ec3b23e474f8b83281b14d4649, type: 3}
+  water: {fileID: 5385540079363838951, guid: 13f4ace0183b17144b2432acc192f09e, type: 3}
+  waterTop: {fileID: 1775249514717323748, guid: 8dba55443b2737a429ca75d5cff0e3c6,
+    type: 3}
 --- !u!4 &1233721872
 Transform:
   m_ObjectHideFlags: 0
@@ -2072,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865650, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
@@ -2114,6 +2120,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407089093283865660, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865659, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: moveForce
@@ -2128,11 +2139,6 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpForce
       value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2407089093283865660, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2407089093283865648, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
