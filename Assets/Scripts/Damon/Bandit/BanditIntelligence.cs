@@ -10,7 +10,7 @@ using UnityEngine;
 */
 public class BanditIntelligence : AIBehavior
 {
-	protected int patrolRadius = 20;      // the max radius of where a movement waypoint can be set from the spawnposition
+	[SerializeField] protected int patrolRadius = 20;      // the max radius of where a movement waypoint can be set from the spawnposition
 	protected bool playerVisible = false;           // flag indicating if the player is visible and detected
 	protected Vector2 movementWaypointOrigin;     // The position of the parent entity when a waypoint was chosen
 	protected const int attackRadius = 20;

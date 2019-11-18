@@ -13,6 +13,7 @@ public class EnemyAttack : AttackBehavior
 	private float timer = 0;                    // the float timer used to keep track of time passed
 	[SerializeField] private float attackTime = 1;         // the time needed between attacks
 	[SerializeField] private float attackDistance = 4.5f;  // the distance that this object must be within to attack
+	[SerializeField] private float damage = 10.0f;
 
 	/*
 		BanditAttack
@@ -33,6 +34,7 @@ public class EnemyAttack : AttackBehavior
 	public void Start()
 	{
 		timer = 0;
+		damage = 10.0f;
 	}
 
 	/*
@@ -99,6 +101,7 @@ public class EnemyAttack : AttackBehavior
 			ParentEntity.Attacking = true;
 
 			// TODO: add the method that actually damages the player
+			ParentEntity.Player.GetComponent<PlayerHealth>().health -= damage;
 		}
 	}
 }

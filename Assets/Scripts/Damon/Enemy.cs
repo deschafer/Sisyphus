@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -118,3 +118,13 @@ public class Enemy : GameEntity
 	public GameObject Player { get => player; }
 	public bool Attacking { get => attacking; set => attacking = value; }
 }
+
+/*
+ * Assets used
+ * 
+ * Bandit Enemies used from Sven Thole https://assetstore.unity.com/packages/2d/characters/bandits-pixel-art-104130
+ * Eagle enemy used from Ansimuz https://assetstore.unity.com/packages/2d/characters/sunny-land-103349
+ * 
+ * All enemies used in the asset store, once purchased, are able to be used in a commercial release : https://support.unity3d.com/hc/en-us/articles/205623589-Can-I-use-assets-from-the-Asset-Store-in-my-commercial-game-
+ * 
+ */

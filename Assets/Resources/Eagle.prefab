@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 8407343275717700162}
+  patrolRadius: 30
 --- !u!114 &8407343275717700161
 MonoBehaviour:
   m_ObjectHideFlags: 0
