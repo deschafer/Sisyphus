@@ -324,6 +324,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &167301044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167301046}
+  - component: {fileID: 167301045}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &167301045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167301044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46295dce1741e84d96b87b7501ac7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &167301046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167301044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.517317, y: 4.967749, z: -57.553368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &324866941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1484,7 @@ MonoBehaviour:
   water: {fileID: 5385540079363838951, guid: 13f4ace0183b17144b2432acc192f09e, type: 3}
   waterTop: {fileID: 1775249514717323748, guid: 8dba55443b2737a429ca75d5cff0e3c6,
     type: 3}
+  seed: 0
 --- !u!4 &1233721872
 Transform:
   m_ObjectHideFlags: 0
@@ -1670,11 +1714,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightBandit
       objectReference: {fileID: 0}
-    - target: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 108559626}
     - target: {fileID: 6231233622271382071, guid: 7d1a489c70f992645ac7ce625ba2973b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1730,6 +1769,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6231233622271382069, guid: 7d1a489c70f992645ac7ce625ba2973b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 108559626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d1a489c70f992645ac7ce625ba2973b, type: 3}
 --- !u!1 &1576328422
