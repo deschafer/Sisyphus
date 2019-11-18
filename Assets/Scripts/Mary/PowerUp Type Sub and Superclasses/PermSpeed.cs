@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 /*
- *  This subclass of PowerUp implements a permanent health drop. 
+ *  This subclass of PowerUp implements a permanent speed boost 
  */
-public class PermHealth : PowerUp
+public class PermSpeed : PowerUp
 {
     /*
-     *  The start function sets main differentiating variables
-     *  for the subclass.
-     */
+    *  The start function sets main differentiating variables
+    *  for the subclass.
+    */
     void Start()
     {
         //It's a permanent powerup, so we use the PowerDrop action initiator type.
         message = FindObjectOfType<PowerDrop>();
-        //Health type is integer 0
-        type = 0;
+        //Speed type is integer 0
+        type = 1;
     }
 
     /*

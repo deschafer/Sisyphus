@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /*
- *  This subclass of PowerUp implements a permanent health drop. 
+ *  This subclass of PowerUp implements a permanent jump drop. 
  */
-public class PermHealth : PowerUp
+public class PermJump : PowerUp
 {
     /*
      *  The start function sets main differentiating variables
@@ -14,8 +15,8 @@ public class PermHealth : PowerUp
     {
         //It's a permanent powerup, so we use the PowerDrop action initiator type.
         message = FindObjectOfType<PowerDrop>();
-        //Health type is integer 0
-        type = 0;
+        //Jump type is integer 2
+        type = 2;
     }
 
     /*

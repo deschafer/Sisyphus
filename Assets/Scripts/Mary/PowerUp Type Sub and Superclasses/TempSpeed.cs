@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 /*
- *  This subclass of PowerUp implements temporary health maximums. 
+ *  This subclass of PowerUp implements temporary speed maximums. 
  */
-public class TempHealth : PowerUp
+public class TempSpeed : PowerUp
 {
     /*
      *  The start function sets main differentiating variables
@@ -14,8 +14,8 @@ public class TempHealth : PowerUp
     {
         //It's a temporary powerup, so we use the TimeOut action initiator type.
         message = FindObjectOfType<TimeOut>();
-        //Health is represented by integer 0.
-        type = 0;
+        //Speed is represented by integer 0.
+        type = 1;
     }
 
     /*
