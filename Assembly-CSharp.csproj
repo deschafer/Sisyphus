@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
      <Compile Include="Assets\Scripts\Dylan\GA_PU.cs" />
      <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Dylan\HealthBar2.cs" />
      <Compile Include="Assets\Scripts\Dylan\Healthtest.cs" />
      <Compile Include="Assets\Scripts\Dylan\PU_HUD.cs" />
      <Compile Include="Assets\Scripts\Dylan\PU_HUD_HANDLER.cs" />
