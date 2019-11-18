@@ -1,0 +1,45 @@
+LightBandit Prefab Documentaion
+-----------------------------------------------------------
+
+Prefab was created by Damon E Schafer
+Uses sprites and animations created from Sven Thole https://assetstore.unity.com/detail/2d/characters/bandits-pixel-art-104130
+
+Prefab Components.
+
+1. Transform
+	Holds the position and size of the GameObject in the scene
+2. Sprite Renderer
+	Contains the sprite textures that define the GameObject
+3. Animator
+	This controls what states and what current animation is shown. This will be explained further later in this document.
+4. RigidBody 2D
+	Handles all physics for this object
+5. BoxCollider2D
+	Handles all collisions for this object, creates collisions
+6. Enemy
+	This is the basic Enemy script that provides the enemy behavior. This inherits from GameEntity. It contains containers of EnemyBehaviors that further define how this Enemy object behaves. In the visible fields in the component, the EnemyComponents are where addition EnemyBehaviors are added to. The Collision Behaviors contains all the EnemyBehaviors called when this object collides with another. The object also contains a reference to the active player GameObject, and a HealthBehavior which defines how this object takes damage
+	The EnemyComponents contain all of the added EnemyBehavior classes below.
+7. BanditIntelligence
+	This is the main script that adds intelligence to this bandit enemy. It keeps track of the enemy's state and moves it into an appropriate state based on the environment.
+	Patrol radius refers to the radius that the enemy searches for the player from its spawn position.
+8. BanditMovement
+	This is the script that adds movement to the enemy. It moves the enemy in the direction of the waypoint that was set by the Intelligence behavior.
+	It jumps frequently to manuever terrain in complicated environments.
+9. BanditAnimation
+	This script uses the GameObject's Animator component to change the animation of the enemy to reflect what state it is in. So attacking, running, jumping...
+10. EnemyCollision
+	This script makes this object only collide with non-enemy types. So all enemies with this script added do not collide with each other.
+11. EnemyDeath
+	This script defines behavior when the enemy's health reaches 0, and puts the enemy in a death state and despawns the enemy after a timer.
+12. HealthBehavior
+	This script translates damage inflicted upon this enemy by another entity, and translates this to actual damage taken. It provides an interface to increase or decrease this damage taken.
+	The damage ratio is the float that is multiplied by the damage to increase/lower the damage applied to the enemy.
+13. EnemyAttack
+	This script provides behavior where the enemy will periodically attack the player if it is close enough. It will place the enemy in an attack state.
+	Attack time denotes the time between each attack.
+	Attack distance denotes the distance from the player until an attack is made.
+	The damage is the damage applied to the player.
+
+To add a new EnemyBehavior
+	Add a new slot in the EnemyComponents list, then add the new behavior to the enemy, and add the reference to this new behavior to the list.
+	Then, drag this enemy to the ParentEntity in the newly added behavior.

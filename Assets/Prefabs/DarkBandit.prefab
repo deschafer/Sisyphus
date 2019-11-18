@@ -15,12 +15,13 @@ GameObject:
   - component: {fileID: 5553075969276448714}
   - component: {fileID: 5553075969276448715}
   - component: {fileID: 5553075969276448712}
-  - component: {fileID: 5553075969276448713}
   - component: {fileID: 5553075969276448694}
   - component: {fileID: 5553075969276448695}
   - component: {fileID: 5553075969276448692}
   - component: {fileID: 5553075969276448693}
   - component: {fileID: 5553075969276448690}
+  - component: {fileID: 377826674380607074}
+  - component: {fileID: 26338894}
   m_Layer: 0
   m_Name: DarkBandit
   m_TagString: BanditEnemy
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyComponents:
   - {fileID: 5553075969276448712}
-  - {fileID: 5553075969276448713}
+  - {fileID: 26338894}
   - {fileID: 5553075969276448695}
   - {fileID: 5553075969276448692}
   intelComponent: {fileID: 5553075969276448694}
@@ -192,19 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 5553075969276448715}
---- !u!114 &5553075969276448713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553075969276448691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e779a96623d8b4c932b968a395c9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentEntity: {fileID: 5553075969276448715}
 --- !u!114 &5553075969276448694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 5553075969276448715}
+  patrolRadius: 0
 --- !u!114 &5553075969276448695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +260,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 5553075969276448715}
   damageRatio: 0.5
+--- !u!114 &377826674380607074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553075969276448691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 5553075969276448715}
+  attackTime: 1
+  attackDistance: 4.5
+  damage: 15
+--- !u!114 &26338894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553075969276448691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 5553075969276448715}
+  attackTime: 1
+  attackDistance: 4.5
+  damage: 15
