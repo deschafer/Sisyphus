@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B4DEFFEC-9B6C-70AA-DB31-6CE93CD36666}</ProjectGuid>
+    <ProjectGuid>{DD264FE8-E705-B19F-04AC-8D1FDAB6DA3C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,63 +63,94 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Damon\AIComponent.cs" />
-    <Compile Include="Assets\Scripts\Damon\AttackComponent.cs" />
-    <Compile Include="Assets\Scripts\Damon\BanditIntelligence.cs" />
-    <Compile Include="Assets\Scripts\Damon\BanditMovement.cs" />
-    <Compile Include="Assets\Scripts\Damon\DefenseComponent.cs" />
+    <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
+    <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\Bandit\BanditAnimation.cs" />
+    <Compile Include="Assets\Scripts\Damon\Bandit\BanditIntelligence.cs" />
+    <Compile Include="Assets\Scripts\Damon\Bandit\BanditMovement.cs" />
+    <Compile Include="Assets\Scripts\Damon\CollisionBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\Eagle\EagleDeath.cs" />
+    <Compile Include="Assets\Scripts\Damon\Eagle\EagleIntelligence.cs" />
+    <Compile Include="Assets\Scripts\Damon\Eagle\EagleMovement.cs" />
     <Compile Include="Assets\Scripts\Damon\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Damon\EnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyCollision.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyDeath.cs" />
+    <Compile Include="Assets\Scripts\Damon\EnemyFactory.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
-    <Compile Include="Assets\Scripts\Damon\MovementComponent.cs" />
+    <Compile Include="Assets\Scripts\Damon\HealthBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\MapEnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Damon\MovementBehavior.cs" />
+    <Compile Include="Assets\Scripts\Damon\TestScene\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Damon\TestScene\TestScene.cs" />
     <Compile Include="Assets\Scripts\Dylan\EntityStats.cs" />
+    <Compile Include="Assets\Scripts\Dylan\GA_PU.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\Mary\PermanentPowerUp.cs" />
-    <Compile Include="Assets\Scripts\Mary\PlayerStatProxy.cs" />
-    <Compile Include="Assets\Scripts\Mary\PowerUp.cs" />
-    <Compile Include="Assets\Scripts\Mary\PowerUpTimer.cs" />
-    <Compile Include="Assets\Scripts\Mary\TemporaryPowerUp.cs" />
+    <Compile Include="Assets\Scripts\Dylan\Healthtest.cs" />
+    <Compile Include="Assets\Scripts\Dylan\PU_HUD.cs" />
+    <Compile Include="Assets\Scripts\Dylan\PU_HUD_HANDLER.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeBase.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeDesert.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeGrass.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeHell.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Biome\BiomeSnow.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Burn.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Chunk\Chunk.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Chunk\ChunkManager.cs" />
+    <Compile Include="Assets\Scripts\Graeme\Scroll.cs" />
+    <Compile Include="Assets\Scripts\Mary\Factory\PermanentFactory.cs" />
+    <Compile Include="Assets\Scripts\Mary\Factory\PowerUpFactory.cs" />
+    <Compile Include="Assets\Scripts\Mary\Factory\TemporaryFactory.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUpManager.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerDrop.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerUpAction.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\TimeOut.cs" />
+    <Compile Include="Assets\Scripts\Mary\Prefab Documentation.cs" />
+    <Compile Include="Assets\Scripts\Mary\Test Scripts\TestPowerUpMessages.cs" />
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\World\Biome\BiomeBase.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\Chunk.cs" />
-    <Compile Include="Assets\Scripts\World\Chunk\ChunkManager.cs" />
-    <Compile Include="Assets\Scripts\World\WorldManager.cs" />
+    <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
+    <None Include="Assets\Hero and Opponents\license.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/me/Documents/Sisyphus/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/me/Documents/Sisyphus-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Users/me/Documents/Unity/2019.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
