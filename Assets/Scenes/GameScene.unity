@@ -1435,6 +1435,7 @@ MonoBehaviour:
   water: {fileID: 5385540079363838951, guid: 13f4ace0183b17144b2432acc192f09e, type: 3}
   waterTop: {fileID: 1775249514717323748, guid: 8dba55443b2737a429ca75d5cff0e3c6,
     type: 3}
+  seed: 0
 --- !u!4 &1233721872
 Transform:
   m_ObjectHideFlags: 0

@@ -100,7 +100,6 @@ public class EnemyAttack : AttackBehavior
 
 			ParentEntity.Attacking = true;
 
-			// TODO: add the method that actually damages the player
 			ParentEntity.Player.GetComponent<PlayerHealth>().health -= damage;
 		}
 	}
