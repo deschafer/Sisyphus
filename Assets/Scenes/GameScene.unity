@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca90c5370d9d8447a58287595db3191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthImage: {fileID: 0}
 --- !u!1 &49747884
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324866942}
   - component: {fileID: 324866943}
+  - component: {fileID: 324866944}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: Untagged
@@ -409,6 +411,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &324866944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324866941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389a0c45ce6efe343ae0a75c07a1338c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  powerUp: {fileID: 324866943}
 --- !u!1 &415934736
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +520,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415934736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d384e744d13769b42bf7b40f4e90dab8, type: 3}
   m_Name: 
@@ -790,6 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594729509}
   - component: {fileID: 594729510}
+  - component: {fileID: 594729511}
   m_Layer: 0
   m_Name: Trident
   m_TagString: Untagged
@@ -865,6 +882,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &594729511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594729508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3529f6a9648856d4dbec322f118e8b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  powerUp: {fileID: 594729510}
 --- !u!1 &611833411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1240967284}
   - component: {fileID: 1240967285}
+  - component: {fileID: 1240967286}
   m_Layer: 0
   m_Name: Winged Sandal
   m_TagString: Untagged
@@ -1535,6 +1567,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1240967286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240967283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97947c981f754c0449cff644aeb6d29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  powerUp: {fileID: 1240967285}
 --- !u!1 &1346353746
 GameObject:
   m_ObjectHideFlags: 0

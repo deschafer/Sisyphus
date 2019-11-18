@@ -12,7 +12,7 @@ public class TimeOut : PowerUpAction
     //The amountSeconds variable determines how long the PowerUp is Active
     private float amountSeconds = 10f;
     //The timerActive variable helps start and stop the timer. 
-    private float timerActive = 0.0f;
+    public float timerActive = 0.0f;
 
     /*
      *      The ChangeAmount function takes in a type and an amount, and 
