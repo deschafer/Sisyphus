@@ -43,3 +43,6 @@ Prefab Components.
 To add a new EnemyBehavior
 	Add a new slot in the EnemyComponents list, then add the new behavior to the enemy, and add the reference to this new behavior to the list.
 	Then, drag this enemy to the ParentEntity in the newly added behavior.
+
+Summary Of Behavior
+	The enemy will enter a patrol state by default. In this state, a movement waypoint has been set by the AI behavior, and the movement behavior begins moving to the player to the 

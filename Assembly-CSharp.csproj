@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
     <Compile Include="Assets\Prefabs\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Damon\AIBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\AttackBehavior.cs" />
@@ -82,7 +81,6 @@
     <Compile Include="Assets\Scripts\Damon\EnemyDeath.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyFactory.cs" />
     <Compile Include="Assets\Scripts\Damon\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\Damon\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Damon\GameEntity.cs" />
     <Compile Include="Assets\Scripts\Damon\HealthBehavior.cs" />
     <Compile Include="Assets\Scripts\Damon\MapEnemySpawner.cs" />
@@ -113,7 +111,6 @@
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermHealth.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempHealth.cs" />
-    <Compile Include="Assets\Scripts\Mary\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUpTimer.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerDrop.cs" />
@@ -128,7 +125,6 @@
     <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <None Include="Assets\Prefabs\LightBanditDocumentation.txt" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
-    <None Include="Assets\Hero and Opponents\license.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Damon/OneDrive/University Documents/Junior Year/Semester 1/CS 383/Sisyphus/Sisyphus/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

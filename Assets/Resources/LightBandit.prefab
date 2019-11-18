@@ -138,7 +138,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3728746327037953344}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 15442b18b9904024cb6e80b551467c69, type: 2}
+  m_Material: {fileID: 6200000, guid: 5db9cc70d09cf544c8b3d92f7357de44, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   collisionBehaviors:
   - {fileID: 3728746327338700750}
   player: {fileID: 0}
+  healthBehavior: {fileID: 0}
 --- !u!114 &3728746327037953345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 3728746327037953357}
+  patrolRadius: 0
 --- !u!114 &3728746327037953354
 MonoBehaviour:
   m_ObjectHideFlags: 0
