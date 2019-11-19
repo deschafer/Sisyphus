@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Mary\Factory\PermanentFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\Factory\PowerUpFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\Factory\TemporaryFactory.cs" />
+    <Compile Include="Assets\Scripts\Mary\MenuStuff\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermHealth.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermJump.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermSpeed.cs" />
