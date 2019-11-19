@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Prefab_Documentation : MonoBehaviour
+/*
+ *      This is an empty class purely for documentation purposes. 
+ */
+public class PrefabDocumentation : MonoBehaviour
 {
 }
-
 /*
  *       This script serves at the documentation for the PowerUpManager Prefab.
  *       
@@ -31,11 +33,11 @@ public class Prefab_Documentation : MonoBehaviour
  *       
  *       The PowerUpManager prefab also includes audio source child objects, to make the powerup sounds. On the prefab, these sounds are:
  *          -twang
- *          -????
+ *          -arrive
  *          
  *       In the PowerUpManager prefab, there are also some preloaded assets into slots on the corresponding scripts. For instance,
  *       the Factory scripts both have an array of sprites, where (from 1st to 4th) the elements are Gold Apple, Winged Sandal, Lightning,
- *       and Trident. The Action scripts have the twang sound both loaded into their corresponding audio source. 
+ *       and Trident. The Action scripts have the twang and arrive sound loaded into their corresponding audio source. 
  *       
  *       
  *       BEHAVIOR:
@@ -60,7 +62,12 @@ public class Prefab_Documentation : MonoBehaviour
  *              -The difficulty can be changed using the algorithm variables located in the PowerUpManager singleton class. The variables are named 
  *               intutively to control the update and time variables. 
  *       
- *     Advanced Prefab Documentation:
+ *     RESUSE AND COPYRIGHT INFORMATION
+ *          It should be noted that the Prefab contains an audio source "arrive" which originally was used as a sound effect for the PC game,
+ *          Age of Mythology. While this may be copyright infringement, the argument for Fair Use of this asset is as follows:
+ *              -The sound clip is very short
+ *              -It is being used for educational purposes by a nonprofit (college student making the game for class credit)
+ *              -It is used with a purpose different than the original (the original soundbyte wasn't used in the game for a PowerUp). 
  *     
  *       
  *       

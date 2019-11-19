@@ -13,7 +13,7 @@ public class PermHealth : PowerUp
     void Start()
     {
         //It's a permanent powerup, so we use the PowerDrop action initiator type.
-        message = FindObjectOfType<PowerDrop>(); 
+        message = FindObjectOfType<PowerDrop>();
         //Health type is integer 0
         type = 0;
     }

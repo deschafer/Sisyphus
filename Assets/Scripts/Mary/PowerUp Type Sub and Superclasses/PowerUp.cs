@@ -14,15 +14,18 @@ public class PowerUp : MonoBehaviour
     //the type and message type are set by the subclasses. 
     public int type;
     public PowerUpAction message;
+    private List<GameObject> thePowerUpList;
 
     /*
      *     The TalkToPlayer function sends the message (implemented 
      *     by the subclass) and then destroys the object that 
      *     was collided with.
      */
+
     public void TalkToPlayer()
     {
         message.PowerAction(type);
         Destroy(gameObject);
     }
+
 }
