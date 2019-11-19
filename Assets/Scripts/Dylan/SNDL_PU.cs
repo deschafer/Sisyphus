@@ -10,10 +10,12 @@ public class SNDL_PU : PU_HUD_HANDLER
     void Start()
     {
         sandal = FindObjectOfType<TimeOut>();
+        powerUp.color = new Color(1f, 1f, 1f, 0.0f);
+
     }
 
     // Update is called once per frame
-     public override void Update()
+    public override void Update()
     {
         if (sandal.type == 1)
         {
@@ -31,9 +33,9 @@ public class SNDL_PU : PU_HUD_HANDLER
         }
         
     }
-    public override void powerUpTimer()
+    /*public override void powerUpTimer()
     {
         //throw new System.NotImplementedException();
-    }
+    }*/
 
 }
