@@ -5,11 +5,14 @@ using UnityEngine;
 public class Healthtest : MonoBehaviour
 {
     private PlayerHealth playerHealth;
+    //private PlayerHealth playerHealth;
     // Start is called before the first frame update
     void awake()
     {
-        
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        //playerHealth = FindObjectOfType<PlayerHealth>();
+        //Debug.Log(health);
+       //// playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
     void Start()
     {
