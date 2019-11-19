@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int bcFlag = 0;
     public float health = 100f; //total health
     public float repeatDamage = 2f; //how long until player can be damaged again
     public float knockback = 10f;   //force of enemy attacks
@@ -29,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
             }
             //player has no health, let fall
-            else {
+            else  if (bcFlag != 1){
                 //set each collider in player to trigger
                 Collider2D[] cols = GetComponents<Collider2D>();
                 foreach (Collider2D c in cols) {
@@ -44,7 +45,11 @@ public class PlayerHealth : MonoBehaviour
                 //disable player control
                 GetComponent<PlayerControl>().enabled = false;
                 //trigger death
-                animate.SetTrigger("Die");
+                if (bcFlag != 1)
+                {
+                    animate.SetTrigger("Die");
+                    Application.LoadLevel(3);
+                }
                  
             }
         }
