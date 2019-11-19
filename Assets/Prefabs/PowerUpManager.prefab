@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2078367982212336335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078367982212336333}
+  - component: {fileID: 2078367982212336332}
+  - component: {fileID: 2078367982212336331}
+  - component: {fileID: 2078367982212336330}
+  - component: {fileID: 2078367982212336328}
+  - component: {fileID: 2078367982212336329}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078367982212336333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.396347, y: 4.41, z: -10.919047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078367982212336332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ca350e08b039e488b1f78de644ce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePowerUpBoss: {fileID: 0}
+--- !u!114 &2078367982212336331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d8ad3f74a9bc347ab477815f25af96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerstats: {fileID: 0}
+  type: 0
+  amount: 0
+  MAXHEALTH: 100
+--- !u!114 &2078367982212336330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac266b08e1374d43bb2041f0ac75e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerstats: {fileID: 0}
+  type: 0
+  amount: 0
+  MAXHEALTH: 100
+--- !u!114 &2078367982212336328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1143023cf75a348b8095ec9a20eeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 64600330334153647, guid: b1788059144f99d40ae438cb0e05e78c, type: 3}
+  - {fileID: 6715204830434263918, guid: f021c6b2426b08c4591bd2f6bc08fba1, type: 3}
+  - {fileID: 1172915467540706067, guid: f8506c30b4cbf7a4a89b7e9cab084b70, type: 3}
+  - {fileID: 8821759637547644109, guid: 38d27aa4b6d86ba498e41ac38b30a6ad, type: 3}
+  pos: {x: 20, y: 9, z: 0}
+  playerpos: {x: 0, y: 0, z: 0}
+  offset: 5
+--- !u!114 &2078367982212336329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078367982212336335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e5ee0d31e646943895cca892f1f2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab:
+  - {fileID: 64600330334153647, guid: b1788059144f99d40ae438cb0e05e78c, type: 3}
+  - {fileID: 6715204830434263918, guid: f021c6b2426b08c4591bd2f6bc08fba1, type: 3}
+  - {fileID: 1172915467540706067, guid: f8506c30b4cbf7a4a89b7e9cab084b70, type: 3}
+  - {fileID: 8821759637547644109, guid: 38d27aa4b6d86ba498e41ac38b30a6ad, type: 3}
+  pos: {x: 20, y: 9, z: 0}
+  playerpos: {x: 0, y: 0, z: 0}
+  offset: 5

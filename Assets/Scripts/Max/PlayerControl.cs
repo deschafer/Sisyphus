@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-//player uses physics based movement to traverse. This will lead to hilarity and lots of bugs I will come to hate.
-
+/*
+author: Max
+parameters: input for player control
+purpose: player uses physics based movement to traverse. Object collision and enemy testing.
+*/
 public class PlayerControl : MonoBehaviour
 {
     [HideInInspector]
     public bool isRight = true; //which direction?
     [HideInInspector]
     public bool jump = false;   //can jump?
+	public bool isAttacking = false; //is attacking
 
     public float moveForce = 365f;  //how much force is applied to player to cause movement
     public float maxSpeed = 5f; //x-axis maximum speed
@@ -90,6 +93,26 @@ public class PlayerControl : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
+		
+		//if attacking
+		if(Input.GetButtonDown("Fire1"))
+		{
+			//set the animation and clip
+			anim.SetTrigger("attack");
+			GetComponent<AudioSource>().Play();
+
+			// If the player is facing right...
+			if(isRight)
+			{
+				// ... instantiate the sword facing right and set it's velocity to the right. 
+				//Rigidbody2D bulletInstance = Instantiate(sword, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+			}
+			else
+			{
+				// Otherwise instantiate the sword facing left and set it's velocity to the left.
+				//Rigidbody2D bulletInstance = Instantiate(sword, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
+			}
+		}
     }
 
 

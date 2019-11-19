@@ -105,8 +105,12 @@
     <Compile Include="Assets\Scripts\Mary\Factory\PowerUpFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\Factory\TemporaryFactory.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermJump.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PermSpeed.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempHealth.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempJump.cs" />
+    <Compile Include="Assets\Scripts\Mary\PowerUp Type Sub and Superclasses\TempSpeed.cs" />
     <Compile Include="Assets\Scripts\Mary\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerDrop.cs" />
     <Compile Include="Assets\Scripts\Mary\PowUp Action Scripts\PowerUpAction.cs" />
@@ -116,6 +120,7 @@
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\Max\sword.cs" />
     <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
     <None Include="Assets\Hero and Opponents\license.txt" />

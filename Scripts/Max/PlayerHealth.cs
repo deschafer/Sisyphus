@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float health = 100f; //total health
+	public float healthMax = 100f; //max health
     public float repeatDamage = 2f; //how long until player can be damaged again
     public float knockback = 10f;   //force of enemy attacks
     public float damage = 10f; //amount of damage from enemies, CONSULT WITH DAMON
