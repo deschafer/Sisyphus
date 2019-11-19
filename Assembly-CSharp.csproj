@@ -122,7 +122,6 @@
     <Compile Include="Assets\Scripts\Max\Boulder.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Max\PlayerHealth.cs" />
-    <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <None Include="Assets\Prefabs\LightBanditDocumentation.txt" />
     <None Include="Assets\Scripts\Mary\README Mary Scripts.txt" />
     <Reference Include="Unity.Timeline.Editor">
