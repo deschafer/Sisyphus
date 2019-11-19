@@ -24,13 +24,13 @@ public class TRDNT_PU : PU_HUD_HANDLER
             {
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, maxAlpha, step));
-                timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, maxAlpha, step));
+                //timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, maxAlpha, step));
             }
             else if (trident.timerActive <= 0.0f)
             {
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, minAlpha, step));
-                timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
+                //timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
             }
         }
     }
