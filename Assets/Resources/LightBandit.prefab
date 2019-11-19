@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 3728746327037953358}
   - component: {fileID: 3728746327037953356}
   - component: {fileID: 3728746327037953357}
+  - component: {fileID: 4451910942475837601}
   - component: {fileID: 3728746327037953345}
   - component: {fileID: 3728746327037953354}
   - component: {fileID: 3728746327037953353}
-  - component: {fileID: 3728746327338700737}
   - component: {fileID: 3728746327338700750}
   m_Layer: 0
   m_Name: LightBandit
@@ -170,12 +170,28 @@ MonoBehaviour:
   enemyComponents:
   - {fileID: 3728746327037953354}
   - {fileID: 3728746327037953353}
-  - {fileID: 3728746327338700737}
+  - {fileID: 4451910942475837601}
   intelComponent: {fileID: 3728746327037953345}
   collisionBehaviors:
   - {fileID: 3728746327338700750}
   player: {fileID: 0}
   healthBehavior: {fileID: 0}
+--- !u!114 &4451910942475837601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728746327037953344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c38598bb0c42b4f80e70d7ebd580dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 3728746327037953357}
+  attackTime: 5
+  attackDistance: 4.5
+  damage: 10
 --- !u!114 &3728746327037953345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,19 +229,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5af51228fd43734dbcd79dfcc25ff19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentEntity: {fileID: 3728746327037953357}
---- !u!114 &3728746327338700737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728746327037953344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e779a96623d8b4c932b968a395c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 3728746327037953357}
