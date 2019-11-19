@@ -27,7 +27,7 @@ public class HealthBar2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //health.Update();
+       
         TopLayerImage.fillAmount = health.NormalizeHealth();
     }
 }
@@ -88,4 +88,5 @@ public sealed class Health2
         return healthTotal / Health_Max;
     }
     /* Normalizehealth normalizes the health total of the player such that it is a number between 0 and 1
+     */
 }

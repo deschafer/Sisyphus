@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/* This script was a test script and is not used in the final release of the product
+ * */
 public class Healthtest : MonoBehaviour
 {
     private PlayerHealth playerHealth;
