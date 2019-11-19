@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/* This script contains the same logic as the classes in the PU_HUD_CONTROLLER class tree but connects only one instance of the powerup sprite to the powerup
+ * and uses buttons and condition changes to test the ability of the hud to respond to changes of the powerups and playerstats.
+ */
 public class PU_HUD : MonoBehaviour
 {
     private const float maxAlpha = 1.00f;

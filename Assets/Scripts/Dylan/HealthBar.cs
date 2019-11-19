@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*This script is used to test the boundary cases for the healthbar.  The HealthBar class creates references to the healthbar objects on the canvas and the 
+ * Health class below contains the logic functions, namely buttons and condition changes, that are used to alter the health value and test its
+ * functionality.
+ */
 public class HealthBar : MonoBehaviour //This is the class that holds the objects
 {
     //private Health health;
