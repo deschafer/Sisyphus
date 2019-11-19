@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -367, y: 258}
+  m_AnchoredPosition: {x: -367, y: 336}
   m_SizeDelta: {x: 500, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &11659350
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca90c5370d9d8447a58287595db3191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthImage: {fileID: 0}
 --- !u!1 &49747884
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324866942}
   - component: {fileID: 324866943}
+  - component: {fileID: 324866944}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: Untagged
@@ -394,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 139, y: 237.99998}
+  m_AnchoredPosition: {x: 139, y: 316}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &324866943
@@ -446,6 +448,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &324866944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324866941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389a0c45ce6efe343ae0a75c07a1338c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  timer: {fileID: 0}
+  timeOut: {fileID: 0}
+  powerUp: {fileID: 324866943}
 --- !u!1 &415934736
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33, y: 249}
+  m_AnchoredPosition: {x: -33, y: 327}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &415934738
@@ -560,6 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flag: 1
+  timer: {fileID: 0}
+  timeOut: {fileID: 0}
   powerUp: {fileID: 415934738}
 --- !u!1 &459620505
 GameObject:
@@ -827,6 +847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594729509}
   - component: {fileID: 594729510}
+  - component: {fileID: 594729511}
   m_Layer: 0
   m_Name: Trident
   m_TagString: Untagged
@@ -850,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224, y: 235}
+  m_AnchoredPosition: {x: 224, y: 313}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &594729510
@@ -902,6 +923,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &594729511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594729508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3529f6a9648856d4dbec322f118e8b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  timer: {fileID: 0}
+  timeOut: {fileID: 0}
+  powerUp: {fileID: 594729510}
 --- !u!1 &611833411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38.6, y: -8.7}
+  m_AnchoredPosition: {x: -60.3, y: -8.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762293954
@@ -1145,7 +1182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -545, y: 335}
+  m_AnchoredPosition: {x: -545, y: 434}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831259100
@@ -1503,6 +1540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1240967284}
   - component: {fileID: 1240967285}
+  - component: {fileID: 1240967286}
   m_Layer: 0
   m_Name: Winged Sandal
   m_TagString: Untagged
@@ -1526,7 +1564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65, y: 244}
+  m_AnchoredPosition: {x: 65, y: 322}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1240967285
@@ -1578,6 +1616,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1240967286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240967283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97947c981f754c0449cff644aeb6d29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 1
+  timer: {fileID: 0}
+  timeOut: {fileID: 0}
+  powerUp: {fileID: 1240967285}
 --- !u!1 &1256724644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -193, y: 328}
+  m_AnchoredPosition: {x: -193, y: 435}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787076119
