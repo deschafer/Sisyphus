@@ -10,6 +10,8 @@ public class TestScene : MonoBehaviour
 	private bool fail = false;		// indicates if this test has failed
 	private float time = 10;		// indicates time in seconds
 	private float currentTime = 0;
+	private float framesPerSecond;
+	private static float minimumFramesPerSecond = 20;
 
 
     // Start is called before the first frame update
@@ -24,10 +26,15 @@ public class TestScene : MonoBehaviour
 		// get the time from the last instance
 		currentTime += Time.deltaTime;
 
-		if(currentTime >= time && !fail)
+		// average the frames per second
+		framesPerSecond += 1.0f / Time.deltaTime;
+		framesPerSecond /= 2;
+
+		Debug.Log(framesPerSecond);
+
+		if (currentTime >= time && framesPerSecond >= minimumFramesPerSecond)
 		{
 			Debug.Log("Suceeded");
 		}
-
 	}
 }
