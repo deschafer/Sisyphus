@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 8407343275717700162}
   attackTime: 5
-  attackDistance: 3
+  attackDistance: 10
   damage: 10
 --- !u!114 &8407343275717700191
 MonoBehaviour:
