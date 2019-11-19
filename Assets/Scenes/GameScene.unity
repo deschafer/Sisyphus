@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca90c5370d9d8447a58287595db3191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthImage: {fileID: 0}
 --- !u!1 &49747884
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 324866942}
   - component: {fileID: 324866943}
-  - component: {fileID: 324866944}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: Untagged
@@ -448,22 +446,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &324866944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324866941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389a0c45ce6efe343ae0a75c07a1338c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flag: 1
-  timer: {fileID: 0}
-  timeOut: {fileID: 0}
-  powerUp: {fileID: 324866943}
 --- !u!1 &415934736
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415934737}
   - component: {fileID: 415934738}
+  - component: {fileID: 415934739}
   - component: {fileID: 415934740}
   m_Layer: 0
   m_Name: GoldenApple
@@ -551,6 +534,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &415934739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415934736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d384e744d13769b42bf7b40f4e90dab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUp: {fileID: 415934738}
 --- !u!114 &415934740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,8 +560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flag: 1
-  timer: {fileID: 0}
-  timeOut: {fileID: 0}
   powerUp: {fileID: 415934738}
 --- !u!1 &459620505
 GameObject:
@@ -833,7 +827,6 @@ GameObject:
   m_Component:
   - component: {fileID: 594729509}
   - component: {fileID: 594729510}
-  - component: {fileID: 594729511}
   m_Layer: 0
   m_Name: Trident
   m_TagString: Untagged
@@ -909,22 +902,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &594729511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594729508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3529f6a9648856d4dbec322f118e8b21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flag: 1
-  timer: {fileID: 0}
-  timeOut: {fileID: 0}
-  powerUp: {fileID: 594729510}
 --- !u!1 &611833411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1058,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 415934739}
         m_MethodName: setPowerupFlag
         m_Mode: 1
         m_Arguments:
@@ -1526,7 +1503,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1240967284}
   - component: {fileID: 1240967285}
-  - component: {fileID: 1240967286}
   m_Layer: 0
   m_Name: Winged Sandal
   m_TagString: Untagged
@@ -1602,22 +1578,133 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1240967286
-MonoBehaviour:
+--- !u!1 &1256724644
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240967283}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256724646}
+  - component: {fileID: 1256724645}
+  m_Layer: 0
+  m_Name: arrive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1256724645
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256724644}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97947c981f754c0449cff644aeb6d29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flag: 1
-  timer: {fileID: 0}
-  timeOut: {fileID: 0}
-  powerUp: {fileID: 1240967285}
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f2a48111b8c703847bb0677e7c43e9d9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1256724646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256724644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1935079494}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346353746
 GameObject:
   m_ObjectHideFlags: 0
