@@ -64,12 +64,12 @@ public class ChunkManager : MonoBehaviour {
 			RenderChunk(GenerateChunk(position, 0.05f), position);
 		furthestRendered = position;
 
-		fps += 1f / Time.deltaTime;
-		fps /= 2f;
-		if(fps < minFps)
-			Debug.Log("Stress test failed.");
-		else
-			Debug.Log("Stress test passed.");
+		// fps += 1f / Time.deltaTime;
+		// fps /= 2f;
+		// if(fps < minFps)
+		// 	Debug.Log("Stress test failed.");
+		// else
+		// 	Debug.Log("Stress test passed.");
 	}
 
 	/*
