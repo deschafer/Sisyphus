@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
 
 	private float attackTimer = 0;
 	private float attackTime = 0.5f;
-	private float attackDamage = 
+	//private float attackDamage = 
 
     void Awake()
     {
