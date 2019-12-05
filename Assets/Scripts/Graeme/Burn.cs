@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class Burn : MonoBehaviour {
 
+	private float damage = 0.1f;
+
 	/*
 		OnTriggerStay2D
 
@@ -17,8 +19,7 @@ public class Burn : MonoBehaviour {
 	*/
 	public void OnTriggerStay2D(Collider2D other) {
 		//TODO: Actually damage the player. Relies on @Max making a damagePlayer() function of some sort.
-		if(other.gameObject.tag == "Player")
-			Debug.Log("Ouch!");
+		if (other.gameObject.tag == "Player")
+			other.gameObject.GetComponent<PlayerHealth>().health -= damage;
 	}
-
 }
