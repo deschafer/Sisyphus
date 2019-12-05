@@ -20,6 +20,9 @@ public class ChunkManager : MonoBehaviour {
 	private int position;
 	private int furthestRendered;
 
+	private float fps;
+	private const float minFps = 20f;
+
 	/*
 		Start
 	
@@ -39,7 +42,7 @@ public class ChunkManager : MonoBehaviour {
 	/*
 		Update
 
-		Purpose: Each tick, update the biome if neccesary, and load a new chunk if neccessary.
+		Purpose: Each tick, update the biome if neccesary, and load a new chunk if neccessary. Additionally, do the stress test.
 	*/
 	void Update() {
 		position = (int)Mathf.Round(player.transform.position.x / Chunk.CHUNK_SIZE);
@@ -60,6 +63,13 @@ public class ChunkManager : MonoBehaviour {
 		if(position > furthestRendered)
 			RenderChunk(GenerateChunk(position, 0.05f), position);
 		furthestRendered = position;
+
+		// fps += 1f / Time.deltaTime;
+		// fps /= 2f;
+		// if(fps < minFps)
+		// 	Debug.Log("Stress test failed.");
+		// else
+		// 	Debug.Log("Stress test passed.");
 	}
 
 	/*
