@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
 
     public float moveForce = 365f;  //how much force is applied to player to cause movement
     public float maxSpeed = 5f; //x-axis maximum speed
-    public float jumpForce = 1000f; //force applied to make player jump up
+    public float jumpForce = 10f; //force applied to make player jump up
     public float attackStrength = 1f;   //amount of damage player can do with attacks
 
     private Transform groundCheck;  //is grounded? as a transform
