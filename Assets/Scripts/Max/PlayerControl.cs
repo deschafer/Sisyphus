@@ -20,6 +20,10 @@ public class PlayerControl : MonoBehaviour
     private Animator anim;  //will be useful for animations
     Rigidbody2D rb;
 
+	private float attackTimer = 0;
+	private float attackTime = 0.5f;
+	private float attackDamage = 
+
     void Awake()
     {
         //Setup
@@ -70,6 +74,12 @@ public class PlayerControl : MonoBehaviour
         if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed){
             GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
+
+		// check if the player is close enough and if there is an attack button pressed
+		if (Input.GetMouseButtonDown(0))
+		{
+
+		}
 
         // If the input is moving right, flip to right direction
         if (h > 0 && !isRight)
