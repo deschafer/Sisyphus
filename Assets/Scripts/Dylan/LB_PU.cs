@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LB_PU : PU_HUD_HANDLER
 {
+    public Text timer;
+
     /* The class LB_PU is a subclass of the PU_HUD_HANDLER class.  Inheriting all of the set variables and defined functions of the superclass.
      */
     private TimeOut lightningBolt;
@@ -17,6 +19,7 @@ public class LB_PU : PU_HUD_HANDLER
     {
         lightningBolt = FindObjectOfType<TimeOut>();  
         powerUp.color = new Color(1f, 1f, 1f, 0.0f);
+        timer.color = new Color(1f, 1f, 1f, 0.0f);
 
     }
 
@@ -41,7 +44,7 @@ public class LB_PU : PU_HUD_HANDLER
                  */
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, maxAlpha, step));
-                //  timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, maxAlpha, step));
+                timer.color = new Color(0f, 0f, 0f, Mathf.Lerp(timer.color.a, maxAlpha, step));
                 /* The timer.color changing functions are something that  may be implemented in a future release of the product but are not currently impacting
                    * the build in this version of the project.
                    */
@@ -50,7 +53,7 @@ public class LB_PU : PU_HUD_HANDLER
             {
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, minAlpha, step));
-               // timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
+                timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
             }
         }
     }

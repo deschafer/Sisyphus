@@ -8,6 +8,7 @@ public class TRDNT_PU : PU_HUD_HANDLER
     /* The class TRDNT_PU is a subclass of the PU_HUD_HANDLER class.  Inheriting all of the set variables and defined functions of the superclass.
      */
     private TimeOut trident;
+    public Text timer;
     /* The TimeOut trident is another copy of the reference to the TimeOut script used for the powerups.  It allows the subclass TRDNT_PU
    * to read the type variable and timeractive variable from the TimeOut script.  These variables indicate to the TRDNT_PU class whether or not
    * it should act and if so for how long it should change the transparency of the powerup sprite.
@@ -22,6 +23,7 @@ public class TRDNT_PU : PU_HUD_HANDLER
      */
         trident = FindObjectOfType<TimeOut>();
         powerUp.color = new Color(1f, 1f, 1f, 0.0f);
+        timer.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
     }
 
@@ -41,13 +43,14 @@ public class TRDNT_PU : PU_HUD_HANDLER
                  */
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, maxAlpha, step));
+                timer.color = new Color(0f, 0f, 0f, Mathf.Lerp(timer.color.a, maxAlpha, step));
                 //timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, maxAlpha, step));
             }
             else if (trident.timerActive <= 0.0f)
             {
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, minAlpha, step));
-                //timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
+                timer.color = new Color(1f, 1f, 1f, Mathf.Lerp(timer.color.a, minAlpha, step));
             }/* The timer.color changing functions are something that  may be implemented in a future release of the product but are not currently impacting
                    * the build in this version of the project.
                    */
