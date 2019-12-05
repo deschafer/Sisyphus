@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Dylan\GA_PU.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Dylan\HealthBar2.cs" />
+    <Compile Include="Assets\Scripts\Dylan\HealthBarTest.cs" />
     <Compile Include="Assets\Scripts\Dylan\Healthtest.cs" />
     <Compile Include="Assets\Scripts\Dylan\LB_PU.cs" />
     <Compile Include="Assets\Scripts\Dylan\PU_HUD.cs" />
