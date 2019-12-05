@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +44,7 @@ public sealed class Health2
     private float healthTotal;
     private static Health2 instance = null;
     private static readonly object padlock = new object();
+    public PlayerHealth healthImage;
     /* Health_Max is the total maximum health that the player can have.  It is used to normalize the health value of the player (ie. between 0 and 1)
      * the health total is pulled from the PlayerHealth script and updated once per frame
      * The Health2 instance is one of the mechanisms used to ensure that only one instance of the class is generated.
@@ -51,9 +53,10 @@ public sealed class Health2
 
     public Health2()
     {
-        
+        //healthImage = FindObjectOfType<PlayerHealth>();
+        healthTotal = healthImage.health;
     }
-    
+
     public static Health2 Instance
     {
         get
