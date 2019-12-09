@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3728746327037953354}
   - component: {fileID: 3728746327037953353}
   - component: {fileID: 3728746327338700750}
+  - component: {fileID: 6124604424910154788}
   m_Layer: 0
   m_Name: LightBandit
   m_TagString: Enemy
@@ -175,7 +176,7 @@ MonoBehaviour:
   collisionBehaviors:
   - {fileID: 3728746327338700750}
   player: {fileID: 0}
-  healthBehavior: {fileID: 0}
+  healthBehavior: {fileID: 6124604424910154788}
 --- !u!114 &4451910942475837601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +246,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 3728746327037953357}
+--- !u!114 &6124604424910154788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728746327037953344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f7b37e7fe8b0445a29220304e9526c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 3728746327037953357}
+  damageRatio: 1

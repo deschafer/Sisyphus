@@ -2435,10 +2435,25 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2407089093283865659, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 82f600244b2d5ae4ca458dec3e9c7997, type: 3}
     - target: {fileID: 2407089093283865648, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
         type: 3}
       propertyPath: health
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407089093283865649, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 82f600244b2d5ae4ca458dec3e9c7997, type: 3}
+    - target: {fileID: 2407089093283865649, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dbc120ad6cdd44fa6c86eaca9dca7d, type: 3}
