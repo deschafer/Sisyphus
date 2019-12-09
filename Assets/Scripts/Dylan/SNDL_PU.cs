@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SNDL_PU : PU_HUD_HANDLER
 {
     /* The class SNDL_PU is a subclass of the PU_HUD_HANDLER class.  Inheriting all of the set variables and defined functions of the superclass.
      */
     private TimeOut sandal;
+    public Text timer;
     /* The TimeOut sandal is another copy of the reference to the TimeOut script used for the powerups.  It allows the subclass SNDL_PU
    * to read the type variable and timeractive variable from the TimeOut script.  These variables indicate to the SNDL_PU class whether or not
    * it should act and if so for how long it should change the transparency of the powerup sprite.
@@ -18,6 +20,7 @@ public class SNDL_PU : PU_HUD_HANDLER
     {
         sandal = FindObjectOfType<TimeOut>();
         powerUp.color = new Color(1f, 1f, 1f, 0.0f);
+        timer.color = Color.clear;
 
     }
    
@@ -41,12 +44,15 @@ public class SNDL_PU : PU_HUD_HANDLER
                  */
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, maxAlpha, step));
+                timer.color = new Color(0f, 0f, 0f, Mathf.Lerp(timer.color.a, maxAlpha, step));
 
             }
             else if (sandal.timerActive <=  0.0f)
             {
                 float step = duration * Time.deltaTime;
                 powerUp.color = new Color(1f, 1f, 1f, Mathf.Lerp(powerUp.color.a, minAlpha, step));
+                timer.color = new Color(0f, 0f, 0f, Mathf.Lerp(timer.color.a, minAlpha, step));
+
             }
         }
         
