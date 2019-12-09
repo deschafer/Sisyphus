@@ -100,9 +100,9 @@ public class EnemyFactory
 				// Then use this key to grab the correct prefab from the List object
 				GameObject prefab = storedEnemyPrefabs[prefabIndex];
 				// create the object with Instantiate() at the given position
-				MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
+				GameObject newObject = MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
 				// Since this enemy is in the game view, add it to the EnemyManager
-				EnemyManager.GetInstance().AddEnemy(prefab);
+				EnemyManager.GetInstance().AddEnemy(newObject);
 			}
 			else
 			{
@@ -137,9 +137,9 @@ public class EnemyFactory
 				// Then use this key to grab the correct prefab from the List object
 				GameObject prefab = storedEnemyPrefabs[prefabIndex];
 				// create the object with Instantiate() at the given position
-				MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
+				GameObject newObject = MonoBehaviour.Instantiate(prefab, position, Quaternion.identity);
 				// Since this enemy is in the game view, add it to the EnemyManager
-				EnemyManager.GetInstance().AddEnemy(prefab);
+				EnemyManager.GetInstance().AddEnemy(newObject);
 			}
 		}
 	}
